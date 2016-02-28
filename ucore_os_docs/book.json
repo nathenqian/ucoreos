@@ -1,0 +1,21 @@
+{
+   "introduction": {
+        "path": "README.md",
+        "title": "介绍" },
+ "plugins": [
+     "-mathjax", "rust-playpen","grivs","ga","duoshuo", "quizzes"
+    ],
+
+    "pluginsConfig": {
+      "rust-playpen":{},
+      "grvis":{},
+       "ga": {
+            "token": "UA-39088953-8"
+        },
+        "duoshuo": {
+            "short_name": "mytest",
+            "theme": "default"
+        },
+       "quizees":{}
+   }
+}
