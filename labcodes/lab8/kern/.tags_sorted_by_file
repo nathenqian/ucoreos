@@ -1,0 +1,1766 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+__KERN_DEBUG_ASSERT_H__	debug/assert.h	2;"	d
+assert	debug/assert.h	15;"	d
+panic	debug/assert.h	12;"	d
+static_assert	debug/assert.h	23;"	d
+warn	debug/assert.h	9;"	d
+STACKFRAME_DEPTH	debug/kdebug.c	14;"	d	file:
+debuginfo_eip	debug/kdebug.c	/^debuginfo_eip(uintptr_t addr, struct eipdebuginfo *info) {$/;"	f
+eip_file	debug/kdebug.c	/^    const char *eip_file;                   \/\/ source code filename for eip$/;"	m	struct:eipdebuginfo	file:
+eip_fn_addr	debug/kdebug.c	/^    uintptr_t eip_fn_addr;                  \/\/ start address of function$/;"	m	struct:eipdebuginfo	file:
+eip_fn_name	debug/kdebug.c	/^    const char *eip_fn_name;                \/\/ name of function containing eip$/;"	m	struct:eipdebuginfo	file:
+eip_fn_namelen	debug/kdebug.c	/^    int eip_fn_namelen;                     \/\/ length of function's name$/;"	m	struct:eipdebuginfo	file:
+eip_fn_narg	debug/kdebug.c	/^    int eip_fn_narg;                        \/\/ number of function arguments$/;"	m	struct:eipdebuginfo	file:
+eip_line	debug/kdebug.c	/^    int eip_line;                           \/\/ source code line number for eip$/;"	m	struct:eipdebuginfo	file:
+eipdebuginfo	debug/kdebug.c	/^struct eipdebuginfo {$/;"	s	file:
+print_debuginfo	debug/kdebug.c	/^print_debuginfo(uintptr_t eip) {$/;"	f
+print_kerninfo	debug/kdebug.c	/^print_kerninfo(void) {$/;"	f
+print_stackframe	debug/kdebug.c	/^print_stackframe(void) {$/;"	f
+read_eip	debug/kdebug.c	/^read_eip(void) {$/;"	f	file:
+stab_binsearch	debug/kdebug.c	/^stab_binsearch(const struct stab *stabs, int *region_left, int *region_right,$/;"	f	file:
+stab_end	debug/kdebug.c	/^    const struct stab *stab_end;$/;"	m	struct:userstabdata	typeref:struct:userstabdata::stab	file:
+stabs	debug/kdebug.c	/^    const struct stab *stabs;$/;"	m	struct:userstabdata	typeref:struct:userstabdata::stab	file:
+stabstr	debug/kdebug.c	/^    const char *stabstr;$/;"	m	struct:userstabdata	file:
+stabstr_end	debug/kdebug.c	/^    const char *stabstr_end;$/;"	m	struct:userstabdata	file:
+userstabdata	debug/kdebug.c	/^struct userstabdata {$/;"	s	file:
+__KERN_DEBUG_KDEBUG_H__	debug/kdebug.h	2;"	d
+MAXARGS	debug/kmonitor.c	33;"	d	file:
+NCOMMANDS	debug/kmonitor.c	29;"	d	file:
+WHITESPACE	debug/kmonitor.c	34;"	d	file:
+command	debug/kmonitor.c	/^struct command {$/;"	s	file:
+commands	debug/kmonitor.c	/^static struct command commands[] = {$/;"	v	typeref:struct:command	file:
+desc	debug/kmonitor.c	/^    const char *desc;$/;"	m	struct:command	file:
+func	debug/kmonitor.c	/^    int(*func)(int argc, char **argv, struct trapframe *tf);$/;"	m	struct:command	file:
+kmonitor	debug/kmonitor.c	/^kmonitor(struct trapframe *tf) {$/;"	f
+mon_backtrace	debug/kmonitor.c	/^mon_backtrace(int argc, char **argv, struct trapframe *tf) {$/;"	f
+mon_help	debug/kmonitor.c	/^mon_help(int argc, char **argv, struct trapframe *tf) {$/;"	f
+mon_kerninfo	debug/kmonitor.c	/^mon_kerninfo(int argc, char **argv, struct trapframe *tf) {$/;"	f
+name	debug/kmonitor.c	/^    const char *name;$/;"	m	struct:command	file:
+parse	debug/kmonitor.c	/^parse(char *buf, char **argv) {$/;"	f	file:
+runcmd	debug/kmonitor.c	/^runcmd(char *buf, struct trapframe *tf) {$/;"	f	file:
+__KERN_DEBUG_MONITOR_H__	debug/kmonitor.h	2;"	d
+__panic	debug/panic.c	/^__panic(const char *file, int line, const char *fmt, ...) {$/;"	f
+__warn	debug/panic.c	/^__warn(const char *file, int line, const char *fmt, ...) {$/;"	f
+is_kernel_panic	debug/panic.c	/^is_kernel_panic(void) {$/;"	f
+is_panic	debug/panic.c	/^static bool is_panic = 0;$/;"	v	file:
+N_BCOMM	debug/stab.h	39;"	d
+N_BINCL	debug/stab.h	31;"	d
+N_BSLINE	debug/stab.h	27;"	d
+N_DSLINE	debug/stab.h	26;"	d
+N_ECOML	debug/stab.h	41;"	d
+N_ECOMM	debug/stab.h	40;"	d
+N_EINCL	debug/stab.h	34;"	d
+N_ENTRY	debug/stab.h	35;"	d
+N_EXCL	debug/stab.h	37;"	d
+N_FNAME	debug/stab.h	18;"	d
+N_FUN	debug/stab.h	19;"	d
+N_GSYM	debug/stab.h	17;"	d
+N_LBRAC	debug/stab.h	36;"	d
+N_LCSYM	debug/stab.h	21;"	d
+N_LENG	debug/stab.h	42;"	d
+N_LSYM	debug/stab.h	30;"	d
+N_MAIN	debug/stab.h	22;"	d
+N_PC	debug/stab.h	23;"	d
+N_PSYM	debug/stab.h	33;"	d
+N_RBRAC	debug/stab.h	38;"	d
+N_RSYM	debug/stab.h	24;"	d
+N_SLINE	debug/stab.h	25;"	d
+N_SO	debug/stab.h	29;"	d
+N_SOL	debug/stab.h	32;"	d
+N_SSYM	debug/stab.h	28;"	d
+N_STSYM	debug/stab.h	20;"	d
+__KERN_DEBUG_STAB_H__	debug/stab.h	2;"	d
+n_desc	debug/stab.h	/^    uint16_t n_desc;        \/\/ description field$/;"	m	struct:stab
+n_other	debug/stab.h	/^    uint8_t n_other;        \/\/ misc info (usually empty)$/;"	m	struct:stab
+n_strx	debug/stab.h	/^    uint32_t n_strx;        \/\/ index into string table of name$/;"	m	struct:stab
+n_type	debug/stab.h	/^    uint8_t n_type;         \/\/ type of symbol$/;"	m	struct:stab
+n_value	debug/stab.h	/^    uintptr_t n_value;      \/\/ value of symbol$/;"	m	struct:stab
+stab	debug/stab.h	/^struct stab {$/;"	s
+IO_TIMER1	driver/clock.c	11;"	d	file:
+SYSTEM_READ_TIMER	driver/clock.c	/^long SYSTEM_READ_TIMER( void ){$/;"	f
+TIMER_16BIT	driver/clock.c	24;"	d	file:
+TIMER_DIV	driver/clock.c	19;"	d	file:
+TIMER_FREQ	driver/clock.c	18;"	d	file:
+TIMER_MODE	driver/clock.c	21;"	d	file:
+TIMER_RATEGEN	driver/clock.c	23;"	d	file:
+TIMER_SEL0	driver/clock.c	22;"	d	file:
+clock_init	driver/clock.c	/^clock_init(void) {$/;"	f
+ticks	driver/clock.c	/^volatile size_t ticks;$/;"	v
+__KERN_DRIVER_CLOCK_H__	driver/clock.h	2;"	d
+ALT	driver/console.c	260;"	d	file:
+C	driver/console.c	323;"	d	file:
+CAPSLOCK	driver/console.c	262;"	d	file:
+CGA_BASE	driver/console.c	45;"	d	file:
+CGA_BUF	driver/console.c	46;"	d	file:
+COM1	driver/console.c	21;"	d	file:
+COM_DLL	driver/console.c	25;"	d	file:
+COM_DLM	driver/console.c	26;"	d	file:
+COM_FCR	driver/console.c	30;"	d	file:
+COM_IER	driver/console.c	27;"	d	file:
+COM_IER_RDI	driver/console.c	28;"	d	file:
+COM_IIR	driver/console.c	29;"	d	file:
+COM_LCR	driver/console.c	31;"	d	file:
+COM_LCR_DLAB	driver/console.c	32;"	d	file:
+COM_LCR_WLEN8	driver/console.c	33;"	d	file:
+COM_LSR	driver/console.c	38;"	d	file:
+COM_LSR_DATA	driver/console.c	39;"	d	file:
+COM_LSR_TSRE	driver/console.c	41;"	d	file:
+COM_LSR_TXRDY	driver/console.c	40;"	d	file:
+COM_MCR	driver/console.c	34;"	d	file:
+COM_MCR_DTR	driver/console.c	36;"	d	file:
+COM_MCR_OUT2	driver/console.c	37;"	d	file:
+COM_MCR_RTS	driver/console.c	35;"	d	file:
+COM_RX	driver/console.c	23;"	d	file:
+COM_TX	driver/console.c	24;"	d	file:
+CONSBUFSIZE	driver/console.c	208;"	d	file:
+CRT_COLS	driver/console.c	48;"	d	file:
+CRT_ROWS	driver/console.c	47;"	d	file:
+CRT_SIZE	driver/console.c	49;"	d	file:
+CTL	driver/console.c	259;"	d	file:
+E0ESC	driver/console.c	266;"	d	file:
+LPTPORT	driver/console.c	51;"	d	file:
+MONO_BASE	driver/console.c	43;"	d	file:
+MONO_BUF	driver/console.c	44;"	d	file:
+NO	driver/console.c	256;"	d	file:
+NUMLOCK	driver/console.c	263;"	d	file:
+SCROLLLOCK	driver/console.c	264;"	d	file:
+SHIFT	driver/console.c	258;"	d	file:
+addr_6845	driver/console.c	/^static uint16_t addr_6845;$/;"	v	file:
+buf	driver/console.c	/^    uint8_t buf[CONSBUFSIZE];$/;"	m	struct:__anon1	file:
+cga_init	driver/console.c	/^cga_init(void) {$/;"	f	file:
+cga_putc	driver/console.c	/^cga_putc(int c) {$/;"	f	file:
+charcode	driver/console.c	/^static uint8_t *charcode[4] = {$/;"	v	file:
+cons	driver/console.c	/^} cons;$/;"	v	typeref:struct:__anon1	file:
+cons_getc	driver/console.c	/^cons_getc(void) {$/;"	f
+cons_init	driver/console.c	/^cons_init(void) {$/;"	f
+cons_intr	driver/console.c	/^cons_intr(int (*proc)(void)) {$/;"	f	file:
+cons_putc	driver/console.c	/^cons_putc(int c) {$/;"	f
+crt_buf	driver/console.c	/^static uint16_t *crt_buf;$/;"	v	file:
+crt_pos	driver/console.c	/^static uint16_t crt_pos;$/;"	v	file:
+ctlmap	driver/console.c	/^static uint8_t ctlmap[256] = {$/;"	v	file:
+delay	driver/console.c	/^delay(void) {$/;"	f	file:
+kbd_init	driver/console.c	/^kbd_init(void) {$/;"	f	file:
+kbd_intr	driver/console.c	/^kbd_intr(void) {$/;"	f	file:
+kbd_proc_data	driver/console.c	/^kbd_proc_data(void) {$/;"	f	file:
+lpt_putc	driver/console.c	/^lpt_putc(int c) {$/;"	f	file:
+lpt_putc_sub	driver/console.c	/^lpt_putc_sub(int c) {$/;"	f	file:
+normalmap	driver/console.c	/^static uint8_t normalmap[256] = {$/;"	v	file:
+rpos	driver/console.c	/^    uint32_t rpos;$/;"	m	struct:__anon1	file:
+serial_exists	driver/console.c	/^static bool serial_exists = 0;$/;"	v	file:
+serial_init	driver/console.c	/^serial_init(void) {$/;"	f	file:
+serial_intr	driver/console.c	/^serial_intr(void) {$/;"	f
+serial_proc_data	driver/console.c	/^serial_proc_data(void) {$/;"	f	file:
+serial_putc	driver/console.c	/^serial_putc(int c) {$/;"	f	file:
+serial_putc_sub	driver/console.c	/^serial_putc_sub(int c) {$/;"	f	file:
+shiftcode	driver/console.c	/^static uint8_t shiftcode[256] = {$/;"	v	file:
+shiftmap	driver/console.c	/^static uint8_t shiftmap[256] = {$/;"	v	file:
+togglecode	driver/console.c	/^static uint8_t togglecode[256] = {$/;"	v	file:
+wpos	driver/console.c	/^    uint32_t wpos;$/;"	m	struct:__anon1	file:
+__KERN_DRIVER_CONSOLE_H__	driver/console.h	2;"	d
+IDE_BSY	driver/ide.c	22;"	d	file:
+IDE_CMD_IDENTIFY	driver/ide.c	30;"	d	file:
+IDE_CMD_READ	driver/ide.c	28;"	d	file:
+IDE_CMD_WRITE	driver/ide.c	29;"	d	file:
+IDE_DF	driver/ide.c	24;"	d	file:
+IDE_DRDY	driver/ide.c	23;"	d	file:
+IDE_DRQ	driver/ide.c	25;"	d	file:
+IDE_ERR	driver/ide.c	26;"	d	file:
+IDE_IDENT_CAPABILITIES	driver/ide.c	34;"	d	file:
+IDE_IDENT_CMDSETS	driver/ide.c	35;"	d	file:
+IDE_IDENT_MAX_LBA	driver/ide.c	36;"	d	file:
+IDE_IDENT_MAX_LBA_EXT	driver/ide.c	37;"	d	file:
+IDE_IDENT_MODEL	driver/ide.c	33;"	d	file:
+IDE_IDENT_SECTORS	driver/ide.c	32;"	d	file:
+IO_BASE	driver/ide.c	57;"	d	file:
+IO_BASE0	driver/ide.c	39;"	d	file:
+IO_BASE1	driver/ide.c	40;"	d	file:
+IO_CTRL	driver/ide.c	58;"	d	file:
+IO_CTRL0	driver/ide.c	41;"	d	file:
+IO_CTRL1	driver/ide.c	42;"	d	file:
+ISA_COMMAND	driver/ide.c	19;"	d	file:
+ISA_CTRL	driver/ide.c	13;"	d	file:
+ISA_CYL_HI	driver/ide.c	17;"	d	file:
+ISA_CYL_LO	driver/ide.c	16;"	d	file:
+ISA_DATA	driver/ide.c	10;"	d	file:
+ISA_ERROR	driver/ide.c	11;"	d	file:
+ISA_PRECOMP	driver/ide.c	12;"	d	file:
+ISA_SDH	driver/ide.c	18;"	d	file:
+ISA_SECCNT	driver/ide.c	14;"	d	file:
+ISA_SECTOR	driver/ide.c	15;"	d	file:
+ISA_STATUS	driver/ide.c	20;"	d	file:
+MAX_DISK_NSECS	driver/ide.c	46;"	d	file:
+MAX_IDE	driver/ide.c	44;"	d	file:
+MAX_NSECS	driver/ide.c	45;"	d	file:
+VALID_IDE	driver/ide.c	47;"	d	file:
+base	driver/ide.c	/^    unsigned short base;        \/\/ I\/O Base$/;"	m	struct:__anon2	file:
+channels	driver/ide.c	/^} channels[2] = {$/;"	v	typeref:struct:__anon2	file:
+ctrl	driver/ide.c	/^    unsigned short ctrl;        \/\/ Control Base$/;"	m	struct:__anon2	file:
+ide_device	driver/ide.c	/^static struct ide_device {$/;"	s	file:
+ide_device_size	driver/ide.c	/^ide_device_size(unsigned short ideno) {$/;"	f
+ide_device_valid	driver/ide.c	/^ide_device_valid(unsigned short ideno) {$/;"	f
+ide_devices	driver/ide.c	/^} ide_devices[MAX_IDE];$/;"	v	typeref:struct:ide_device	file:
+ide_init	driver/ide.c	/^ide_init(void) {$/;"	f
+ide_read_secs	driver/ide.c	/^ide_read_secs(unsigned short ideno, uint32_t secno, void *dst, size_t nsecs) {$/;"	f
+ide_wait_ready	driver/ide.c	/^ide_wait_ready(unsigned short iobase, bool check_error) {$/;"	f	file:
+ide_write_secs	driver/ide.c	/^ide_write_secs(unsigned short ideno, uint32_t secno, const void *src, size_t nsecs) {$/;"	f
+model	driver/ide.c	/^    unsigned char model[41];    \/\/ Model in String$/;"	m	struct:ide_device	file:
+sets	driver/ide.c	/^    unsigned int sets;          \/\/ Commend Sets Supported$/;"	m	struct:ide_device	file:
+size	driver/ide.c	/^    unsigned int size;          \/\/ Size in Sectors$/;"	m	struct:ide_device	file:
+valid	driver/ide.c	/^    unsigned char valid;        \/\/ 0 or 1 (If Device Really Exists)$/;"	m	struct:ide_device	file:
+__KERN_DRIVER_IDE_H__	driver/ide.h	2;"	d
+intr_disable	driver/intr.c	/^intr_disable(void) {$/;"	f
+intr_enable	driver/intr.c	/^intr_enable(void) {$/;"	f
+__KERN_DRIVER_INTR_H__	driver/intr.h	2;"	d
+BS_OCMD	driver/kbdreg.h	23;"	d
+CMDBYTE	driver/kbdreg.h	60;"	d
+KBCMDP	driver/kbdreg.h	29;"	d
+KBC_AUXDISABLE	driver/kbdreg.h	32;"	d
+KBC_AUXECHO	driver/kbdreg.h	36;"	d
+KBC_AUXENABLE	driver/kbdreg.h	33;"	d
+KBC_AUXTEST	driver/kbdreg.h	34;"	d
+KBC_AUXWRITE	driver/kbdreg.h	37;"	d
+KBC_DISABLE	driver/kbdreg.h	66;"	d
+KBC_ECHO	driver/kbdreg.h	71;"	d
+KBC_ENABLE	driver/kbdreg.h	67;"	d
+KBC_KBDDISABLE	driver/kbdreg.h	40;"	d
+KBC_KBDECHO	driver/kbdreg.h	35;"	d
+KBC_KBDENABLE	driver/kbdreg.h	41;"	d
+KBC_KBDTEST	driver/kbdreg.h	39;"	d
+KBC_MODEIND	driver/kbdreg.h	70;"	d
+KBC_PULSE0	driver/kbdreg.h	42;"	d
+KBC_PULSE1	driver/kbdreg.h	43;"	d
+KBC_PULSE2	driver/kbdreg.h	44;"	d
+KBC_PULSE3	driver/kbdreg.h	45;"	d
+KBC_RAMREAD	driver/kbdreg.h	30;"	d
+KBC_RAMWRITE	driver/kbdreg.h	31;"	d
+KBC_RESEND	driver/kbdreg.h	64;"	d
+KBC_RESET	driver/kbdreg.h	63;"	d
+KBC_SELFTEST	driver/kbdreg.h	38;"	d
+KBC_SETDEFAULT	driver/kbdreg.h	65;"	d
+KBC_SETTABLE	driver/kbdreg.h	69;"	d
+KBC_TYPEMATIC	driver/kbdreg.h	68;"	d
+KBDATAP	driver/kbdreg.h	47;"	d
+KBOUTP	driver/kbdreg.h	48;"	d
+KBR_ACK	driver/kbdreg.h	76;"	d
+KBR_BREAK	driver/kbdreg.h	79;"	d
+KBR_ECHO	driver/kbdreg.h	81;"	d
+KBR_EXTENDED	driver/kbdreg.h	74;"	d
+KBR_FAILURE	driver/kbdreg.h	78;"	d
+KBR_OVERRUN	driver/kbdreg.h	77;"	d
+KBR_RESEND	driver/kbdreg.h	75;"	d
+KBR_RSTDONE	driver/kbdreg.h	80;"	d
+KBSTATP	driver/kbdreg.h	19;"	d
+KBS_DIB	driver/kbdreg.h	20;"	d
+KBS_IBF	driver/kbdreg.h	21;"	d
+KBS_NOSEC	driver/kbdreg.h	24;"	d
+KBS_PERR	driver/kbdreg.h	27;"	d
+KBS_RERR	driver/kbdreg.h	26;"	d
+KBS_TERR	driver/kbdreg.h	25;"	d
+KBS_WARM	driver/kbdreg.h	22;"	d
+KC8_CPU	driver/kbdreg.h	57;"	d
+KC8_IGNSEC	driver/kbdreg.h	56;"	d
+KC8_KDISABLE	driver/kbdreg.h	55;"	d
+KC8_KENABLE	driver/kbdreg.h	59;"	d
+KC8_MDISABLE	driver/kbdreg.h	54;"	d
+KC8_MENABLE	driver/kbdreg.h	58;"	d
+KC8_TRANS	driver/kbdreg.h	53;"	d
+KEY_DEL	driver/kbdreg.h	14;"	d
+KEY_DN	driver/kbdreg.h	8;"	d
+KEY_END	driver/kbdreg.h	6;"	d
+KEY_HOME	driver/kbdreg.h	5;"	d
+KEY_INS	driver/kbdreg.h	13;"	d
+KEY_LF	driver/kbdreg.h	9;"	d
+KEY_PGDN	driver/kbdreg.h	12;"	d
+KEY_PGUP	driver/kbdreg.h	11;"	d
+KEY_RT	driver/kbdreg.h	10;"	d
+KEY_UP	driver/kbdreg.h	7;"	d
+K_LDCMDBYTE	driver/kbdreg.h	51;"	d
+K_RDCMDBYTE	driver/kbdreg.h	50;"	d
+__KERN_DRIVER_KBDREG_H__	driver/kbdreg.h	2;"	d
+IO_PIC1	driver/picirq.c	6;"	d	file:
+IO_PIC2	driver/picirq.c	7;"	d	file:
+IRQ_SLAVE	driver/picirq.c	9;"	d	file:
+did_init	driver/picirq.c	/^static bool did_init = 0;$/;"	v	file:
+irq_mask	driver/picirq.c	/^static uint16_t irq_mask = 0xFFFF & ~(1 << IRQ_SLAVE);$/;"	v	file:
+pic_enable	driver/picirq.c	/^pic_enable(unsigned int irq) {$/;"	f
+pic_init	driver/picirq.c	/^pic_init(void) {$/;"	f
+pic_setmask	driver/picirq.c	/^pic_setmask(uint16_t mask) {$/;"	f	file:
+IRQ_OFFSET	driver/picirq.h	7;"	d
+__KERN_DRIVER_PICIRQ_H__	driver/picirq.h	2;"	d
+dev_close	fs/devs/dev.c	/^dev_close(struct inode *node) {$/;"	f	file:
+dev_create_inode	fs/devs/dev.c	/^dev_create_inode(void) {$/;"	f
+dev_fstat	fs/devs/dev.c	/^dev_fstat(struct inode *node, struct stat *stat) {$/;"	f	file:
+dev_gettype	fs/devs/dev.c	/^dev_gettype(struct inode *node, uint32_t *type_store) {$/;"	f	file:
+dev_init	fs/devs/dev.c	/^dev_init(void) {$/;"	f
+dev_ioctl	fs/devs/dev.c	/^dev_ioctl(struct inode *node, int op, void *data) {$/;"	f	file:
+dev_lookup	fs/devs/dev.c	/^dev_lookup(struct inode *node, char *path, struct inode **node_store) {$/;"	f	file:
+dev_node_ops	fs/devs/dev.c	/^static const struct inode_ops dev_node_ops = {$/;"	v	typeref:struct:inode_ops	file:
+dev_open	fs/devs/dev.c	/^dev_open(struct inode *node, uint32_t open_flags) {$/;"	f	file:
+dev_read	fs/devs/dev.c	/^dev_read(struct inode *node, struct iobuf *iob) {$/;"	f	file:
+dev_tryseek	fs/devs/dev.c	/^dev_tryseek(struct inode *node, off_t pos) {$/;"	f	file:
+dev_write	fs/devs/dev.c	/^dev_write(struct inode *node, struct iobuf *iob) {$/;"	f	file:
+init_device	fs/devs/dev.c	144;"	d	file:
+__KERN_FS_DEVS_DEV_H__	fs/devs/dev.h	2;"	d
+d_blocks	fs/devs/dev.h	/^    size_t d_blocks;$/;"	m	struct:device
+d_blocksize	fs/devs/dev.h	/^    size_t d_blocksize;$/;"	m	struct:device
+d_close	fs/devs/dev.h	/^    int (*d_close)(struct device *dev);$/;"	m	struct:device
+d_io	fs/devs/dev.h	/^    int (*d_io)(struct device *dev, struct iobuf *iob, bool write);$/;"	m	struct:device
+d_ioctl	fs/devs/dev.h	/^    int (*d_ioctl)(struct device *dev, int op, void *data);$/;"	m	struct:device
+d_open	fs/devs/dev.h	/^    int (*d_open)(struct device *dev, uint32_t open_flags);$/;"	m	struct:device
+device	fs/devs/dev.h	/^struct device {$/;"	s
+dop_close	fs/devs/dev.h	23;"	d
+dop_io	fs/devs/dev.h	24;"	d
+dop_ioctl	fs/devs/dev.h	25;"	d
+dop_open	fs/devs/dev.h	22;"	d
+DISK0_BLKSIZE	fs/devs/dev_disk0.c	13;"	d	file:
+DISK0_BLK_NSECT	fs/devs/dev_disk0.c	15;"	d	file:
+DISK0_BUFSIZE	fs/devs/dev_disk0.c	14;"	d	file:
+dev_init_disk0	fs/devs/dev_disk0.c	/^dev_init_disk0(void) {$/;"	f
+disk0_buffer	fs/devs/dev_disk0.c	/^static char *disk0_buffer;$/;"	v	file:
+disk0_close	fs/devs/dev_disk0.c	/^disk0_close(struct device *dev) {$/;"	f	file:
+disk0_device_init	fs/devs/dev_disk0.c	/^disk0_device_init(struct device *dev) {$/;"	f	file:
+disk0_io	fs/devs/dev_disk0.c	/^disk0_io(struct device *dev, struct iobuf *iob, bool write) {$/;"	f	file:
+disk0_ioctl	fs/devs/dev_disk0.c	/^disk0_ioctl(struct device *dev, int op, void *data) {$/;"	f	file:
+disk0_open	fs/devs/dev_disk0.c	/^disk0_open(struct device *dev, uint32_t open_flags) {$/;"	f	file:
+disk0_read_blks_nolock	fs/devs/dev_disk0.c	/^disk0_read_blks_nolock(uint32_t blkno, uint32_t nblks) {$/;"	f	file:
+disk0_sem	fs/devs/dev_disk0.c	/^static semaphore_t disk0_sem;$/;"	v	file:
+disk0_write_blks_nolock	fs/devs/dev_disk0.c	/^disk0_write_blks_nolock(uint32_t blkno, uint32_t nblks) {$/;"	f	file:
+lock_disk0	fs/devs/dev_disk0.c	/^lock_disk0(void) {$/;"	f	file:
+unlock_disk0	fs/devs/dev_disk0.c	/^unlock_disk0(void) {$/;"	f	file:
+STDIN_BUFSIZE	fs/devs/dev_stdin.c	15;"	d	file:
+__wait_queue	fs/devs/dev_stdin.c	/^static wait_queue_t __wait_queue, *wait_queue = &__wait_queue;$/;"	v	file:
+dev_init_stdin	fs/devs/dev_stdin.c	/^dev_init_stdin(void) {$/;"	f
+dev_stdin_read	fs/devs/dev_stdin.c	/^dev_stdin_read(char *buf, size_t len) {$/;"	f	file:
+dev_stdin_write	fs/devs/dev_stdin.c	/^dev_stdin_write(char c) {$/;"	f
+p_rpos	fs/devs/dev_stdin.c	/^static off_t p_rpos, p_wpos;$/;"	v	file:
+p_wpos	fs/devs/dev_stdin.c	/^static off_t p_rpos, p_wpos;$/;"	v	file:
+stdin_buffer	fs/devs/dev_stdin.c	/^static char stdin_buffer[STDIN_BUFSIZE];$/;"	v	file:
+stdin_close	fs/devs/dev_stdin.c	/^stdin_close(struct device *dev) {$/;"	f	file:
+stdin_device_init	fs/devs/dev_stdin.c	/^stdin_device_init(struct device *dev) {$/;"	f	file:
+stdin_io	fs/devs/dev_stdin.c	/^stdin_io(struct device *dev, struct iobuf *iob, bool write) {$/;"	f	file:
+stdin_ioctl	fs/devs/dev_stdin.c	/^stdin_ioctl(struct device *dev, int op, void *data) {$/;"	f	file:
+stdin_open	fs/devs/dev_stdin.c	/^stdin_open(struct device *dev, uint32_t open_flags) {$/;"	f	file:
+wait_queue	fs/devs/dev_stdin.c	/^static wait_queue_t __wait_queue, *wait_queue = &__wait_queue;$/;"	v	file:
+dev_init_stdout	fs/devs/dev_stdout.c	/^dev_init_stdout(void) {$/;"	f
+stdout_close	fs/devs/dev_stdout.c	/^stdout_close(struct device *dev) {$/;"	f	file:
+stdout_device_init	fs/devs/dev_stdout.c	/^stdout_device_init(struct device *dev) {$/;"	f	file:
+stdout_io	fs/devs/dev_stdout.c	/^stdout_io(struct device *dev, struct iobuf *iob, bool write) {$/;"	f	file:
+stdout_ioctl	fs/devs/dev_stdout.c	/^stdout_ioctl(struct device *dev, int op, void *data) {$/;"	f	file:
+stdout_open	fs/devs/dev_stdout.c	/^stdout_open(struct device *dev, uint32_t open_flags) {$/;"	f	file:
+fd2file	fs/file.c	/^fd2file(int fd, struct file **file_store) {$/;"	f	file:
+fd_array_acquire	fs/file.c	/^fd_array_acquire(struct file *file) {$/;"	f	file:
+fd_array_alloc	fs/file.c	/^fd_array_alloc(int fd, struct file **file_store) {$/;"	f	file:
+fd_array_close	fs/file.c	/^fd_array_close(struct file *file) {$/;"	f
+fd_array_dup	fs/file.c	/^fd_array_dup(struct file *to, struct file *from) {$/;"	f
+fd_array_free	fs/file.c	/^fd_array_free(struct file *file) {$/;"	f	file:
+fd_array_init	fs/file.c	/^fd_array_init(struct file *fd_array) {$/;"	f
+fd_array_open	fs/file.c	/^fd_array_open(struct file *file) {$/;"	f
+fd_array_release	fs/file.c	/^fd_array_release(struct file *file) {$/;"	f	file:
+file_close	fs/file.c	/^file_close(int fd) {$/;"	f
+file_dup	fs/file.c	/^file_dup(int fd1, int fd2) {$/;"	f
+file_fstat	fs/file.c	/^file_fstat(int fd, struct stat *stat) {$/;"	f
+file_fsync	fs/file.c	/^file_fsync(int fd) {$/;"	f
+file_getdirentry	fs/file.c	/^file_getdirentry(int fd, struct dirent *direntp) {$/;"	f
+file_open	fs/file.c	/^file_open(char *path, uint32_t open_flags) {$/;"	f
+file_read	fs/file.c	/^file_read(int fd, void *base, size_t len, size_t *copied_store) {$/;"	f
+file_seek	fs/file.c	/^file_seek(int fd, off_t pos, int whence) {$/;"	f
+file_testfd	fs/file.c	/^file_testfd(int fd, bool readable, bool writable) {$/;"	f
+file_write	fs/file.c	/^file_write(int fd, void *base, size_t len, size_t *copied_store) {$/;"	f
+get_fd_array	fs/file.c	/^get_fd_array(void) {$/;"	f	file:
+testfd	fs/file.c	14;"	d	file:
+FD_CLOSED	fs/file.h	/^        FD_NONE, FD_INIT, FD_OPENED, FD_CLOSED,$/;"	e	enum:file::__anon3
+FD_INIT	fs/file.h	/^        FD_NONE, FD_INIT, FD_OPENED, FD_CLOSED,$/;"	e	enum:file::__anon3
+FD_NONE	fs/file.h	/^        FD_NONE, FD_INIT, FD_OPENED, FD_CLOSED,$/;"	e	enum:file::__anon3
+FD_OPENED	fs/file.h	/^        FD_NONE, FD_INIT, FD_OPENED, FD_CLOSED,$/;"	e	enum:file::__anon3
+__KERN_FS_FILE_H__	fs/file.h	2;"	d
+fd	fs/file.h	/^    int fd;$/;"	m	struct:file
+file	fs/file.h	/^struct file {$/;"	s
+fopen_count	fs/file.h	/^fopen_count(struct file *file) {$/;"	f
+fopen_count_dec	fs/file.h	/^fopen_count_dec(struct file *file) {$/;"	f
+fopen_count_inc	fs/file.h	/^fopen_count_inc(struct file *file) {$/;"	f
+node	fs/file.h	/^    struct inode *node;$/;"	m	struct:file	typeref:struct:file::inode
+open_count	fs/file.h	/^    int open_count;$/;"	m	struct:file
+pos	fs/file.h	/^    off_t pos;$/;"	m	struct:file
+readable	fs/file.h	/^    bool readable;$/;"	m	struct:file
+status	fs/file.h	/^    } status;$/;"	m	struct:file	typeref:enum:file::__anon3
+writable	fs/file.h	/^    bool writable;$/;"	m	struct:file
+dup_files	fs/fs.c	/^dup_files(struct files_struct *to, struct files_struct *from) {$/;"	f
+files_closeall	fs/fs.c	/^files_closeall(struct files_struct *filesp) {$/;"	f
+files_create	fs/fs.c	/^files_create(void) {$/;"	f
+files_destroy	fs/fs.c	/^files_destroy(struct files_struct *filesp) {$/;"	f
+fs_cleanup	fs/fs.c	/^fs_cleanup(void) {$/;"	f
+fs_init	fs/fs.c	/^fs_init(void) {$/;"	f
+lock_files	fs/fs.c	/^lock_files(struct files_struct *filesp) {$/;"	f
+unlock_files	fs/fs.c	/^unlock_files(struct files_struct *filesp) {$/;"	f
+DISK0_DEV_NO	fs/fs.h	13;"	d
+DISK1_DEV_NO	fs/fs.h	14;"	d
+FILES_STRUCT_BUFSIZE	fs/fs.h	32;"	d
+FILES_STRUCT_NENTRY	fs/fs.h	33;"	d
+PAGE_NSECT	fs/fs.h	10;"	d
+SECTSIZE	fs/fs.h	9;"	d
+SWAP_DEV_NO	fs/fs.h	12;"	d
+__KERN_FS_FS_H__	fs/fs.h	2;"	d
+fd_array	fs/fs.h	/^    struct file *fd_array;  \/\/ opened files array$/;"	m	struct:files_struct	typeref:struct:files_struct::file
+files_count	fs/fs.h	/^    int files_count;        \/\/ the number of opened files$/;"	m	struct:files_struct
+files_count	fs/fs.h	/^files_count(struct files_struct *filesp) {$/;"	f
+files_count_dec	fs/fs.h	/^files_count_dec(struct files_struct *filesp) {$/;"	f
+files_count_inc	fs/fs.h	/^files_count_inc(struct files_struct *filesp) {$/;"	f
+files_sem	fs/fs.h	/^    semaphore_t files_sem;  \/\/ lock protect sem$/;"	m	struct:files_struct
+files_struct	fs/fs.h	/^struct files_struct {$/;"	s
+pwd	fs/fs.h	/^    struct inode *pwd;      \/\/ inode of present working directory$/;"	m	struct:files_struct	typeref:struct:files_struct::inode
+iobuf_init	fs/iobuf.c	/^iobuf_init(struct iobuf *iob, void *base, size_t len, off_t offset) {$/;"	f
+iobuf_move	fs/iobuf.c	/^iobuf_move(struct iobuf *iob, void *data, size_t len, bool m2b, size_t *copiedp) {$/;"	f
+iobuf_move_zeros	fs/iobuf.c	/^iobuf_move_zeros(struct iobuf *iob, size_t len, size_t *copiedp) {$/;"	f
+iobuf_skip	fs/iobuf.c	/^iobuf_skip(struct iobuf *iob, size_t n) {$/;"	f
+__KERN_FS_IOBUF_H__	fs/iobuf.h	2;"	d
+io_base	fs/iobuf.h	/^    void *io_base;     \/\/ the base addr of buffer (used for Rd\/Wr)$/;"	m	struct:iobuf
+io_len	fs/iobuf.h	/^    size_t io_len;     \/\/ the length of buffer  (used for Rd\/Wr)$/;"	m	struct:iobuf
+io_offset	fs/iobuf.h	/^    off_t io_offset;   \/\/ current Rd\/Wr position in buffer, will have been incremented by the amount transferred$/;"	m	struct:iobuf
+io_resid	fs/iobuf.h	/^    size_t io_resid;   \/\/ current resident length need to Rd\/Wr, will have been decremented by the amount transferred.$/;"	m	struct:iobuf
+iobuf	fs/iobuf.h	/^struct iobuf {$/;"	s
+iobuf_used	fs/iobuf.h	16;"	d
+WORD_BITS	fs/sfs/bitmap.c	9;"	d	file:
+WORD_TYPE	fs/sfs/bitmap.c	8;"	d	file:
+bitmap	fs/sfs/bitmap.c	/^struct bitmap {$/;"	s	file:
+bitmap_alloc	fs/sfs/bitmap.c	/^bitmap_alloc(struct bitmap *bitmap, uint32_t *index_store) {$/;"	f
+bitmap_create	fs/sfs/bitmap.c	/^bitmap_create(uint32_t nbits) {$/;"	f
+bitmap_destroy	fs/sfs/bitmap.c	/^bitmap_destroy(struct bitmap *bitmap) {$/;"	f
+bitmap_free	fs/sfs/bitmap.c	/^bitmap_free(struct bitmap *bitmap, uint32_t index) {$/;"	f
+bitmap_getdata	fs/sfs/bitmap.c	/^bitmap_getdata(struct bitmap *bitmap, size_t *len_store) {$/;"	f
+bitmap_test	fs/sfs/bitmap.c	/^bitmap_test(struct bitmap *bitmap, uint32_t index) {$/;"	f
+bitmap_translate	fs/sfs/bitmap.c	/^bitmap_translate(struct bitmap *bitmap, uint32_t index, WORD_TYPE **word, WORD_TYPE *mask) {$/;"	f	file:
+map	fs/sfs/bitmap.c	/^    WORD_TYPE *map;$/;"	m	struct:bitmap	file:
+nbits	fs/sfs/bitmap.c	/^    uint32_t nbits;$/;"	m	struct:bitmap	file:
+nwords	fs/sfs/bitmap.c	/^    uint32_t nwords;$/;"	m	struct:bitmap	file:
+__KERN_FS_SFS_BITMAP_H__	fs/sfs/bitmap.h	2;"	d
+sfs_init	fs/sfs/sfs.c	/^sfs_init(void) {$/;"	f
+SFS_BLKBITS	fs/sfs/sfs.h	26;"	d
+SFS_BLKN_FREEMAP	fs/sfs/sfs.h	23;"	d
+SFS_BLKN_ROOT	fs/sfs/sfs.h	22;"	d
+SFS_BLKN_SUPER	fs/sfs/sfs.h	21;"	d
+SFS_BLKSIZE	fs/sfs/sfs.h	16;"	d
+SFS_BLK_NENTRY	fs/sfs/sfs.h	29;"	d
+SFS_HLIST_SHIFT	fs/sfs/sfs.h	97;"	d
+SFS_HLIST_SIZE	fs/sfs/sfs.h	98;"	d
+SFS_MAGIC	fs/sfs/sfs.h	15;"	d
+SFS_MAX_FILE_SIZE	fs/sfs/sfs.h	20;"	d
+SFS_MAX_FNAME_LEN	fs/sfs/sfs.h	19;"	d
+SFS_MAX_INFO_LEN	fs/sfs/sfs.h	18;"	d
+SFS_NDIRECT	fs/sfs/sfs.h	17;"	d
+SFS_TYPE_DIR	fs/sfs/sfs.h	34;"	d
+SFS_TYPE_FILE	fs/sfs/sfs.h	33;"	d
+SFS_TYPE_INVAL	fs/sfs/sfs.h	32;"	d
+SFS_TYPE_LINK	fs/sfs/sfs.h	35;"	d
+__KERN_FS_SFS_SFS_H__	fs/sfs/sfs.h	2;"	d
+blocks	fs/sfs/sfs.h	/^    uint32_t blocks;                                \/* # of blocks *\/$/;"	m	struct:sfs_disk_inode
+blocks	fs/sfs/sfs.h	/^    uint32_t blocks;                                \/* # of blocks in fs *\/$/;"	m	struct:sfs_super
+dev	fs/sfs/sfs.h	/^    struct device *dev;                             \/* device mounted on *\/$/;"	m	struct:sfs_fs	typeref:struct:sfs_fs::device
+din	fs/sfs/sfs.h	/^    struct sfs_disk_inode *din;                     \/* on-disk inode *\/$/;"	m	struct:sfs_inode	typeref:struct:sfs_inode::sfs_disk_inode
+direct	fs/sfs/sfs.h	/^    uint32_t direct[SFS_NDIRECT];                   \/* direct blocks *\/$/;"	m	struct:sfs_disk_inode
+dirty	fs/sfs/sfs.h	/^    bool dirty;                                     \/* true if inode modified *\/$/;"	m	struct:sfs_inode
+freemap	fs/sfs/sfs.h	/^    struct bitmap *freemap;                         \/* blocks in use are mared 0 *\/$/;"	m	struct:sfs_fs	typeref:struct:sfs_fs::bitmap
+fs_sem	fs/sfs/sfs.h	/^    semaphore_t fs_sem;                             \/* semaphore for fs *\/$/;"	m	struct:sfs_fs
+hash_link	fs/sfs/sfs.h	/^    list_entry_t hash_link;                         \/* entry for hash linked-list in sfs_fs *\/$/;"	m	struct:sfs_inode
+hash_list	fs/sfs/sfs.h	/^    list_entry_t *hash_list;                        \/* inode hash linked-list *\/$/;"	m	struct:sfs_fs
+indirect	fs/sfs/sfs.h	/^    uint32_t indirect;                              \/* indirect blocks *\/$/;"	m	struct:sfs_disk_inode
+info	fs/sfs/sfs.h	/^    char info[SFS_MAX_INFO_LEN + 1];                \/* infomation for sfs  *\/$/;"	m	struct:sfs_super
+ino	fs/sfs/sfs.h	/^    uint32_t ino;                                   \/* inode number *\/$/;"	m	struct:sfs_disk_entry
+ino	fs/sfs/sfs.h	/^    uint32_t ino;                                   \/* inode number *\/$/;"	m	struct:sfs_inode
+inode_link	fs/sfs/sfs.h	/^    list_entry_t inode_link;                        \/* entry for linked-list in sfs_fs *\/$/;"	m	struct:sfs_inode
+inode_list	fs/sfs/sfs.h	/^    list_entry_t inode_list;                        \/* inode linked-list *\/$/;"	m	struct:sfs_fs
+io_sem	fs/sfs/sfs.h	/^    semaphore_t io_sem;                             \/* semaphore for io *\/$/;"	m	struct:sfs_fs
+le2sin	fs/sfs/sfs.h	79;"	d
+magic	fs/sfs/sfs.h	/^    uint32_t magic;                                 \/* magic number, should be SFS_MAGIC *\/$/;"	m	struct:sfs_super
+mutex_sem	fs/sfs/sfs.h	/^    semaphore_t mutex_sem;                          \/* semaphore for link\/unlink and rename *\/$/;"	m	struct:sfs_fs
+name	fs/sfs/sfs.h	/^    char name[SFS_MAX_FNAME_LEN + 1];               \/* file name *\/$/;"	m	struct:sfs_disk_entry
+nlinks	fs/sfs/sfs.h	/^    uint16_t nlinks;                                \/* # of hard links to this file *\/$/;"	m	struct:sfs_disk_inode
+reclaim_count	fs/sfs/sfs.h	/^    int reclaim_count;                              \/* kill inode if it hits zero *\/$/;"	m	struct:sfs_inode
+sem	fs/sfs/sfs.h	/^    semaphore_t sem;                                \/* semaphore for din *\/$/;"	m	struct:sfs_inode
+sfs_buffer	fs/sfs/sfs.h	/^    void *sfs_buffer;                               \/* buffer for non-block aligned io *\/$/;"	m	struct:sfs_fs
+sfs_dentry_size	fs/sfs/sfs.h	65;"	d
+sfs_disk_entry	fs/sfs/sfs.h	/^struct sfs_disk_entry {$/;"	s
+sfs_disk_inode	fs/sfs/sfs.h	/^struct sfs_disk_inode {$/;"	s
+sfs_freemap_bits	fs/sfs/sfs.h	102;"	d
+sfs_freemap_blocks	fs/sfs/sfs.h	105;"	d
+sfs_fs	fs/sfs/sfs.h	/^struct sfs_fs {$/;"	s
+sfs_inode	fs/sfs/sfs.h	/^struct sfs_inode {$/;"	s
+sfs_super	fs/sfs/sfs.h	/^struct sfs_super {$/;"	s
+sin_hashfn	fs/sfs/sfs.h	99;"	d
+size	fs/sfs/sfs.h	/^    uint32_t size;                                  \/* size of the file (in bytes) *\/$/;"	m	struct:sfs_disk_inode
+super	fs/sfs/sfs.h	/^    struct sfs_super super;                         \/* on-disk superblock *\/$/;"	m	struct:sfs_fs	typeref:struct:sfs_fs::sfs_super
+super_dirty	fs/sfs/sfs.h	/^    bool super_dirty;                               \/* true if super\/freemap modified *\/$/;"	m	struct:sfs_fs
+type	fs/sfs/sfs.h	/^    uint16_t type;                                  \/* one of SYS_TYPE_* above *\/$/;"	m	struct:sfs_disk_inode
+unused_blocks	fs/sfs/sfs.h	/^    uint32_t unused_blocks;                         \/* # of unused blocks in fs *\/$/;"	m	struct:sfs_super
+sfs_cleanup	fs/sfs/sfs_fs.c	/^sfs_cleanup(struct fs *fs) {$/;"	f	file:
+sfs_do_mount	fs/sfs/sfs_fs.c	/^sfs_do_mount(struct device *dev, struct fs **fs_store) {$/;"	f	file:
+sfs_get_root	fs/sfs/sfs_fs.c	/^sfs_get_root(struct fs *fs) {$/;"	f	file:
+sfs_init_freemap	fs/sfs/sfs_fs.c	/^sfs_init_freemap(struct device *dev, struct bitmap *freemap, uint32_t blkno, uint32_t nblks, void *blk_buffer) {$/;"	f	file:
+sfs_init_read	fs/sfs/sfs_fs.c	/^sfs_init_read(struct device *dev, uint32_t blkno, void *blk_buffer) {$/;"	f	file:
+sfs_mount	fs/sfs/sfs_fs.c	/^sfs_mount(const char *devname) {$/;"	f
+sfs_sync	fs/sfs/sfs_fs.c	/^sfs_sync(struct fs *fs) {$/;"	f	file:
+sfs_unmount	fs/sfs/sfs_fs.c	/^sfs_unmount(struct fs *fs) {$/;"	f	file:
+lock_sin	fs/sfs/sfs_inode.c	/^lock_sin(struct sfs_inode *sin) {$/;"	f	file:
+lookup_sfs_nolock	fs/sfs/sfs_inode.c	/^lookup_sfs_nolock(struct sfs_fs *sfs, uint32_t ino) {$/;"	f	file:
+set_pvalue	fs/sfs/sfs_inode.c	448;"	d	file:
+set_pvalue	fs/sfs/sfs_inode.c	465;"	d	file:
+sfs_block_alloc	fs/sfs/sfs_inode.c	/^sfs_block_alloc(struct sfs_fs *sfs, uint32_t *ino_store) {$/;"	f	file:
+sfs_block_free	fs/sfs/sfs_inode.c	/^sfs_block_free(struct sfs_fs *sfs, uint32_t ino) {$/;"	f	file:
+sfs_block_inuse	fs/sfs/sfs_inode.c	/^sfs_block_inuse(struct sfs_fs *sfs, uint32_t ino) {$/;"	f	file:
+sfs_bmap_free_nolock	fs/sfs/sfs_inode.c	/^sfs_bmap_free_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, uint32_t index) {$/;"	f	file:
+sfs_bmap_free_sub_nolock	fs/sfs/sfs_inode.c	/^sfs_bmap_free_sub_nolock(struct sfs_fs *sfs, uint32_t ent, uint32_t index) {$/;"	f	file:
+sfs_bmap_get_nolock	fs/sfs/sfs_inode.c	/^sfs_bmap_get_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, uint32_t index, bool create, uint32_t *ino_store) {$/;"	f	file:
+sfs_bmap_get_sub_nolock	fs/sfs/sfs_inode.c	/^sfs_bmap_get_sub_nolock(struct sfs_fs *sfs, uint32_t *entp, uint32_t index, bool create, uint32_t *ino_store) {$/;"	f	file:
+sfs_bmap_load_nolock	fs/sfs/sfs_inode.c	/^sfs_bmap_load_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, uint32_t index, uint32_t *ino_store) {$/;"	f	file:
+sfs_bmap_truncate_nolock	fs/sfs/sfs_inode.c	/^sfs_bmap_truncate_nolock(struct sfs_fs *sfs, struct sfs_inode *sin) {$/;"	f	file:
+sfs_close	fs/sfs/sfs_inode.c	/^sfs_close(struct inode *node) {$/;"	f	file:
+sfs_create_inode	fs/sfs/sfs_inode.c	/^sfs_create_inode(struct sfs_fs *sfs, struct sfs_disk_inode *din, uint32_t ino, struct inode **node_store) {$/;"	f	file:
+sfs_dirent_findino_nolock	fs/sfs/sfs_inode.c	/^sfs_dirent_findino_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, uint32_t ino, struct sfs_disk_entry *entry) {$/;"	f	file:
+sfs_dirent_link_nolock_check	fs/sfs/sfs_inode.c	414;"	d	file:
+sfs_dirent_read_nolock	fs/sfs/sfs_inode.c	/^sfs_dirent_read_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, int slot, struct sfs_disk_entry *entry) {$/;"	f	file:
+sfs_dirent_search_nolock	fs/sfs/sfs_inode.c	/^sfs_dirent_search_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, const char *name, uint32_t *ino_store, int *slot, int *empty_slot) {$/;"	f	file:
+sfs_dirent_unlink_nolock_check	fs/sfs/sfs_inode.c	422;"	d	file:
+sfs_fstat	fs/sfs/sfs_inode.c	/^sfs_fstat(struct inode *node, struct stat *stat) {$/;"	f	file:
+sfs_fsync	fs/sfs/sfs_inode.c	/^sfs_fsync(struct inode *node) {$/;"	f	file:
+sfs_get_ops	fs/sfs/sfs_inode.c	/^sfs_get_ops(uint16_t type) {$/;"	f	file:
+sfs_getdirentry	fs/sfs/sfs_inode.c	/^sfs_getdirentry(struct inode *node, struct iobuf *iob) {$/;"	f	file:
+sfs_getdirentry_sub_nolock	fs/sfs/sfs_inode.c	/^sfs_getdirentry_sub_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, int slot, struct sfs_disk_entry *entry) {$/;"	f	file:
+sfs_gettype	fs/sfs/sfs_inode.c	/^sfs_gettype(struct inode *node, uint32_t *type_store) {$/;"	f	file:
+sfs_hash_list	fs/sfs/sfs_inode.c	/^sfs_hash_list(struct sfs_fs *sfs, uint32_t ino) {$/;"	f	file:
+sfs_io	fs/sfs/sfs_inode.c	/^sfs_io(struct inode *node, struct iobuf *iob, bool write) {$/;"	f	file:
+sfs_io_nolock	fs/sfs/sfs_inode.c	/^sfs_io_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, void *buf, off_t offset, size_t *alenp, bool write) {$/;"	f	file:
+sfs_load_inode	fs/sfs/sfs_inode.c	/^sfs_load_inode(struct sfs_fs *sfs, struct inode **node_store, uint32_t ino) {$/;"	f
+sfs_lookup	fs/sfs/sfs_inode.c	/^sfs_lookup(struct inode *node, char *path, struct inode **node_store) {$/;"	f	file:
+sfs_lookup_once	fs/sfs/sfs_inode.c	/^sfs_lookup_once(struct sfs_fs *sfs, struct sfs_inode *sin, const char *name, struct inode **node_store, int *slot) {$/;"	f	file:
+sfs_namefile	fs/sfs/sfs_inode.c	/^sfs_namefile(struct inode *node, struct iobuf *iob) {$/;"	f	file:
+sfs_node_dirops	fs/sfs/sfs_inode.c	/^static const struct inode_ops sfs_node_dirops = {$/;"	v	typeref:struct:inode_ops	file:
+sfs_node_dirops	fs/sfs/sfs_inode.c	/^static const struct inode_ops sfs_node_dirops;  \/\/ dir operations$/;"	v	typeref:struct:inode_ops	file:
+sfs_node_fileops	fs/sfs/sfs_inode.c	/^static const struct inode_ops sfs_node_fileops = {$/;"	v	typeref:struct:inode_ops	file:
+sfs_node_fileops	fs/sfs/sfs_inode.c	/^static const struct inode_ops sfs_node_fileops; \/\/ file operations$/;"	v	typeref:struct:inode_ops	file:
+sfs_opendir	fs/sfs/sfs_inode.c	/^sfs_opendir(struct inode *node, uint32_t open_flags) {$/;"	f	file:
+sfs_openfile	fs/sfs/sfs_inode.c	/^sfs_openfile(struct inode *node, uint32_t open_flags) {$/;"	f	file:
+sfs_read	fs/sfs/sfs_inode.c	/^sfs_read(struct inode *node, struct iobuf *iob) {$/;"	f	file:
+sfs_reclaim	fs/sfs/sfs_inode.c	/^sfs_reclaim(struct inode *node) {$/;"	f	file:
+sfs_remove_links	fs/sfs/sfs_inode.c	/^sfs_remove_links(struct sfs_inode *sin) {$/;"	f	file:
+sfs_set_links	fs/sfs/sfs_inode.c	/^sfs_set_links(struct sfs_fs *sfs, struct sfs_inode *sin) {$/;"	f	file:
+sfs_truncfile	fs/sfs/sfs_inode.c	/^sfs_truncfile(struct inode *node, off_t len) {$/;"	f	file:
+sfs_tryseek	fs/sfs/sfs_inode.c	/^sfs_tryseek(struct inode *node, off_t pos) {$/;"	f	file:
+sfs_write	fs/sfs/sfs_inode.c	/^sfs_write(struct inode *node, struct iobuf *iob) {$/;"	f	file:
+unlock_sin	fs/sfs/sfs_inode.c	/^unlock_sin(struct sfs_inode *sin) {$/;"	f	file:
+sfs_clear_block	fs/sfs/sfs_io.c	/^sfs_clear_block(struct sfs_fs *sfs, uint32_t blkno, uint32_t nblks) {$/;"	f
+sfs_rblock	fs/sfs/sfs_io.c	/^sfs_rblock(struct sfs_fs *sfs, void *buf, uint32_t blkno, uint32_t nblks) {$/;"	f
+sfs_rbuf	fs/sfs/sfs_io.c	/^sfs_rbuf(struct sfs_fs *sfs, void *buf, size_t len, uint32_t blkno, off_t offset) {$/;"	f
+sfs_rwblock	fs/sfs/sfs_io.c	/^sfs_rwblock(struct sfs_fs *sfs, void *buf, uint32_t blkno, uint32_t nblks, bool write) {$/;"	f	file:
+sfs_rwblock_nolock	fs/sfs/sfs_io.c	/^sfs_rwblock_nolock(struct sfs_fs *sfs, void *buf, uint32_t blkno, bool write, bool check) {$/;"	f	file:
+sfs_sync_freemap	fs/sfs/sfs_io.c	/^sfs_sync_freemap(struct sfs_fs *sfs) {$/;"	f
+sfs_sync_super	fs/sfs/sfs_io.c	/^sfs_sync_super(struct sfs_fs *sfs) {$/;"	f
+sfs_wblock	fs/sfs/sfs_io.c	/^sfs_wblock(struct sfs_fs *sfs, void *buf, uint32_t blkno, uint32_t nblks) {$/;"	f
+sfs_wbuf	fs/sfs/sfs_io.c	/^sfs_wbuf(struct sfs_fs *sfs, void *buf, size_t len, uint32_t blkno, off_t offset) {$/;"	f
+lock_sfs_fs	fs/sfs/sfs_lock.c	/^lock_sfs_fs(struct sfs_fs *sfs) {$/;"	f
+lock_sfs_io	fs/sfs/sfs_lock.c	/^lock_sfs_io(struct sfs_fs *sfs) {$/;"	f
+unlock_sfs_fs	fs/sfs/sfs_lock.c	/^unlock_sfs_fs(struct sfs_fs *sfs) {$/;"	f
+unlock_sfs_io	fs/sfs/sfs_lock.c	/^unlock_sfs_io(struct sfs_fs *sfs) {$/;"	f
+swapfs_init	fs/swap/swapfs.c	/^swapfs_init(void) {$/;"	f
+swapfs_read	fs/swap/swapfs.c	/^swapfs_read(swap_entry_t entry, struct Page *page) {$/;"	f
+swapfs_write	fs/swap/swapfs.c	/^swapfs_write(swap_entry_t entry, struct Page *page) {$/;"	f
+__KERN_FS_SWAP_SWAPFS_H__	fs/swap/swapfs.h	2;"	d
+IOBUF_SIZE	fs/sysfile.c	16;"	d	file:
+copy_path	fs/sysfile.c	/^copy_path(char **to, const char *from) {$/;"	f	file:
+sysfile_chdir	fs/sysfile.c	/^sysfile_chdir(const char *__path) {$/;"	f
+sysfile_close	fs/sysfile.c	/^sysfile_close(int fd) {$/;"	f
+sysfile_dup	fs/sysfile.c	/^sysfile_dup(int fd1, int fd2) {$/;"	f
+sysfile_fstat	fs/sysfile.c	/^sysfile_fstat(int fd, struct stat *__stat) {$/;"	f
+sysfile_fsync	fs/sysfile.c	/^sysfile_fsync(int fd) {$/;"	f
+sysfile_getcwd	fs/sysfile.c	/^sysfile_getcwd(char *buf, size_t len) {$/;"	f
+sysfile_getdirentry	fs/sysfile.c	/^sysfile_getdirentry(int fd, struct dirent *__direntp) {$/;"	f
+sysfile_link	fs/sysfile.c	/^sysfile_link(const char *__path1, const char *__path2) {$/;"	f
+sysfile_mkfifo	fs/sysfile.c	/^sysfile_mkfifo(const char *__name, uint32_t open_flags) {$/;"	f
+sysfile_open	fs/sysfile.c	/^sysfile_open(const char *__path, uint32_t open_flags) {$/;"	f
+sysfile_pipe	fs/sysfile.c	/^sysfile_pipe(int *fd_store) {$/;"	f
+sysfile_read	fs/sysfile.c	/^sysfile_read(int fd, void *base, size_t len) {$/;"	f
+sysfile_rename	fs/sysfile.c	/^sysfile_rename(const char *__path1, const char *__path2) {$/;"	f
+sysfile_seek	fs/sysfile.c	/^sysfile_seek(int fd, off_t pos, int whence) {$/;"	f
+sysfile_unlink	fs/sysfile.c	/^sysfile_unlink(const char *__path) {$/;"	f
+sysfile_write	fs/sysfile.c	/^sysfile_write(int fd, void *base, size_t len) {$/;"	f
+__KERN_FS_SYSFILE_H__	fs/sysfile.h	2;"	d
+__alloc_inode	fs/vfs/inode.c	/^__alloc_inode(int type) {$/;"	f
+inode_check	fs/vfs/inode.c	/^inode_check(struct inode *node, const char *opstr) {$/;"	f
+inode_init	fs/vfs/inode.c	/^inode_init(struct inode *node, const struct inode_ops *ops, struct fs *fs) {$/;"	f
+inode_kill	fs/vfs/inode.c	/^inode_kill(struct inode *node) {$/;"	f
+inode_open_dec	fs/vfs/inode.c	/^inode_open_dec(struct inode *node) {$/;"	f
+inode_open_inc	fs/vfs/inode.c	/^inode_open_inc(struct inode *node) {$/;"	f
+inode_ref_dec	fs/vfs/inode.c	/^inode_ref_dec(struct inode *node) {$/;"	f
+inode_ref_inc	fs/vfs/inode.c	/^inode_ref_inc(struct inode *node) {$/;"	f
+MAX_INODE_COUNT	fs/vfs/inode.h	64;"	d
+VOP_MAGIC	fs/vfs/inode.h	74;"	d
+__KERN_FS_VFS_INODE_H__	fs/vfs/inode.h	2;"	d
+__device_info	fs/vfs/inode.h	/^        struct device __device_info;$/;"	m	union:inode::__anon4	typeref:struct:inode::__anon4::device
+__in_type	fs/vfs/inode.h	44;"	d
+__sfs_inode_info	fs/vfs/inode.h	/^        struct sfs_inode __sfs_inode_info;$/;"	m	union:inode::__anon4	typeref:struct:inode::__anon4::sfs_inode
+__vop_info	fs/vfs/inode.h	48;"	d
+__vop_op	fs/vfs/inode.h	193;"	d
+alloc_inode	fs/vfs/inode.h	62;"	d
+check_inode_type	fs/vfs/inode.h	46;"	d
+in_fs	fs/vfs/inode.h	/^    struct fs *in_fs;$/;"	m	struct:inode	typeref:struct:inode::fs
+in_info	fs/vfs/inode.h	/^    } in_info;$/;"	m	struct:inode	typeref:union:inode::__anon4
+in_ops	fs/vfs/inode.h	/^    const struct inode_ops *in_ops;$/;"	m	struct:inode	typeref:struct:inode::inode_ops
+in_type	fs/vfs/inode.h	/^    } in_type;$/;"	m	struct:inode	typeref:enum:inode::__anon5
+info2node	fs/vfs/inode.h	57;"	d
+inode	fs/vfs/inode.h	/^struct inode {$/;"	s
+inode_open_count	fs/vfs/inode.h	/^inode_open_count(struct inode *node) {$/;"	f
+inode_ops	fs/vfs/inode.h	/^struct inode_ops {$/;"	s
+inode_ref_count	fs/vfs/inode.h	/^inode_ref_count(struct inode *node) {$/;"	f
+inode_type_device_info	fs/vfs/inode.h	/^        inode_type_device_info = 0x1234,$/;"	e	enum:inode::__anon5
+inode_type_sfs_inode_info	fs/vfs/inode.h	/^        inode_type_sfs_inode_info,$/;"	e	enum:inode::__anon5
+open_count	fs/vfs/inode.h	/^    int open_count;$/;"	m	struct:inode
+ref_count	fs/vfs/inode.h	/^    int ref_count;$/;"	m	struct:inode
+vop_close	fs/vfs/inode.h	/^    int (*vop_close)(struct inode *node);$/;"	m	struct:inode_ops
+vop_close	fs/vfs/inode.h	202;"	d
+vop_create	fs/vfs/inode.h	/^    int (*vop_create)(struct inode *node, const char *name, bool excl, struct inode **node_store);$/;"	m	struct:inode_ops
+vop_create	fs/vfs/inode.h	214;"	d
+vop_fs	fs/vfs/inode.h	218;"	d
+vop_fstat	fs/vfs/inode.h	/^    int (*vop_fstat)(struct inode *node, struct stat *stat);$/;"	m	struct:inode_ops
+vop_fstat	fs/vfs/inode.h	205;"	d
+vop_fsync	fs/vfs/inode.h	/^    int (*vop_fsync)(struct inode *node);$/;"	m	struct:inode_ops
+vop_fsync	fs/vfs/inode.h	206;"	d
+vop_getdirentry	fs/vfs/inode.h	/^    int (*vop_getdirentry)(struct inode *node, struct iobuf *iob);$/;"	m	struct:inode_ops
+vop_getdirentry	fs/vfs/inode.h	208;"	d
+vop_gettype	fs/vfs/inode.h	/^    int (*vop_gettype)(struct inode *node, uint32_t *type_store);$/;"	m	struct:inode_ops
+vop_gettype	fs/vfs/inode.h	211;"	d
+vop_info	fs/vfs/inode.h	55;"	d
+vop_init	fs/vfs/inode.h	219;"	d
+vop_ioctl	fs/vfs/inode.h	/^    int (*vop_ioctl)(struct inode *node, int op, void *data);$/;"	m	struct:inode_ops
+vop_ioctl	fs/vfs/inode.h	210;"	d
+vop_kill	fs/vfs/inode.h	220;"	d
+vop_lookup	fs/vfs/inode.h	/^    int (*vop_lookup)(struct inode *node, char *path, struct inode **node_store);$/;"	m	struct:inode_ops
+vop_lookup	fs/vfs/inode.h	215;"	d
+vop_magic	fs/vfs/inode.h	/^    unsigned long vop_magic;$/;"	m	struct:inode_ops
+vop_namefile	fs/vfs/inode.h	/^    int (*vop_namefile)(struct inode *node, struct iobuf *iob);$/;"	m	struct:inode_ops
+vop_namefile	fs/vfs/inode.h	207;"	d
+vop_open	fs/vfs/inode.h	/^    int (*vop_open)(struct inode *node, uint32_t open_flags);$/;"	m	struct:inode_ops
+vop_open	fs/vfs/inode.h	201;"	d
+vop_open_dec	fs/vfs/inode.h	234;"	d
+vop_open_inc	fs/vfs/inode.h	233;"	d
+vop_read	fs/vfs/inode.h	/^    int (*vop_read)(struct inode *node, struct iobuf *iob);$/;"	m	struct:inode_ops
+vop_read	fs/vfs/inode.h	203;"	d
+vop_reclaim	fs/vfs/inode.h	/^    int (*vop_reclaim)(struct inode *node);$/;"	m	struct:inode_ops
+vop_reclaim	fs/vfs/inode.h	209;"	d
+vop_ref_dec	fs/vfs/inode.h	226;"	d
+vop_ref_inc	fs/vfs/inode.h	225;"	d
+vop_truncate	fs/vfs/inode.h	/^    int (*vop_truncate)(struct inode *node, off_t len);$/;"	m	struct:inode_ops
+vop_truncate	fs/vfs/inode.h	213;"	d
+vop_tryseek	fs/vfs/inode.h	/^    int (*vop_tryseek)(struct inode *node, off_t pos);$/;"	m	struct:inode_ops
+vop_tryseek	fs/vfs/inode.h	212;"	d
+vop_write	fs/vfs/inode.h	/^    int (*vop_write)(struct inode *node, struct iobuf *iob);$/;"	m	struct:inode_ops
+vop_write	fs/vfs/inode.h	204;"	d
+__alloc_fs	fs/vfs/vfs.c	/^__alloc_fs(int type) {$/;"	f
+bootfs_node	fs/vfs/vfs.c	/^static struct inode *bootfs_node = NULL;$/;"	v	typeref:struct:inode	file:
+bootfs_sem	fs/vfs/vfs.c	/^static semaphore_t bootfs_sem;$/;"	v	file:
+change_bootfs	fs/vfs/vfs.c	/^change_bootfs(struct inode *node) {$/;"	f	file:
+lock_bootfs	fs/vfs/vfs.c	/^lock_bootfs(void) {$/;"	f	file:
+unlock_bootfs	fs/vfs/vfs.c	/^unlock_bootfs(void) {$/;"	f	file:
+vfs_get_bootfs	fs/vfs/vfs.c	/^vfs_get_bootfs(struct inode **node_store) {$/;"	f
+vfs_init	fs/vfs/vfs.c	/^vfs_init(void) {$/;"	f
+vfs_set_bootfs	fs/vfs/vfs.c	/^vfs_set_bootfs(char *fsname) {$/;"	f
+__KERN_FS_VFS_VFS_H__	fs/vfs/vfs.h	2;"	d
+__fs_type	fs/vfs/vfs.h	48;"	d
+__fsop_info	fs/vfs/vfs.h	52;"	d
+__sfs_info	fs/vfs/vfs.h	/^        struct sfs_fs __sfs_info;                   $/;"	m	union:fs::__anon6	typeref:struct:fs::__anon6::sfs_fs
+alloc_fs	fs/vfs/vfs.h	65;"	d
+check_fs_type	fs/vfs/vfs.h	50;"	d
+fs	fs/vfs/vfs.h	/^struct fs {$/;"	s
+fs_cleanup	fs/vfs/vfs.h	/^    void (*fs_cleanup)(struct fs *fs);             \/\/ Cleanup of filesystem.???$/;"	m	struct:fs
+fs_get_root	fs/vfs/vfs.h	/^    struct inode *(*fs_get_root)(struct fs *fs);   \/\/ Return root inode of filesystem.$/;"	m	struct:fs	typeref:struct:fs::fs_get_root
+fs_info	fs/vfs/vfs.h	/^    } fs_info;                                     \/\/ filesystem-specific data $/;"	m	struct:fs	typeref:union:fs::__anon6
+fs_sync	fs/vfs/vfs.h	/^    int (*fs_sync)(struct fs *fs);                 \/\/ Flush all dirty buffers to disk $/;"	m	struct:fs
+fs_type	fs/vfs/vfs.h	/^    } fs_type;                                     \/\/ filesystem type $/;"	m	struct:fs	typeref:enum:fs::__anon7
+fs_type_sfs_info	fs/vfs/vfs.h	/^        fs_type_sfs_info,$/;"	e	enum:fs::__anon7
+fs_unmount	fs/vfs/vfs.h	/^    int (*fs_unmount)(struct fs *fs);              \/\/ Attempt unmount of filesystem.$/;"	m	struct:fs
+fsop_cleanup	fs/vfs/vfs.h	71;"	d
+fsop_get_root	fs/vfs/vfs.h	69;"	d
+fsop_info	fs/vfs/vfs.h	58;"	d
+fsop_sync	fs/vfs/vfs.h	68;"	d
+fsop_unmount	fs/vfs/vfs.h	70;"	d
+info2fs	fs/vfs/vfs.h	60;"	d
+check_devname_conflict	fs/vfs/vfsdev.c	/^check_devname_conflict(const char *devname) {$/;"	f	file:
+devname	fs/vfs/vfsdev.c	/^    const char *devname;$/;"	m	struct:__anon8	file:
+devnode	fs/vfs/vfsdev.c	/^    struct inode *devnode;$/;"	m	struct:__anon8	typeref:struct:__anon8::inode	file:
+find_mount	fs/vfs/vfsdev.c	/^find_mount(const char *devname, vfs_dev_t **vdev_store) {$/;"	f	file:
+fs	fs/vfs/vfsdev.c	/^    struct fs *fs;$/;"	m	struct:__anon8	typeref:struct:__anon8::fs	file:
+le2vdev	fs/vfs/vfsdev.c	23;"	d	file:
+lock_vdev_list	fs/vfs/vfsdev.c	/^lock_vdev_list(void) {$/;"	f	file:
+mountable	fs/vfs/vfsdev.c	/^    bool mountable;$/;"	m	struct:__anon8	file:
+unlock_vdev_list	fs/vfs/vfsdev.c	/^unlock_vdev_list(void) {$/;"	f	file:
+vdev_link	fs/vfs/vfsdev.c	/^    list_entry_t vdev_link;$/;"	m	struct:__anon8	file:
+vdev_list	fs/vfs/vfsdev.c	/^static list_entry_t vdev_list;     \/\/ device info list in vfs layer$/;"	v	file:
+vdev_list_sem	fs/vfs/vfsdev.c	/^static semaphore_t vdev_list_sem;$/;"	v	file:
+vfs_add_dev	fs/vfs/vfsdev.c	/^vfs_add_dev(const char *devname, struct inode *devnode, bool mountable) {$/;"	f
+vfs_add_fs	fs/vfs/vfsdev.c	/^vfs_add_fs(const char *devname, struct fs *fs) {$/;"	f
+vfs_cleanup	fs/vfs/vfsdev.c	/^vfs_cleanup(void) {$/;"	f
+vfs_dev_t	fs/vfs/vfsdev.c	/^} vfs_dev_t;$/;"	t	typeref:struct:__anon8	file:
+vfs_devlist_init	fs/vfs/vfsdev.c	/^vfs_devlist_init(void) {$/;"	f
+vfs_do_add	fs/vfs/vfsdev.c	/^vfs_do_add(const char *devname, struct inode *devnode, struct fs *fs, bool mountable) {$/;"	f	file:
+vfs_get_devname	fs/vfs/vfsdev.c	/^vfs_get_devname(struct fs *fs) {$/;"	f
+vfs_get_root	fs/vfs/vfsdev.c	/^vfs_get_root(const char *devname, struct inode **node_store) {$/;"	f
+vfs_mount	fs/vfs/vfsdev.c	/^vfs_mount(const char *devname, int (*mountfunc)(struct device *dev, struct fs **fs_store)) {$/;"	f
+vfs_unmount	fs/vfs/vfsdev.c	/^vfs_unmount(const char *devname) {$/;"	f
+vfs_unmount_all	fs/vfs/vfsdev.c	/^vfs_unmount_all(void) {$/;"	f
+vfs_close	fs/vfs/vfsfile.c	/^vfs_close(struct inode *node) {$/;"	f
+vfs_link	fs/vfs/vfsfile.c	/^vfs_link(char *old_path, char *new_path) {$/;"	f
+vfs_mkdir	fs/vfs/vfsfile.c	/^vfs_mkdir(char *path){$/;"	f
+vfs_open	fs/vfs/vfsfile.c	/^vfs_open(char *path, uint32_t open_flags, struct inode **node_store) {$/;"	f
+vfs_readlink	fs/vfs/vfsfile.c	/^vfs_readlink(char *path, struct iobuf *iob) {$/;"	f
+vfs_rename	fs/vfs/vfsfile.c	/^vfs_rename(char *old_path, char *new_path) {$/;"	f
+vfs_symlink	fs/vfs/vfsfile.c	/^vfs_symlink(char *old_path, char *new_path) {$/;"	f
+vfs_unlink	fs/vfs/vfsfile.c	/^vfs_unlink(char *path) {$/;"	f
+get_device	fs/vfs/vfslookup.c	/^get_device(char *path, char **subpath, struct inode **node_store) {$/;"	f	file:
+vfs_lookup	fs/vfs/vfslookup.c	/^vfs_lookup(char *path, struct inode **node_store) {$/;"	f
+vfs_lookup_parent	fs/vfs/vfslookup.c	/^vfs_lookup_parent(char *path, struct inode **node_store, char **endp){$/;"	f
+get_cwd_nolock	fs/vfs/vfspath.c	/^get_cwd_nolock(void) {$/;"	f	file:
+lock_cfs	fs/vfs/vfspath.c	/^lock_cfs(void) {$/;"	f	file:
+set_cwd_nolock	fs/vfs/vfspath.c	/^set_cwd_nolock(struct inode *pwd) {$/;"	f	file:
+unlock_cfs	fs/vfs/vfspath.c	/^unlock_cfs(void) {$/;"	f	file:
+vfs_chdir	fs/vfs/vfspath.c	/^vfs_chdir(char *path) {$/;"	f
+vfs_get_curdir	fs/vfs/vfspath.c	/^vfs_get_curdir(struct inode **dir_store) {$/;"	f
+vfs_getcwd	fs/vfs/vfspath.c	/^vfs_getcwd(struct iobuf *iob) {$/;"	f
+vfs_set_curdir	fs/vfs/vfspath.c	/^vfs_set_curdir(struct inode *dir) {$/;"	f
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+REALLOC	init/entry.S	/^#define REALLOC(x) (x - KERNBASE)$/;"	d
+__gdt	init/entry.S	/^__gdt:$/;"	l
+__gdtdesc	init/entry.S	/^__gdtdesc:$/;"	l
+bootstack	init/entry.S	/^bootstack:$/;"	l
+bootstacktop	init/entry.S	/^bootstacktop:$/;"	l
+kern_entry	init/entry.S	/^kern_entry:$/;"	l
+relocated	init/entry.S	/^relocated:$/;"	l
+spin	init/entry.S	/^spin:$/;"	l
+grade_backtrace	init/init.c	/^grade_backtrace(void) {$/;"	f
+grade_backtrace0	init/init.c	/^grade_backtrace0(int arg0, int arg1, int arg2) {$/;"	f
+grade_backtrace1	init/init.c	/^grade_backtrace1(int arg0, int arg1) {$/;"	f
+grade_backtrace2	init/init.c	/^grade_backtrace2(int arg0, int arg1, int arg2, int arg3) {$/;"	f
+kern_init	init/init.c	/^kern_init(void) {$/;"	f
+lab1_print_cur_status	init/init.c	/^lab1_print_cur_status(void) {$/;"	f	file:
+lab1_switch_test	init/init.c	/^lab1_switch_test(void) {$/;"	f	file:
+lab1_switch_to_kernel	init/init.c	/^lab1_switch_to_kernel(void) {$/;"	f	file:
+lab1_switch_to_user	init/init.c	/^lab1_switch_to_user(void) {$/;"	f	file:
+BUFSIZE	libs/readline.c	3;"	d	file:
+buf	libs/readline.c	/^static char buf[BUFSIZE];$/;"	v	file:
+readline	libs/readline.c	/^readline(const char *prompt) {$/;"	f
+cprintf	libs/stdio.c	/^cprintf(const char *fmt, ...) {$/;"	f
+cputch	libs/stdio.c	/^cputch(int c, int *cnt) {$/;"	f	file:
+cputchar	libs/stdio.c	/^cputchar(int c) {$/;"	f
+cputs	libs/stdio.c	/^cputs(const char *str) {$/;"	f
+getchar	libs/stdio.c	/^getchar(void) {$/;"	f
+vcprintf	libs/stdio.c	/^vcprintf(const char *fmt, va_list ap) {$/;"	f
+stradd	libs/string.c	/^stradd(const char *src1, const char *src2) {$/;"	f
+strdup	libs/string.c	/^strdup(const char *src) {$/;"	f
+basic_check	mm/default_pmm.c	/^basic_check(void) {$/;"	f	file:
+default_alloc_pages	mm/default_pmm.c	/^default_alloc_pages(size_t n) {$/;"	f	file:
+default_check	mm/default_pmm.c	/^default_check(void) {$/;"	f	file:
+default_free_pages	mm/default_pmm.c	/^default_free_pages(struct Page *base, size_t n) {$/;"	f	file:
+default_init	mm/default_pmm.c	/^default_init(void) {$/;"	f	file:
+default_init_memmap	mm/default_pmm.c	/^default_init_memmap(struct Page *base, size_t n) {$/;"	f	file:
+default_nr_free_pages	mm/default_pmm.c	/^default_nr_free_pages(void) {$/;"	f	file:
+default_pmm_manager	mm/default_pmm.c	/^const struct pmm_manager default_pmm_manager = {$/;"	v	typeref:struct:pmm_manager
+free_area	mm/default_pmm.c	/^free_area_t free_area;$/;"	v
+free_list	mm/default_pmm.c	59;"	d	file:
+nr_free	mm/default_pmm.c	60;"	d	file:
+__KERN_MM_DEFAULT_PMM_H__	mm/default_pmm.h	2;"	d
+ALIGN	mm/kmalloc.c	55;"	d	file:
+L1_CACHE_BYTES	mm/kmalloc.c	51;"	d	file:
+PAGE_SIZE	mm/kmalloc.c	47;"	d	file:
+SLOB_ALIGN	mm/kmalloc.c	67;"	d	file:
+SLOB_UNIT	mm/kmalloc.c	65;"	d	file:
+SLOB_UNITS	mm/kmalloc.c	66;"	d	file:
+__kmalloc	mm/kmalloc.c	/^static void *__kmalloc(size_t size, gfp_t gfp)$/;"	f	file:
+__slob_free_pages	mm/kmalloc.c	/^static inline void __slob_free_pages(unsigned long kva, int order)$/;"	f	file:
+__slob_get_free_page	mm/kmalloc.c	89;"	d	file:
+__slob_get_free_pages	mm/kmalloc.c	/^static void* __slob_get_free_pages(gfp_t gfp, int order)$/;"	f	file:
+arena	mm/kmalloc.c	/^static slob_t arena = { .next = &arena, .units = 1 };$/;"	v	file:
+bigblock	mm/kmalloc.c	/^struct bigblock {$/;"	s	file:
+bigblock_t	mm/kmalloc.c	/^typedef struct bigblock bigblock_t;$/;"	t	typeref:struct:bigblock	file:
+bigblocks	mm/kmalloc.c	/^static bigblock_t *bigblocks;$/;"	v	file:
+find_order	mm/kmalloc.c	/^static int find_order(int size)$/;"	f	file:
+gfp_t	mm/kmalloc.c	/^typedef unsigned int gfp_t;$/;"	t	file:
+kallocated	mm/kmalloc.c	/^kallocated(void) {$/;"	f
+kfree	mm/kmalloc.c	/^void kfree(void *block)$/;"	f
+kmalloc	mm/kmalloc.c	/^kmalloc(size_t size)$/;"	f
+kmalloc_init	mm/kmalloc.c	/^kmalloc_init(void) {$/;"	f
+ksize	mm/kmalloc.c	/^unsigned int ksize(const void *block)$/;"	f
+next	mm/kmalloc.c	/^	struct bigblock *next;$/;"	m	struct:bigblock	typeref:struct:bigblock::bigblock	file:
+next	mm/kmalloc.c	/^	struct slob_block *next;$/;"	m	struct:slob_block	typeref:struct:slob_block::slob_block	file:
+order	mm/kmalloc.c	/^	int order;$/;"	m	struct:bigblock	file:
+pages	mm/kmalloc.c	/^	void *pages;$/;"	m	struct:bigblock	file:
+slob_alloc	mm/kmalloc.c	/^static void *slob_alloc(size_t size, gfp_t gfp, int align)$/;"	f	file:
+slob_allocated	mm/kmalloc.c	/^slob_allocated(void) {$/;"	f
+slob_block	mm/kmalloc.c	/^struct slob_block {$/;"	s	file:
+slob_free	mm/kmalloc.c	/^static void slob_free(void *block, int size)$/;"	f	file:
+slob_init	mm/kmalloc.c	/^slob_init(void) {$/;"	f
+slob_t	mm/kmalloc.c	/^typedef struct slob_block slob_t;$/;"	t	typeref:struct:slob_block	file:
+slobfree	mm/kmalloc.c	/^static slob_t *slobfree = &arena;$/;"	v	file:
+spin_lock_irqsave	mm/kmalloc.c	43;"	d	file:
+spin_unlock_irqrestore	mm/kmalloc.c	44;"	d	file:
+units	mm/kmalloc.c	/^	int units;$/;"	m	struct:slob_block	file:
+KMALLOC_MAX_ORDER	mm/kmalloc.h	6;"	d
+__KERN_MM_KMALLOC_H__	mm/kmalloc.h	2;"	d
+ClearPageProperty	mm/memlayout.h	146;"	d
+ClearPageReserved	mm/memlayout.h	143;"	d
+DPL_KERNEL	mm/memlayout.h	20;"	d
+DPL_USER	mm/memlayout.h	21;"	d
+E820MAX	mm/memlayout.h	111;"	d
+E820_ARM	mm/memlayout.h	112;"	d
+E820_ARR	mm/memlayout.h	113;"	d
+GD_KDATA	mm/memlayout.h	15;"	d
+GD_KTEXT	mm/memlayout.h	14;"	d
+GD_TSS	mm/memlayout.h	18;"	d
+GD_UDATA	mm/memlayout.h	17;"	d
+GD_UTEXT	mm/memlayout.h	16;"	d
+KERNBASE	mm/memlayout.h	70;"	d
+KERNEL_CS	mm/memlayout.h	23;"	d
+KERNEL_DS	mm/memlayout.h	24;"	d
+KERNTOP	mm/memlayout.h	72;"	d
+KERN_ACCESS	mm/memlayout.h	97;"	d
+KMEMSIZE	mm/memlayout.h	71;"	d
+KSTACKPAGE	mm/memlayout.h	82;"	d
+KSTACKSIZE	mm/memlayout.h	83;"	d
+PG_property	mm/memlayout.h	140;"	d
+PG_reserved	mm/memlayout.h	139;"	d
+Page	mm/memlayout.h	/^struct Page {$/;"	s
+PageProperty	mm/memlayout.h	147;"	d
+PageReserved	mm/memlayout.h	144;"	d
+SEG_KDATA	mm/memlayout.h	8;"	d
+SEG_KTEXT	mm/memlayout.h	7;"	d
+SEG_TSS	mm/memlayout.h	11;"	d
+SEG_UDATA	mm/memlayout.h	10;"	d
+SEG_UTEXT	mm/memlayout.h	9;"	d
+SetPageProperty	mm/memlayout.h	145;"	d
+SetPageReserved	mm/memlayout.h	142;"	d
+USERBASE	mm/memlayout.h	90;"	d
+USERTOP	mm/memlayout.h	85;"	d
+USER_ACCESS	mm/memlayout.h	94;"	d
+USER_CS	mm/memlayout.h	25;"	d
+USER_DS	mm/memlayout.h	26;"	d
+USTAB	mm/memlayout.h	92;"	d
+USTACKPAGE	mm/memlayout.h	87;"	d
+USTACKSIZE	mm/memlayout.h	88;"	d
+USTACKTOP	mm/memlayout.h	86;"	d
+UTEXT	mm/memlayout.h	91;"	d
+VPT	mm/memlayout.h	80;"	d
+__KERN_MM_MEMLAYOUT_H__	mm/memlayout.h	2;"	d
+addr	mm/memlayout.h	/^        uint64_t addr;$/;"	m	struct:e820map::__anon9
+e820map	mm/memlayout.h	/^struct e820map {$/;"	s
+flags	mm/memlayout.h	/^    uint32_t flags;                 \/\/ array of flags that describe the status of the page frame$/;"	m	struct:Page
+free_area_t	mm/memlayout.h	/^} free_area_t;$/;"	t	typeref:struct:__anon10
+free_list	mm/memlayout.h	/^    list_entry_t free_list;         \/\/ the list header$/;"	m	struct:__anon10
+le2page	mm/memlayout.h	150;"	d
+map	mm/memlayout.h	/^    } __attribute__((packed)) map[E820MAX];$/;"	m	struct:e820map	typeref:struct:e820map::__anon9
+nr_free	mm/memlayout.h	/^    unsigned int nr_free;           \/\/ # of free pages in this free list$/;"	m	struct:__anon10
+nr_map	mm/memlayout.h	/^    int nr_map;$/;"	m	struct:e820map
+page_link	mm/memlayout.h	/^    list_entry_t page_link;         \/\/ free list link$/;"	m	struct:Page
+pde_t	mm/memlayout.h	/^typedef uintptr_t pde_t;$/;"	t
+pra_page_link	mm/memlayout.h	/^    list_entry_t pra_page_link;     \/\/ used for pra (page replace algorithm)$/;"	m	struct:Page
+pra_vaddr	mm/memlayout.h	/^    uintptr_t pra_vaddr;            \/\/ used for pra (page replace algorithm)$/;"	m	struct:Page
+property	mm/memlayout.h	/^    unsigned int property;          \/\/ the num of free block, used in first fit pm manager$/;"	m	struct:Page
+pte_t	mm/memlayout.h	/^typedef uintptr_t pte_t;$/;"	t
+ref	mm/memlayout.h	/^    int ref;                        \/\/ page frame's reference counter$/;"	m	struct:Page
+size	mm/memlayout.h	/^        uint64_t size;$/;"	m	struct:e820map::__anon9
+swap_entry_t	mm/memlayout.h	/^typedef pte_t swap_entry_t; \/\/the pte can also be a swap entry$/;"	t
+type	mm/memlayout.h	/^        uint32_t type;$/;"	m	struct:e820map::__anon9
+CR0_AM	mm/mmu.h	258;"	d
+CR0_CD	mm/mmu.h	260;"	d
+CR0_EM	mm/mmu.h	253;"	d
+CR0_ET	mm/mmu.h	255;"	d
+CR0_MP	mm/mmu.h	252;"	d
+CR0_NE	mm/mmu.h	256;"	d
+CR0_NW	mm/mmu.h	259;"	d
+CR0_PE	mm/mmu.h	251;"	d
+CR0_PG	mm/mmu.h	261;"	d
+CR0_TS	mm/mmu.h	254;"	d
+CR0_WP	mm/mmu.h	257;"	d
+CR4_DE	mm/mmu.h	266;"	d
+CR4_MCE	mm/mmu.h	264;"	d
+CR4_PCE	mm/mmu.h	263;"	d
+CR4_PSE	mm/mmu.h	265;"	d
+CR4_PVI	mm/mmu.h	268;"	d
+CR4_TSD	mm/mmu.h	267;"	d
+CR4_VME	mm/mmu.h	269;"	d
+FL_AC	mm/mmu.h	22;"	d
+FL_AF	mm/mmu.h	7;"	d
+FL_CF	mm/mmu.h	5;"	d
+FL_DF	mm/mmu.h	12;"	d
+FL_ID	mm/mmu.h	25;"	d
+FL_IF	mm/mmu.h	11;"	d
+FL_IOPL_0	mm/mmu.h	15;"	d
+FL_IOPL_1	mm/mmu.h	16;"	d
+FL_IOPL_2	mm/mmu.h	17;"	d
+FL_IOPL_3	mm/mmu.h	18;"	d
+FL_IOPL_MASK	mm/mmu.h	14;"	d
+FL_NT	mm/mmu.h	19;"	d
+FL_OF	mm/mmu.h	13;"	d
+FL_PF	mm/mmu.h	6;"	d
+FL_RF	mm/mmu.h	20;"	d
+FL_SF	mm/mmu.h	9;"	d
+FL_TF	mm/mmu.h	10;"	d
+FL_VIF	mm/mmu.h	23;"	d
+FL_VIP	mm/mmu.h	24;"	d
+FL_VM	mm/mmu.h	21;"	d
+FL_ZF	mm/mmu.h	8;"	d
+NPDEENTRY	mm/mmu.h	223;"	d
+NPTEENTRY	mm/mmu.h	224;"	d
+PDE_ADDR	mm/mmu.h	220;"	d
+PDX	mm/mmu.h	204;"	d
+PDXSHIFT	mm/mmu.h	232;"	d
+PGADDR	mm/mmu.h	216;"	d
+PGOFF	mm/mmu.h	213;"	d
+PGSHIFT	mm/mmu.h	227;"	d
+PGSIZE	mm/mmu.h	226;"	d
+PPN	mm/mmu.h	210;"	d
+PTE_A	mm/mmu.h	240;"	d
+PTE_ADDR	mm/mmu.h	219;"	d
+PTE_AVAIL	mm/mmu.h	244;"	d
+PTE_D	mm/mmu.h	241;"	d
+PTE_MBZ	mm/mmu.h	243;"	d
+PTE_P	mm/mmu.h	235;"	d
+PTE_PCD	mm/mmu.h	239;"	d
+PTE_PS	mm/mmu.h	242;"	d
+PTE_PWT	mm/mmu.h	238;"	d
+PTE_U	mm/mmu.h	237;"	d
+PTE_USER	mm/mmu.h	248;"	d
+PTE_W	mm/mmu.h	236;"	d
+PTSHIFT	mm/mmu.h	229;"	d
+PTSIZE	mm/mmu.h	228;"	d
+PTX	mm/mmu.h	207;"	d
+PTXSHIFT	mm/mmu.h	231;"	d
+SEG	mm/mmu.h	131;"	d
+SEGTSS	mm/mmu.h	139;"	d
+SEG_ASM	mm/mmu.h	55;"	d
+SEG_NULL	mm/mmu.h	128;"	d
+SEG_NULL	mm/mmu.h	51;"	d
+SETCALLGATE	mm/mmu.h	99;"	d
+SETGATE	mm/mmu.h	86;"	d
+STA_A	mm/mmu.h	33;"	d
+STA_C	mm/mmu.h	30;"	d
+STA_E	mm/mmu.h	29;"	d
+STA_R	mm/mmu.h	32;"	d
+STA_W	mm/mmu.h	31;"	d
+STA_X	mm/mmu.h	28;"	d
+STS_CG16	mm/mmu.h	39;"	d
+STS_CG32	mm/mmu.h	45;"	d
+STS_IG16	mm/mmu.h	41;"	d
+STS_IG32	mm/mmu.h	46;"	d
+STS_LDT	mm/mmu.h	37;"	d
+STS_T16A	mm/mmu.h	36;"	d
+STS_T16B	mm/mmu.h	38;"	d
+STS_T32A	mm/mmu.h	43;"	d
+STS_T32B	mm/mmu.h	44;"	d
+STS_TG	mm/mmu.h	40;"	d
+STS_TG16	mm/mmu.h	42;"	d
+STS_TG32	mm/mmu.h	47;"	d
+__KERN_MM_MMU_H__	mm/mmu.h	2;"	d
+gatedesc	mm/mmu.h	/^struct gatedesc {$/;"	s
+gd_args	mm/mmu.h	/^    unsigned gd_args : 5;           \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
+gd_dpl	mm/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
+gd_off_15_0	mm/mmu.h	/^    unsigned gd_off_15_0 : 16;      \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
+gd_off_31_16	mm/mmu.h	/^    unsigned gd_off_31_16 : 16;     \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
+gd_p	mm/mmu.h	/^    unsigned gd_p : 1;              \/\/ Present$/;"	m	struct:gatedesc
+gd_rsv1	mm/mmu.h	/^    unsigned gd_rsv1 : 3;           \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
+gd_s	mm/mmu.h	/^    unsigned gd_s : 1;              \/\/ must be 0 (system)$/;"	m	struct:gatedesc
+gd_ss	mm/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
+gd_type	mm/mmu.h	/^    unsigned gd_type : 4;           \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
+sd_avl	mm/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
+sd_base_15_0	mm/mmu.h	/^    unsigned sd_base_15_0 : 16;     \/\/ low bits of segment base address$/;"	m	struct:segdesc
+sd_base_23_16	mm/mmu.h	/^    unsigned sd_base_23_16 : 8;     \/\/ middle bits of segment base address$/;"	m	struct:segdesc
+sd_base_31_24	mm/mmu.h	/^    unsigned sd_base_31_24 : 8;     \/\/ high bits of segment base address$/;"	m	struct:segdesc
+sd_db	mm/mmu.h	/^    unsigned sd_db : 1;             \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
+sd_dpl	mm/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
+sd_g	mm/mmu.h	/^    unsigned sd_g : 1;              \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
+sd_lim_15_0	mm/mmu.h	/^    unsigned sd_lim_15_0 : 16;      \/\/ low bits of segment limit$/;"	m	struct:segdesc
+sd_lim_19_16	mm/mmu.h	/^    unsigned sd_lim_19_16 : 4;      \/\/ high bits of segment limit$/;"	m	struct:segdesc
+sd_p	mm/mmu.h	/^    unsigned sd_p : 1;              \/\/ present$/;"	m	struct:segdesc
+sd_rsv1	mm/mmu.h	/^    unsigned sd_rsv1 : 1;           \/\/ reserved$/;"	m	struct:segdesc
+sd_s	mm/mmu.h	/^    unsigned sd_s : 1;              \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
+sd_type	mm/mmu.h	/^    unsigned sd_type : 4;           \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
+segdesc	mm/mmu.h	/^struct segdesc {$/;"	s
+taskstate	mm/mmu.h	/^struct taskstate {$/;"	s
+ts_cr3	mm/mmu.h	/^    uintptr_t ts_cr3;       \/\/ page directory base$/;"	m	struct:taskstate
+ts_cs	mm/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
+ts_ds	mm/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
+ts_eax	mm/mmu.h	/^    uint32_t ts_eax;        \/\/ more saved state (registers)$/;"	m	struct:taskstate
+ts_ebp	mm/mmu.h	/^    uintptr_t ts_ebp;$/;"	m	struct:taskstate
+ts_ebx	mm/mmu.h	/^    uint32_t ts_ebx;$/;"	m	struct:taskstate
+ts_ecx	mm/mmu.h	/^    uint32_t ts_ecx;$/;"	m	struct:taskstate
+ts_edi	mm/mmu.h	/^    uint32_t ts_edi;$/;"	m	struct:taskstate
+ts_edx	mm/mmu.h	/^    uint32_t ts_edx;$/;"	m	struct:taskstate
+ts_eflags	mm/mmu.h	/^    uint32_t ts_eflags;$/;"	m	struct:taskstate
+ts_eip	mm/mmu.h	/^    uintptr_t ts_eip;       \/\/ saved state from last task switch$/;"	m	struct:taskstate
+ts_es	mm/mmu.h	/^    uint16_t ts_es;         \/\/ even more saved state (segment selectors)$/;"	m	struct:taskstate
+ts_esi	mm/mmu.h	/^    uint32_t ts_esi;$/;"	m	struct:taskstate
+ts_esp	mm/mmu.h	/^    uintptr_t ts_esp;$/;"	m	struct:taskstate
+ts_esp0	mm/mmu.h	/^    uintptr_t ts_esp0;      \/\/ stack pointers and segment selectors$/;"	m	struct:taskstate
+ts_esp1	mm/mmu.h	/^    uintptr_t ts_esp1;$/;"	m	struct:taskstate
+ts_esp2	mm/mmu.h	/^    uintptr_t ts_esp2;$/;"	m	struct:taskstate
+ts_fs	mm/mmu.h	/^    uint16_t ts_fs;$/;"	m	struct:taskstate
+ts_gs	mm/mmu.h	/^    uint16_t ts_gs;$/;"	m	struct:taskstate
+ts_iomb	mm/mmu.h	/^    uint16_t ts_iomb;       \/\/ i\/o map base address$/;"	m	struct:taskstate
+ts_ldt	mm/mmu.h	/^    uint16_t ts_ldt;$/;"	m	struct:taskstate
+ts_link	mm/mmu.h	/^    uint32_t ts_link;       \/\/ old ts selector$/;"	m	struct:taskstate
+ts_padding1	mm/mmu.h	/^    uint16_t ts_padding1;$/;"	m	struct:taskstate
+ts_padding10	mm/mmu.h	/^    uint16_t ts_padding10;$/;"	m	struct:taskstate
+ts_padding2	mm/mmu.h	/^    uint16_t ts_padding2;$/;"	m	struct:taskstate
+ts_padding3	mm/mmu.h	/^    uint16_t ts_padding3;$/;"	m	struct:taskstate
+ts_padding4	mm/mmu.h	/^    uint16_t ts_padding4;$/;"	m	struct:taskstate
+ts_padding5	mm/mmu.h	/^    uint16_t ts_padding5;$/;"	m	struct:taskstate
+ts_padding6	mm/mmu.h	/^    uint16_t ts_padding6;$/;"	m	struct:taskstate
+ts_padding7	mm/mmu.h	/^    uint16_t ts_padding7;$/;"	m	struct:taskstate
+ts_padding8	mm/mmu.h	/^    uint16_t ts_padding8;$/;"	m	struct:taskstate
+ts_padding9	mm/mmu.h	/^    uint16_t ts_padding9;$/;"	m	struct:taskstate
+ts_ss	mm/mmu.h	/^    uint16_t ts_ss;$/;"	m	struct:taskstate
+ts_ss0	mm/mmu.h	/^    uint16_t ts_ss0;        \/\/ after an increase in privilege level$/;"	m	struct:taskstate
+ts_ss1	mm/mmu.h	/^    uint16_t ts_ss1;$/;"	m	struct:taskstate
+ts_ss2	mm/mmu.h	/^    uint16_t ts_ss2;$/;"	m	struct:taskstate
+ts_t	mm/mmu.h	/^    uint16_t ts_t;          \/\/ trap on task switch$/;"	m	struct:taskstate
+alloc_pages	mm/pmm.c	/^alloc_pages(size_t n) {$/;"	f
+boot_alloc_page	mm/pmm.c	/^boot_alloc_page(void) {$/;"	f	file:
+boot_cr3	mm/pmm.c	/^uintptr_t boot_cr3;$/;"	v
+boot_map_segment	mm/pmm.c	/^boot_map_segment(pde_t *pgdir, uintptr_t la, size_t size, uintptr_t pa, uint32_t perm) {$/;"	f	file:
+boot_pgdir	mm/pmm.c	/^pde_t *boot_pgdir = NULL;$/;"	v
+check_alloc_page	mm/pmm.c	/^check_alloc_page(void) {$/;"	f	file:
+check_boot_pgdir	mm/pmm.c	/^check_boot_pgdir(void) {$/;"	f	file:
+check_pgdir	mm/pmm.c	/^check_pgdir(void) {$/;"	f	file:
+copy_range	mm/pmm.c	/^copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share) {$/;"	f
+enable_paging	mm/pmm.c	/^enable_paging(void) {$/;"	f	file:
+exit_range	mm/pmm.c	/^exit_range(pde_t *pgdir, uintptr_t start, uintptr_t end) {$/;"	f
+free_pages	mm/pmm.c	/^free_pages(struct Page *base, size_t n) {$/;"	f
+gdt	mm/pmm.c	/^static struct segdesc gdt[] = {$/;"	v	typeref:struct:segdesc	file:
+gdt_init	mm/pmm.c	/^gdt_init(void) {$/;"	f	file:
+gdt_pd	mm/pmm.c	/^static struct pseudodesc gdt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
+get_page	mm/pmm.c	/^get_page(pde_t *pgdir, uintptr_t la, pte_t **ptep_store) {$/;"	f
+get_pgtable_items	mm/pmm.c	/^get_pgtable_items(size_t left, size_t right, size_t start, uintptr_t *table, size_t *left_store, size_t *right_store) {$/;"	f	file:
+get_pte	mm/pmm.c	/^get_pte(pde_t *pgdir, uintptr_t la, bool create) {$/;"	f
+init_memmap	mm/pmm.c	/^init_memmap(struct Page *base, size_t n) {$/;"	f	file:
+init_pmm_manager	mm/pmm.c	/^init_pmm_manager(void) {$/;"	f	file:
+lgdt	mm/pmm.c	/^lgdt(struct pseudodesc *pd) {$/;"	f	file:
+load_esp0	mm/pmm.c	/^load_esp0(uintptr_t esp0) {$/;"	f
+npage	mm/pmm.c	/^size_t npage = 0;$/;"	v
+nr_free_pages	mm/pmm.c	/^nr_free_pages(void) {$/;"	f
+page_init	mm/pmm.c	/^page_init(void) {$/;"	f	file:
+page_insert	mm/pmm.c	/^page_insert(pde_t *pgdir, struct Page *page, uintptr_t la, uint32_t perm) {$/;"	f
+page_remove	mm/pmm.c	/^page_remove(pde_t *pgdir, uintptr_t la) {$/;"	f
+page_remove_pte	mm/pmm.c	/^page_remove_pte(pde_t *pgdir, uintptr_t la, pte_t *ptep) {$/;"	f	file:
+pages	mm/pmm.c	/^struct Page *pages;$/;"	v	typeref:struct:Page
+perm2str	mm/pmm.c	/^perm2str(int perm) {$/;"	f	file:
+pgdir_alloc_page	mm/pmm.c	/^pgdir_alloc_page(pde_t *pgdir, uintptr_t la, uint32_t perm) {$/;"	f
+pmm_init	mm/pmm.c	/^pmm_init(void) {$/;"	f
+pmm_manager	mm/pmm.c	/^const struct pmm_manager *pmm_manager;$/;"	v	typeref:struct:pmm_manager
+print_pgdir	mm/pmm.c	/^print_pgdir(void) {$/;"	f
+tlb_invalidate	mm/pmm.c	/^tlb_invalidate(pde_t *pgdir, uintptr_t la) {$/;"	f
+ts	mm/pmm.c	/^static struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate	file:
+unmap_range	mm/pmm.c	/^unmap_range(pde_t *pgdir, uintptr_t start, uintptr_t end) {$/;"	f
+vpd	mm/pmm.c	/^pde_t * const vpd = (pde_t *)PGADDR(PDX(VPT), PDX(VPT), 0);$/;"	v
+vpt	mm/pmm.c	/^pte_t * const vpt = (pte_t *)VPT;$/;"	v
+KADDR	mm/pmm.h	69;"	d
+PADDR	mm/pmm.h	57;"	d
+__KERN_MM_PMM_H__	mm/pmm.h	2;"	d
+alloc_page	mm/pmm.h	35;"	d
+alloc_pages	mm/pmm.h	/^    struct Page *(*alloc_pages)(size_t n);            \/\/ allocate >=n pages, depend on the allocation algorithm $/;"	m	struct:pmm_manager	typeref:struct:pmm_manager::alloc_pages
+check	mm/pmm.h	/^    void (*check)(void);                              \/\/ check the correctness of XXX_pmm_manager $/;"	m	struct:pmm_manager
+free_page	mm/pmm.h	36;"	d
+free_pages	mm/pmm.h	/^    void (*free_pages)(struct Page *base, size_t n);  \/\/ free >=n pages with "base" addr of Page descriptor structures(memlayout.h)$/;"	m	struct:pmm_manager
+init	mm/pmm.h	/^    void (*init)(void);                               \/\/ initialize internal description&management data structure$/;"	m	struct:pmm_manager
+init_memmap	mm/pmm.h	/^    void (*init_memmap)(struct Page *base, size_t n); \/\/ setup description&management data structcure according to$/;"	m	struct:pmm_manager
+kva2page	mm/pmm.h	/^kva2page(void *kva) {$/;"	f
+name	mm/pmm.h	/^    const char *name;                                 \/\/ XXX_pmm_manager's name$/;"	m	struct:pmm_manager
+nr_free_pages	mm/pmm.h	/^    size_t (*nr_free_pages)(void);                    \/\/ return the number of free pages $/;"	m	struct:pmm_manager
+pa2page	mm/pmm.h	/^pa2page(uintptr_t pa) {$/;"	f
+page2kva	mm/pmm.h	/^page2kva(struct Page *page) {$/;"	f
+page2pa	mm/pmm.h	/^page2pa(struct Page *page) {$/;"	f
+page2ppn	mm/pmm.h	/^page2ppn(struct Page *page) {$/;"	f
+page_ref	mm/pmm.h	/^page_ref(struct Page *page) {$/;"	f
+page_ref_dec	mm/pmm.h	/^page_ref_dec(struct Page *page) {$/;"	f
+page_ref_inc	mm/pmm.h	/^page_ref_inc(struct Page *page) {$/;"	f
+pde2page	mm/pmm.h	/^pde2page(pde_t pde) {$/;"	f
+pmm_manager	mm/pmm.h	/^struct pmm_manager {$/;"	s
+pte2page	mm/pmm.h	/^pte2page(pte_t pte) {$/;"	f
+set_page_ref	mm/pmm.h	/^set_page_ref(struct Page *page, int val) {$/;"	f
+BEING_CHECK_VALID_VADDR	mm/swap.c	14;"	d	file:
+CHECK_VALID_PHY_PAGE_NUM	mm/swap.c	17;"	d	file:
+CHECK_VALID_VADDR	mm/swap.c	15;"	d	file:
+CHECK_VALID_VIR_PAGE_NUM	mm/swap.c	13;"	d	file:
+MAX_SEQ_NO	mm/swap.c	19;"	d	file:
+check_content_access	mm/swap.c	/^check_content_access(void)$/;"	f	file:
+check_content_set	mm/swap.c	/^check_content_set(void)$/;"	f	file:
+check_ptep	mm/swap.c	/^pte_t * check_ptep[CHECK_VALID_PHY_PAGE_NUM];$/;"	v
+check_rp	mm/swap.c	/^struct Page * check_rp[CHECK_VALID_PHY_PAGE_NUM];$/;"	v	typeref:struct:Page
+check_swap	mm/swap.c	/^check_swap(void)$/;"	f	file:
+check_swap_addr	mm/swap.c	/^unsigned int check_swap_addr[CHECK_VALID_VIR_PAGE_NUM];$/;"	v
+free_list	mm/swap.c	176;"	d	file:
+max_swap_offset	mm/swap.c	/^size_t max_swap_offset;$/;"	v
+nr_free	mm/swap.c	177;"	d	file:
+sm	mm/swap.c	/^static struct swap_manager *sm;$/;"	v	typeref:struct:swap_manager	file:
+swap_in	mm/swap.c	/^swap_in(struct mm_struct *mm, uintptr_t addr, struct Page **ptr_result)$/;"	f
+swap_in_seq_no	mm/swap.c	/^unsigned int swap_in_seq_no[MAX_SEQ_NO],swap_out_seq_no[MAX_SEQ_NO];$/;"	v
+swap_init	mm/swap.c	/^swap_init(void)$/;"	f
+swap_init_mm	mm/swap.c	/^swap_init_mm(struct mm_struct *mm)$/;"	f
+swap_init_ok	mm/swap.c	/^volatile int swap_init_ok = 0;$/;"	v
+swap_map_swappable	mm/swap.c	/^swap_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int swap_in)$/;"	f
+swap_out	mm/swap.c	/^swap_out(struct mm_struct *mm, int n, int in_tick)$/;"	f
+swap_out_num	mm/swap.c	/^volatile unsigned int swap_out_num=0;$/;"	v
+swap_out_seq_no	mm/swap.c	/^unsigned int swap_in_seq_no[MAX_SEQ_NO],swap_out_seq_no[MAX_SEQ_NO];$/;"	v
+swap_page	mm/swap.c	/^unsigned int swap_page[CHECK_VALID_VIR_PAGE_NUM];$/;"	v
+swap_set_unswappable	mm/swap.c	/^swap_set_unswappable(struct mm_struct *mm, uintptr_t addr)$/;"	f
+swap_tick_event	mm/swap.c	/^swap_tick_event(struct mm_struct *mm)$/;"	f
+MAX_SWAP_OFFSET_LIMIT	mm/swap.h	17;"	d
+__KERN_MM_SWAP_H__	mm/swap.h	2;"	d
+check_swap	mm/swap.h	/^     int (*check_swap)(void);     $/;"	m	struct:swap_manager
+init	mm/swap.h	/^     int (*init)            (void);$/;"	m	struct:swap_manager
+init_mm	mm/swap.h	/^     int (*init_mm)         (struct mm_struct *mm);$/;"	m	struct:swap_manager
+map_swappable	mm/swap.h	/^     int (*map_swappable)   (struct mm_struct *mm, uintptr_t addr, struct Page *page, int swap_in);$/;"	m	struct:swap_manager
+name	mm/swap.h	/^     const char *name;$/;"	m	struct:swap_manager
+set_unswappable	mm/swap.h	/^     int (*set_unswappable) (struct mm_struct *mm, uintptr_t addr);$/;"	m	struct:swap_manager
+swap_manager	mm/swap.h	/^struct swap_manager$/;"	s
+swap_offset	mm/swap.h	25;"	d
+swap_out_victim	mm/swap.h	/^     int (*swap_out_victim) (struct mm_struct *mm, struct Page **ptr_page, int in_tick);$/;"	m	struct:swap_manager
+tick_event	mm/swap.h	/^     int (*tick_event)      (struct mm_struct *mm);$/;"	m	struct:swap_manager
+_fifo_check_swap	mm/swap_fifo.c	/^_fifo_check_swap(void) {$/;"	f	file:
+_fifo_init	mm/swap_fifo.c	/^_fifo_init(void)$/;"	f	file:
+_fifo_init_mm	mm/swap_fifo.c	/^_fifo_init_mm(struct mm_struct *mm)$/;"	f	file:
+_fifo_map_swappable	mm/swap_fifo.c	/^_fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int swap_in)$/;"	f	file:
+_fifo_set_unswappable	mm/swap_fifo.c	/^_fifo_set_unswappable(struct mm_struct *mm, uintptr_t addr)$/;"	f	file:
+_fifo_swap_out_victim	mm/swap_fifo.c	/^_fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick)$/;"	f	file:
+_fifo_tick_event	mm/swap_fifo.c	/^_fifo_tick_event(struct mm_struct *mm)$/;"	f	file:
+pra_list_head	mm/swap_fifo.c	/^list_entry_t pra_list_head;$/;"	v
+swap_manager_fifo	mm/swap_fifo.c	/^struct swap_manager swap_manager_fifo =$/;"	v	typeref:struct:swap_manager
+__KERN_MM_SWAP_FIFO_H__	mm/swap_fifo.h	2;"	d
+check_mm_struct	mm/vmm.c	/^struct mm_struct *check_mm_struct;$/;"	v	typeref:struct:mm_struct
+check_pgfault	mm/vmm.c	/^check_pgfault(void) {$/;"	f	file:
+check_vma_overlap	mm/vmm.c	/^check_vma_overlap(struct vma_struct *prev, struct vma_struct *next) {$/;"	f	file:
+check_vma_struct	mm/vmm.c	/^check_vma_struct(void) {$/;"	f	file:
+check_vmm	mm/vmm.c	/^check_vmm(void) {$/;"	f	file:
+copy_from_user	mm/vmm.c	/^copy_from_user(struct mm_struct *mm, void *dst, const void *src, size_t len, bool writable) {$/;"	f
+copy_string	mm/vmm.c	/^copy_string(struct mm_struct *mm, char *dst, const char *src, size_t maxn) {$/;"	f
+copy_to_user	mm/vmm.c	/^copy_to_user(struct mm_struct *mm, void *dst, const void *src, size_t len) {$/;"	f
+do_pgfault	mm/vmm.c	/^do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {$/;"	f
+dup_mmap	mm/vmm.c	/^dup_mmap(struct mm_struct *to, struct mm_struct *from) {$/;"	f
+exit_mmap	mm/vmm.c	/^exit_mmap(struct mm_struct *mm) {$/;"	f
+find_vma	mm/vmm.c	/^find_vma(struct mm_struct *mm, uintptr_t addr) {$/;"	f
+insert_vma_struct	mm/vmm.c	/^insert_vma_struct(struct mm_struct *mm, struct vma_struct *vma) {$/;"	f
+mm_create	mm/vmm.c	/^mm_create(void) {$/;"	f
+mm_destroy	mm/vmm.c	/^mm_destroy(struct mm_struct *mm) {$/;"	f
+mm_map	mm/vmm.c	/^mm_map(struct mm_struct *mm, uintptr_t addr, size_t len, uint32_t vm_flags,$/;"	f
+pgfault_num	mm/vmm.c	/^volatile unsigned int pgfault_num=0;$/;"	v
+user_mem_check	mm/vmm.c	/^user_mem_check(struct mm_struct *mm, uintptr_t addr, size_t len, bool write) {$/;"	f
+vma_create	mm/vmm.c	/^vma_create(uintptr_t vm_start, uintptr_t vm_end, uint32_t vm_flags) {$/;"	f
+vmm_init	mm/vmm.c	/^vmm_init(void) {$/;"	f
+VM_EXEC	mm/vmm.h	29;"	d
+VM_READ	mm/vmm.h	27;"	d
+VM_STACK	mm/vmm.h	30;"	d
+VM_WRITE	mm/vmm.h	28;"	d
+__KERN_MM_VMM_H__	mm/vmm.h	2;"	d
+le2vma	mm/vmm.h	24;"	d
+list_link	mm/vmm.h	/^    list_entry_t list_link;  \/\/ linear list link which sorted by start addr of vma$/;"	m	struct:vma_struct
+lock_mm	mm/vmm.h	/^lock_mm(struct mm_struct *mm) {$/;"	f
+locked_by	mm/vmm.h	/^    int locked_by;                 \/\/ the lock owner process's pid$/;"	m	struct:mm_struct
+map_count	mm/vmm.h	/^    int map_count;                 \/\/ the count of these vma$/;"	m	struct:mm_struct
+mm_count	mm/vmm.h	/^    int mm_count;                  \/\/ the number ofprocess which shared the mm$/;"	m	struct:mm_struct
+mm_count	mm/vmm.h	/^mm_count(struct mm_struct *mm) {$/;"	f
+mm_count_dec	mm/vmm.h	/^mm_count_dec(struct mm_struct *mm) {$/;"	f
+mm_count_inc	mm/vmm.h	/^mm_count_inc(struct mm_struct *mm) {$/;"	f
+mm_sem	mm/vmm.h	/^    semaphore_t mm_sem;            \/\/ mutex for using dup_mmap fun to duplicat the mm $/;"	m	struct:mm_struct
+mm_struct	mm/vmm.h	/^struct mm_struct {$/;"	s
+mmap_cache	mm/vmm.h	/^    struct vma_struct *mmap_cache; \/\/ current accessed vma, used for speed purpose$/;"	m	struct:mm_struct	typeref:struct:mm_struct::vma_struct
+mmap_list	mm/vmm.h	/^    list_entry_t mmap_list;        \/\/ linear list link which sorted by start addr of vma$/;"	m	struct:mm_struct
+pgdir	mm/vmm.h	/^    pde_t *pgdir;                  \/\/ the PDT of these vma$/;"	m	struct:mm_struct
+set_mm_count	mm/vmm.h	/^set_mm_count(struct mm_struct *mm, int val) {$/;"	f
+sm_priv	mm/vmm.h	/^    void *sm_priv;                 \/\/ the private data for swap manager$/;"	m	struct:mm_struct
+unlock_mm	mm/vmm.h	/^unlock_mm(struct mm_struct *mm) {$/;"	f
+vm_end	mm/vmm.h	/^    uintptr_t vm_end;        \/\/ end addr of vma, not include the vm_end itself$/;"	m	struct:vma_struct
+vm_flags	mm/vmm.h	/^    uint32_t vm_flags;       \/\/ flags of vma$/;"	m	struct:vma_struct
+vm_mm	mm/vmm.h	/^    struct mm_struct *vm_mm; \/\/ the set of vma using the same PDT $/;"	m	struct:vma_struct	typeref:struct:vma_struct::mm_struct
+vm_start	mm/vmm.h	/^    uintptr_t vm_start;      \/\/ start addr of vma      $/;"	m	struct:vma_struct
+vma_struct	mm/vmm.h	/^struct vma_struct {$/;"	s
+kernel_thread_entry	process/entry.S	/^kernel_thread_entry:        # void kernel_thread(void)$/;"	l
+HASH_LIST_SIZE	process/proc.c	69;"	d	file:
+HASH_SHIFT	process/proc.c	68;"	d	file:
+KERNEL_EXECVE	process/proc.c	785;"	d	file:
+KERNEL_EXECVE2	process/proc.c	787;"	d	file:
+KERNEL_EXECVE3	process/proc.c	791;"	d	file:
+__KERNEL_EXECVE	process/proc.c	778;"	d	file:
+__KERNEL_EXECVE3	process/proc.c	789;"	d	file:
+alloc_proc	process/proc.c	/^alloc_proc(void) {$/;"	f	file:
+copy_files	process/proc.c	/^copy_files(uint32_t clone_flags, struct proc_struct *proc) {$/;"	f	file:
+copy_kargv	process/proc.c	/^copy_kargv(struct mm_struct *mm, int argc, char **kargv, const char **argv) {$/;"	f	file:
+copy_mm	process/proc.c	/^copy_mm(uint32_t clone_flags, struct proc_struct *proc) {$/;"	f	file:
+copy_thread	process/proc.c	/^copy_thread(struct proc_struct *proc, uintptr_t esp, struct trapframe *tf) {$/;"	f	file:
+cpu_idle	process/proc.c	/^cpu_idle(void) {$/;"	f
+current	process/proc.c	/^struct proc_struct *current = NULL;$/;"	v	typeref:struct:proc_struct
+do_execve	process/proc.c	/^do_execve(const char *name, int argc, const char **argv) {$/;"	f
+do_exit	process/proc.c	/^do_exit(int error_code) {$/;"	f
+do_fork	process/proc.c	/^do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {$/;"	f
+do_kill	process/proc.c	/^do_kill(int pid) {$/;"	f
+do_sleep	process/proc.c	/^do_sleep(unsigned int time) {$/;"	f
+do_wait	process/proc.c	/^do_wait(int pid, int *code_store) {$/;"	f
+do_yield	process/proc.c	/^do_yield(void) {$/;"	f
+find_proc	process/proc.c	/^find_proc(int pid) {$/;"	f
+forkret	process/proc.c	/^forkret(void) {$/;"	f	file:
+get_pid	process/proc.c	/^get_pid(void) {$/;"	f	file:
+get_proc_name	process/proc.c	/^get_proc_name(struct proc_struct *proc) {$/;"	f
+hash_list	process/proc.c	/^static list_entry_t hash_list[HASH_LIST_SIZE];$/;"	v	file:
+hash_proc	process/proc.c	/^hash_proc(struct proc_struct *proc) {$/;"	f	file:
+idleproc	process/proc.c	/^struct proc_struct *idleproc = NULL;$/;"	v	typeref:struct:proc_struct
+init_main	process/proc.c	/^init_main(void *arg) {$/;"	f	file:
+initproc	process/proc.c	/^struct proc_struct *initproc = NULL;$/;"	v	typeref:struct:proc_struct
+kernel_execve	process/proc.c	/^kernel_execve(const char *name, const char **argv) {$/;"	f	file:
+kernel_thread	process/proc.c	/^kernel_thread(int (*fn)(void *), void *arg, uint32_t clone_flags) {$/;"	f
+lab6_set_priority	process/proc.c	/^lab6_set_priority(uint32_t priority)$/;"	f
+load_icode	process/proc.c	/^load_icode(int fd, int argc, char **kargv) {$/;"	f	file:
+load_icode_read	process/proc.c	/^load_icode_read(int fd, void *buf, size_t len, off_t offset) {$/;"	f	file:
+nr_process	process/proc.c	/^static int nr_process = 0;$/;"	v	file:
+pid_hashfn	process/proc.c	70;"	d	file:
+proc_init	process/proc.c	/^proc_init(void) {$/;"	f
+proc_list	process/proc.c	/^list_entry_t proc_list;$/;"	v
+proc_run	process/proc.c	/^proc_run(struct proc_struct *proc) {$/;"	f
+put_files	process/proc.c	/^put_files(struct proc_struct *proc) {$/;"	f	file:
+put_kargv	process/proc.c	/^put_kargv(int argc, char **kargv) {$/;"	f	file:
+put_kstack	process/proc.c	/^put_kstack(struct proc_struct *proc) {$/;"	f	file:
+put_pgdir	process/proc.c	/^put_pgdir(struct mm_struct *mm) {$/;"	f	file:
+remove_links	process/proc.c	/^remove_links(struct proc_struct *proc) {$/;"	f	file:
+set_links	process/proc.c	/^set_links(struct proc_struct *proc) {$/;"	f	file:
+set_proc_name	process/proc.c	/^set_proc_name(struct proc_struct *proc, const char *name) {$/;"	f
+setup_kstack	process/proc.c	/^setup_kstack(struct proc_struct *proc) {$/;"	f	file:
+setup_pgdir	process/proc.c	/^setup_pgdir(struct mm_struct *mm) {$/;"	f	file:
+unhash_proc	process/proc.c	/^unhash_proc(struct proc_struct *proc) {$/;"	f	file:
+user_main	process/proc.c	/^user_main(void *arg) {$/;"	f	file:
+MAX_PID	process/proc.h	39;"	d
+MAX_PROCESS	process/proc.h	38;"	d
+PF_EXITING	process/proc.h	72;"	d
+PROC_NAME_LEN	process/proc.h	37;"	d
+PROC_RUNNABLE	process/proc.h	/^    PROC_RUNNABLE,    \/\/ runnable(maybe running)$/;"	e	enum:proc_state
+PROC_SLEEPING	process/proc.h	/^    PROC_SLEEPING,    \/\/ sleeping$/;"	e	enum:proc_state
+PROC_UNINIT	process/proc.h	/^    PROC_UNINIT = 0,  \/\/ uninitialized$/;"	e	enum:proc_state
+PROC_ZOMBIE	process/proc.h	/^    PROC_ZOMBIE,      \/\/ almost dead, and wait parent proc to reclaim his resource$/;"	e	enum:proc_state
+WT_CHILD	process/proc.h	75;"	d
+WT_INTERRUPTED	process/proc.h	74;"	d
+WT_KBD	process/proc.h	78;"	d
+WT_KSEM	process/proc.h	76;"	d
+WT_TIMER	process/proc.h	77;"	d
+__KERN_PROCESS_PROC_H__	process/proc.h	2;"	d
+context	process/proc.h	/^    struct context context;                     \/\/ Switch here to run process$/;"	m	struct:proc_struct	typeref:struct:proc_struct::context
+context	process/proc.h	/^struct context {$/;"	s
+cptr	process/proc.h	/^    struct proc_struct *cptr, *yptr, *optr;     \/\/ relations between processes$/;"	m	struct:proc_struct	typeref:struct:proc_struct::proc_struct
+cr3	process/proc.h	/^    uintptr_t cr3;                              \/\/ CR3 register: the base addr of Page Directroy Table(PDT)$/;"	m	struct:proc_struct
+ebp	process/proc.h	/^    uint32_t ebp;$/;"	m	struct:context
+ebx	process/proc.h	/^    uint32_t ebx;$/;"	m	struct:context
+ecx	process/proc.h	/^    uint32_t ecx;$/;"	m	struct:context
+edi	process/proc.h	/^    uint32_t edi;$/;"	m	struct:context
+edx	process/proc.h	/^    uint32_t edx;$/;"	m	struct:context
+eip	process/proc.h	/^    uint32_t eip;$/;"	m	struct:context
+esi	process/proc.h	/^    uint32_t esi;$/;"	m	struct:context
+esp	process/proc.h	/^    uint32_t esp;$/;"	m	struct:context
+exit_code	process/proc.h	/^    int exit_code;                              \/\/ exit code (be sent to parent proc)$/;"	m	struct:proc_struct
+filesp	process/proc.h	/^    struct files_struct *filesp;                \/\/ the file related info(pwd, files_count, files_array, fs_semaphore) of process$/;"	m	struct:proc_struct	typeref:struct:proc_struct::files_struct
+flags	process/proc.h	/^    uint32_t flags;                             \/\/ Process flag$/;"	m	struct:proc_struct
+hash_link	process/proc.h	/^    list_entry_t hash_link;                     \/\/ Process hash list$/;"	m	struct:proc_struct
+kstack	process/proc.h	/^    uintptr_t kstack;                           \/\/ Process kernel stack$/;"	m	struct:proc_struct
+lab6_priority	process/proc.h	/^    uint32_t lab6_priority;                     \/\/ FOR LAB6 ONLY: the priority of process, set by lab6_set_priority(uint32_t)$/;"	m	struct:proc_struct
+lab6_run_pool	process/proc.h	/^    skew_heap_entry_t lab6_run_pool;            \/\/ FOR LAB6 ONLY: the entry in the run pool$/;"	m	struct:proc_struct
+lab6_stride	process/proc.h	/^    uint32_t lab6_stride;                       \/\/ FOR LAB6 ONLY: the current stride of the process$/;"	m	struct:proc_struct
+le2proc	process/proc.h	80;"	d
+list_link	process/proc.h	/^    list_entry_t list_link;                     \/\/ Process link list$/;"	m	struct:proc_struct
+mm	process/proc.h	/^    struct mm_struct *mm;                       \/\/ Process's memory management field$/;"	m	struct:proc_struct	typeref:struct:proc_struct::mm_struct
+name	process/proc.h	/^    char name[PROC_NAME_LEN + 1];               \/\/ Process name$/;"	m	struct:proc_struct
+need_resched	process/proc.h	/^    volatile bool need_resched;                 \/\/ bool value: need to be rescheduled to release CPU?$/;"	m	struct:proc_struct
+optr	process/proc.h	/^    struct proc_struct *cptr, *yptr, *optr;     \/\/ relations between processes$/;"	m	struct:proc_struct	typeref:struct:proc_struct::
+parent	process/proc.h	/^    struct proc_struct *parent;                 \/\/ the parent process$/;"	m	struct:proc_struct	typeref:struct:proc_struct::proc_struct
+pid	process/proc.h	/^    int pid;                                    \/\/ Process ID$/;"	m	struct:proc_struct
+proc_state	process/proc.h	/^enum proc_state {$/;"	g
+proc_struct	process/proc.h	/^struct proc_struct {$/;"	s
+rq	process/proc.h	/^    struct run_queue *rq;                       \/\/ running queue contains Process$/;"	m	struct:proc_struct	typeref:struct:proc_struct::run_queue
+run_link	process/proc.h	/^    list_entry_t run_link;                      \/\/ the entry linked in run queue$/;"	m	struct:proc_struct
+runs	process/proc.h	/^    int runs;                                   \/\/ the running times of Proces$/;"	m	struct:proc_struct
+state	process/proc.h	/^    enum proc_state state;                      \/\/ Process state$/;"	m	struct:proc_struct	typeref:enum:proc_struct::proc_state
+tf	process/proc.h	/^    struct trapframe *tf;                       \/\/ Trap frame for current interrupt$/;"	m	struct:proc_struct	typeref:struct:proc_struct::trapframe
+time_slice	process/proc.h	/^    int time_slice;                             \/\/ time slice for occupying the CPU$/;"	m	struct:proc_struct
+wait_state	process/proc.h	/^    uint32_t wait_state;                        \/\/ waiting state$/;"	m	struct:proc_struct
+yptr	process/proc.h	/^    struct proc_struct *cptr, *yptr, *optr;     \/\/ relations between processes$/;"	m	struct:proc_struct	typeref:struct:proc_struct::
+switch_to	process/switch.S	/^switch_to:                      # switch_to(from, to)$/;"	l
+RR_dequeue	schedule/default_sched.c	/^RR_dequeue(struct run_queue *rq, struct proc_struct *proc) {$/;"	f	file:
+RR_enqueue	schedule/default_sched.c	/^RR_enqueue(struct run_queue *rq, struct proc_struct *proc) {$/;"	f	file:
+RR_init	schedule/default_sched.c	/^RR_init(struct run_queue *rq) {$/;"	f	file:
+RR_pick_next	schedule/default_sched.c	/^RR_pick_next(struct run_queue *rq) {$/;"	f	file:
+RR_proc_tick	schedule/default_sched.c	/^RR_proc_tick(struct run_queue *rq, struct proc_struct *proc) {$/;"	f	file:
+default_sched_class	schedule/default_sched.c	/^struct sched_class default_sched_class = {$/;"	v	typeref:struct:sched_class
+__KERN_SCHEDULE_SCHED_RR_H__	schedule/default_sched.h	2;"	d
+__rq	schedule/sched.c	/^static struct run_queue __rq;$/;"	v	typeref:struct:run_queue	file:
+add_timer	schedule/sched.c	/^add_timer(timer_t *timer) {$/;"	f
+del_timer	schedule/sched.c	/^del_timer(timer_t *timer) {$/;"	f
+rq	schedule/sched.c	/^static struct run_queue *rq;$/;"	v	typeref:struct:run_queue	file:
+run_timer_list	schedule/sched.c	/^run_timer_list(void) {$/;"	f
+sched_class	schedule/sched.c	/^static struct sched_class *sched_class;$/;"	v	typeref:struct:sched_class	file:
+sched_class_dequeue	schedule/sched.c	/^sched_class_dequeue(struct proc_struct *proc) {$/;"	f	file:
+sched_class_enqueue	schedule/sched.c	/^sched_class_enqueue(struct proc_struct *proc) {$/;"	f	file:
+sched_class_pick_next	schedule/sched.c	/^sched_class_pick_next(void) {$/;"	f	file:
+sched_class_proc_tick	schedule/sched.c	/^sched_class_proc_tick(struct proc_struct *proc) {$/;"	f	file:
+sched_init	schedule/sched.c	/^sched_init(void) {$/;"	f
+schedule	schedule/sched.c	/^schedule(void) {$/;"	f
+timer_list	schedule/sched.c	/^static list_entry_t timer_list;$/;"	v	file:
+wakeup_proc	schedule/sched.c	/^wakeup_proc(struct proc_struct *proc) {$/;"	f
+MAX_TIME_SLICE	schedule/sched.h	8;"	d
+__KERN_SCHEDULE_SCHED_H__	schedule/sched.h	2;"	d
+dequeue	schedule/sched.h	/^    void (*dequeue)(struct run_queue *rq, struct proc_struct *proc);$/;"	m	struct:sched_class
+enqueue	schedule/sched.h	/^    void (*enqueue)(struct run_queue *rq, struct proc_struct *proc);$/;"	m	struct:sched_class
+expires	schedule/sched.h	/^    unsigned int expires;       \/\/the expire time$/;"	m	struct:__anon11
+init	schedule/sched.h	/^    void (*init)(struct run_queue *rq);$/;"	m	struct:sched_class
+lab6_run_pool	schedule/sched.h	/^    skew_heap_entry_t *lab6_run_pool;$/;"	m	struct:run_queue
+le2timer	schedule/sched.h	18;"	d
+max_time_slice	schedule/sched.h	/^    int max_time_slice;$/;"	m	struct:run_queue
+name	schedule/sched.h	/^    const char *name;$/;"	m	struct:sched_class
+pick_next	schedule/sched.h	/^    struct proc_struct *(*pick_next)(struct run_queue *rq);$/;"	m	struct:sched_class	typeref:struct:sched_class::pick_next
+proc	schedule/sched.h	/^    struct proc_struct *proc;   \/\/the proc wait in this timer. If the expire time is end, then this proc will be scheduled$/;"	m	struct:__anon11	typeref:struct:__anon11::proc_struct
+proc_num	schedule/sched.h	/^    unsigned int proc_num;$/;"	m	struct:run_queue
+proc_tick	schedule/sched.h	/^    void (*proc_tick)(struct run_queue *rq, struct proc_struct *proc);$/;"	m	struct:sched_class
+run_list	schedule/sched.h	/^    list_entry_t run_list;$/;"	m	struct:run_queue
+run_queue	schedule/sched.h	/^struct run_queue {$/;"	s
+sched_class	schedule/sched.h	/^struct sched_class {$/;"	s
+timer_init	schedule/sched.h	/^timer_init(timer_t *timer, struct proc_struct *proc, int expires) {$/;"	f
+timer_link	schedule/sched.h	/^    list_entry_t timer_link;    \/\/the timer list$/;"	m	struct:__anon11
+timer_t	schedule/sched.h	/^} timer_t;$/;"	t	typeref:struct:__anon11
+EATING	sync/check_sync.c	12;"	d	file:
+HUNGRY	sync/check_sync.c	11;"	d	file:
+LEFT	sync/check_sync.c	8;"	d	file:
+N	sync/check_sync.c	7;"	d	file:
+RIGHT	sync/check_sync.c	9;"	d	file:
+SLEEP_TIME	sync/check_sync.c	14;"	d	file:
+THINKING	sync/check_sync.c	10;"	d	file:
+TIMES	sync/check_sync.c	13;"	d	file:
+check_sync	sync/check_sync.c	/^void check_sync(void){$/;"	f
+mt	sync/check_sync.c	/^monitor_t mt, *mtp=&mt;                          \/\/ monitor$/;"	v
+mtp	sync/check_sync.c	/^monitor_t mt, *mtp=&mt;                          \/\/ monitor$/;"	v
+mutex	sync/check_sync.c	/^semaphore_t mutex; \/* 临界区互斥 *\/$/;"	v
+phi_put_forks_condvar	sync/check_sync.c	/^void phi_put_forks_condvar(int i) {$/;"	f
+phi_put_forks_sema	sync/check_sync.c	/^void phi_put_forks_sema(int i) \/* i：哲学家号码从0到N-1 *\/$/;"	f
+phi_take_forks_condvar	sync/check_sync.c	/^void phi_take_forks_condvar(int i) {$/;"	f
+phi_take_forks_sema	sync/check_sync.c	/^void phi_take_forks_sema(int i) \/* i：哲学家号码从0到N-1 *\/$/;"	f
+phi_test_condvar	sync/check_sync.c	/^void phi_test_condvar (i) { $/;"	f
+phi_test_sema	sync/check_sync.c	/^void phi_test_sema(i) \/* i：哲学家号码从0到N-1 *\/$/;"	f
+philosopher_proc_condvar	sync/check_sync.c	/^struct proc_struct *philosopher_proc_condvar[N]; \/\/ N philosopher$/;"	v	typeref:struct:proc_struct
+philosopher_proc_sema	sync/check_sync.c	/^struct proc_struct *philosopher_proc_sema[N];$/;"	v	typeref:struct:proc_struct
+philosopher_using_condvar	sync/check_sync.c	/^int philosopher_using_condvar(void * arg) { \/* arg is the No. of philosopher 0~N-1*\/$/;"	f
+philosopher_using_semaphore	sync/check_sync.c	/^int philosopher_using_semaphore(void * arg) \/* i：哲学家号码，从0到N-1 *\/$/;"	f
+s	sync/check_sync.c	/^semaphore_t s[N]; \/* 每个哲学家一个信号量 *\/$/;"	v
+state_condvar	sync/check_sync.c	/^int state_condvar[N];                            \/\/ the philosopher's state: EATING, HUNGARY, THINKING  $/;"	v
+state_sema	sync/check_sync.c	/^int state_sema[N]; \/* 记录每个人状态的数组 *\/$/;"	v
+cond_signal	sync/monitor.c	/^cond_signal (condvar_t *cvp) {$/;"	f
+cond_wait	sync/monitor.c	/^cond_wait (condvar_t *cvp) {$/;"	f
+monitor_init	sync/monitor.c	/^monitor_init (monitor_t * mtp, size_t num_cv) {$/;"	f
+__KERN_SYNC_MOINTOR_CONDVAR_H__	sync/monitor.h	2;"	d
+condvar	sync/monitor.h	/^typedef struct condvar{$/;"	s
+condvar_t	sync/monitor.h	/^} condvar_t;$/;"	t	typeref:struct:condvar
+count	sync/monitor.h	/^    int count;              \/\/ the number of waiters on condvar$/;"	m	struct:condvar
+cv	sync/monitor.h	/^    condvar_t *cv;          \/\/ the condvars in monitor$/;"	m	struct:monitor
+monitor	sync/monitor.h	/^typedef struct monitor{$/;"	s
+monitor_t	sync/monitor.h	/^typedef struct monitor monitor_t;$/;"	t	typeref:struct:monitor
+monitor_t	sync/monitor.h	/^} monitor_t;$/;"	t	typeref:struct:monitor
+mutex	sync/monitor.h	/^    semaphore_t mutex;      \/\/ the mutex lock for going into the routines in monitor, should be initialized to 1$/;"	m	struct:monitor
+next	sync/monitor.h	/^    semaphore_t next;       \/\/ the next semaphore is used to down the signaling proc itself, and the other OR wakeuped waiting proc should wake up the sleeped signaling proc.$/;"	m	struct:monitor
+next_count	sync/monitor.h	/^    int next_count;         \/\/ the number of of sleeped signaling proc$/;"	m	struct:monitor
+owner	sync/monitor.h	/^    monitor_t * owner;      \/\/ the owner(monitor) of this condvar$/;"	m	struct:condvar
+sem	sync/monitor.h	/^    semaphore_t sem;        \/\/ the sem semaphore  is used to down the waiting proc, and the signaling proc should up the waiting proc$/;"	m	struct:condvar
+__down	sync/sem.c	/^static __noinline uint32_t __down(semaphore_t *sem, uint32_t wait_state) {$/;"	f	file:
+__up	sync/sem.c	/^static __noinline void __up(semaphore_t *sem, uint32_t wait_state) {$/;"	f	file:
+down	sync/sem.c	/^down(semaphore_t *sem) {$/;"	f
+sem_init	sync/sem.c	/^sem_init(semaphore_t *sem, int value) {$/;"	f
+try_down	sync/sem.c	/^try_down(semaphore_t *sem) {$/;"	f
+up	sync/sem.c	/^up(semaphore_t *sem) {$/;"	f
+__KERN_SYNC_SEM_H__	sync/sem.h	2;"	d
+semaphore_t	sync/sem.h	/^} semaphore_t;$/;"	t	typeref:struct:__anon12
+value	sync/sem.h	/^    int value;$/;"	m	struct:__anon12
+wait_queue	sync/sem.h	/^    wait_queue_t wait_queue;$/;"	m	struct:__anon12
+__KERN_SYNC_SYNC_H__	sync/sync.h	2;"	d
+__intr_restore	sync/sync.h	/^__intr_restore(bool flag) {$/;"	f
+__intr_save	sync/sync.h	/^__intr_save(void) {$/;"	f
+local_intr_restore	sync/sync.h	28;"	d
+local_intr_save	sync/sync.h	27;"	d
+wait_current_set	sync/wait.c	/^wait_current_set(wait_queue_t *queue, wait_t *wait, uint32_t wait_state) {$/;"	f
+wait_in_queue	sync/wait.c	/^wait_in_queue(wait_t *wait) {$/;"	f
+wait_init	sync/wait.c	/^wait_init(wait_t *wait, struct proc_struct *proc) {$/;"	f
+wait_queue_add	sync/wait.c	/^wait_queue_add(wait_queue_t *queue, wait_t *wait) {$/;"	f
+wait_queue_del	sync/wait.c	/^wait_queue_del(wait_queue_t *queue, wait_t *wait) {$/;"	f
+wait_queue_empty	sync/wait.c	/^wait_queue_empty(wait_queue_t *queue) {$/;"	f
+wait_queue_first	sync/wait.c	/^wait_queue_first(wait_queue_t *queue) {$/;"	f
+wait_queue_init	sync/wait.c	/^wait_queue_init(wait_queue_t *queue) {$/;"	f
+wait_queue_last	sync/wait.c	/^wait_queue_last(wait_queue_t *queue) {$/;"	f
+wait_queue_next	sync/wait.c	/^wait_queue_next(wait_queue_t *queue, wait_t *wait) {$/;"	f
+wait_queue_prev	sync/wait.c	/^wait_queue_prev(wait_queue_t *queue, wait_t *wait) {$/;"	f
+wakeup_first	sync/wait.c	/^wakeup_first(wait_queue_t *queue, uint32_t wakeup_flags, bool del) {$/;"	f
+wakeup_queue	sync/wait.c	/^wakeup_queue(wait_queue_t *queue, uint32_t wakeup_flags, bool del) {$/;"	f
+wakeup_wait	sync/wait.c	/^wakeup_wait(wait_queue_t *queue, wait_t *wait, uint32_t wakeup_flags, bool del) {$/;"	f
+__KERN_SYNC_WAIT_H__	sync/wait.h	2;"	d
+le2wait	sync/wait.h	19;"	d
+proc	sync/wait.h	/^    struct proc_struct *proc;$/;"	m	struct:__anon14	typeref:struct:__anon14::proc_struct
+wait_current_del	sync/wait.h	40;"	d
+wait_head	sync/wait.h	/^    list_entry_t wait_head;$/;"	m	struct:__anon13
+wait_link	sync/wait.h	/^    list_entry_t wait_link;$/;"	m	struct:__anon14
+wait_queue	sync/wait.h	/^    wait_queue_t *wait_queue;$/;"	m	struct:__anon14
+wait_queue_t	sync/wait.h	/^} wait_queue_t;$/;"	t	typeref:struct:__anon13
+wait_t	sync/wait.h	/^} wait_t;$/;"	t	typeref:struct:__anon14
+wakeup_flags	sync/wait.h	/^    uint32_t wakeup_flags;$/;"	m	struct:__anon14
+NUM_SYSCALLS	syscall/syscall.c	185;"	d	file:
+sys_close	syscall/syscall.c	/^sys_close(uint32_t arg[]) {$/;"	f	file:
+sys_dup	syscall/syscall.c	/^sys_dup(uint32_t arg[]) {$/;"	f	file:
+sys_exec	syscall/syscall.c	/^sys_exec(uint32_t arg[]) {$/;"	f	file:
+sys_exit	syscall/syscall.c	/^sys_exit(uint32_t arg[]) {$/;"	f	file:
+sys_fork	syscall/syscall.c	/^sys_fork(uint32_t arg[]) {$/;"	f	file:
+sys_fstat	syscall/syscall.c	/^sys_fstat(uint32_t arg[]) {$/;"	f	file:
+sys_fsync	syscall/syscall.c	/^sys_fsync(uint32_t arg[]) {$/;"	f	file:
+sys_getcwd	syscall/syscall.c	/^sys_getcwd(uint32_t arg[]) {$/;"	f	file:
+sys_getdirentry	syscall/syscall.c	/^sys_getdirentry(uint32_t arg[]) {$/;"	f	file:
+sys_getpid	syscall/syscall.c	/^sys_getpid(uint32_t arg[]) {$/;"	f	file:
+sys_gettime	syscall/syscall.c	/^sys_gettime(uint32_t arg[]) {$/;"	f	file:
+sys_kill	syscall/syscall.c	/^sys_kill(uint32_t arg[]) {$/;"	f	file:
+sys_lab6_set_priority	syscall/syscall.c	/^sys_lab6_set_priority(uint32_t arg[])$/;"	f	file:
+sys_open	syscall/syscall.c	/^sys_open(uint32_t arg[]) {$/;"	f	file:
+sys_pgdir	syscall/syscall.c	/^sys_pgdir(uint32_t arg[]) {$/;"	f	file:
+sys_putc	syscall/syscall.c	/^sys_putc(uint32_t arg[]) {$/;"	f	file:
+sys_read	syscall/syscall.c	/^sys_read(uint32_t arg[]) {$/;"	f	file:
+sys_seek	syscall/syscall.c	/^sys_seek(uint32_t arg[]) {$/;"	f	file:
+sys_sleep	syscall/syscall.c	/^sys_sleep(uint32_t arg[]) {$/;"	f	file:
+sys_wait	syscall/syscall.c	/^sys_wait(uint32_t arg[]) {$/;"	f	file:
+sys_write	syscall/syscall.c	/^sys_write(uint32_t arg[]) {$/;"	f	file:
+sys_yield	syscall/syscall.c	/^sys_yield(uint32_t arg[]) {$/;"	f	file:
+syscall	syscall/syscall.c	/^syscall(void) {$/;"	f
+syscalls	syscall/syscall.c	/^static int (*syscalls[])(uint32_t arg[]) = {$/;"	v	file:
+__KERN_SYSCALL_SYSCALL_H__	syscall/syscall.h	2;"	d
+IA32flags	trap/trap.c	/^static const char *IA32flags[] = {$/;"	v	file:
+TICK_NUM	trap/trap.c	20;"	d	file:
+idt	trap/trap.c	/^static struct gatedesc idt[256] = {{0}};$/;"	v	typeref:struct:gatedesc	file:
+idt_init	trap/trap.c	/^idt_init(void) {$/;"	f
+idt_pd	trap/trap.c	/^static struct pseudodesc idt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
+in_swap_tick_event	trap/trap.c	/^static volatile int in_swap_tick_event = 0;$/;"	v	file:
+pgfault_handler	trap/trap.c	/^pgfault_handler(struct trapframe *tf) {$/;"	f	file:
+print_pgfault	trap/trap.c	/^print_pgfault(struct trapframe *tf) {$/;"	f	file:
+print_regs	trap/trap.c	/^print_regs(struct pushregs *regs) {$/;"	f
+print_ticks	trap/trap.c	/^static void print_ticks() {$/;"	f	file:
+print_trapframe	trap/trap.c	/^print_trapframe(struct trapframe *tf) {$/;"	f
+trap	trap/trap.c	/^trap(struct trapframe *tf) {$/;"	f
+trap_dispatch	trap/trap.c	/^trap_dispatch(struct trapframe *tf) {$/;"	f	file:
+trap_in_kernel	trap/trap.c	/^trap_in_kernel(struct trapframe *tf) {$/;"	f
+trapname	trap/trap.c	/^trapname(int trapno) {$/;"	f	file:
+IRQ_COM1	trap/trap.h	35;"	d
+IRQ_ERROR	trap/trap.h	38;"	d
+IRQ_IDE1	trap/trap.h	36;"	d
+IRQ_IDE2	trap/trap.h	37;"	d
+IRQ_KBD	trap/trap.h	34;"	d
+IRQ_OFFSET	trap/trap.h	31;"	d
+IRQ_SPURIOUS	trap/trap.h	39;"	d
+IRQ_TIMER	trap/trap.h	33;"	d
+T_ALIGN	trap/trap.h	26;"	d
+T_BOUND	trap/trap.h	14;"	d
+T_BRKPT	trap/trap.h	12;"	d
+T_DBLFLT	trap/trap.h	17;"	d
+T_DEBUG	trap/trap.h	10;"	d
+T_DEVICE	trap/trap.h	16;"	d
+T_DIVIDE	trap/trap.h	9;"	d
+T_FPERR	trap/trap.h	25;"	d
+T_GPFLT	trap/trap.h	22;"	d
+T_ILLOP	trap/trap.h	15;"	d
+T_MCHK	trap/trap.h	27;"	d
+T_NMI	trap/trap.h	11;"	d
+T_OFLOW	trap/trap.h	13;"	d
+T_PGFLT	trap/trap.h	23;"	d
+T_SEGNP	trap/trap.h	20;"	d
+T_SIMDERR	trap/trap.h	28;"	d
+T_STACK	trap/trap.h	21;"	d
+T_SWITCH_TOK	trap/trap.h	46;"	d
+T_SWITCH_TOU	trap/trap.h	45;"	d
+T_TSS	trap/trap.h	19;"	d
+__KERN_TRAP_TRAP_H__	trap/trap.h	2;"	d
+pushregs	trap/trap.h	/^struct pushregs {$/;"	s
+reg_eax	trap/trap.h	/^    uint32_t reg_eax;$/;"	m	struct:pushregs
+reg_ebp	trap/trap.h	/^    uint32_t reg_ebp;$/;"	m	struct:pushregs
+reg_ebx	trap/trap.h	/^    uint32_t reg_ebx;$/;"	m	struct:pushregs
+reg_ecx	trap/trap.h	/^    uint32_t reg_ecx;$/;"	m	struct:pushregs
+reg_edi	trap/trap.h	/^    uint32_t reg_edi;$/;"	m	struct:pushregs
+reg_edx	trap/trap.h	/^    uint32_t reg_edx;$/;"	m	struct:pushregs
+reg_esi	trap/trap.h	/^    uint32_t reg_esi;$/;"	m	struct:pushregs
+reg_oesp	trap/trap.h	/^    uint32_t reg_oesp;          \/* Useless *\/$/;"	m	struct:pushregs
+tf_cs	trap/trap.h	/^    uint16_t tf_cs;$/;"	m	struct:trapframe
+tf_ds	trap/trap.h	/^    uint16_t tf_ds;$/;"	m	struct:trapframe
+tf_eflags	trap/trap.h	/^    uint32_t tf_eflags;$/;"	m	struct:trapframe
+tf_eip	trap/trap.h	/^    uintptr_t tf_eip;$/;"	m	struct:trapframe
+tf_err	trap/trap.h	/^    uint32_t tf_err;$/;"	m	struct:trapframe
+tf_es	trap/trap.h	/^    uint16_t tf_es;$/;"	m	struct:trapframe
+tf_esp	trap/trap.h	/^    uintptr_t tf_esp;$/;"	m	struct:trapframe
+tf_fs	trap/trap.h	/^    uint16_t tf_fs;$/;"	m	struct:trapframe
+tf_gs	trap/trap.h	/^    uint16_t tf_gs;$/;"	m	struct:trapframe
+tf_padding0	trap/trap.h	/^    uint16_t tf_padding0;$/;"	m	struct:trapframe
+tf_padding1	trap/trap.h	/^    uint16_t tf_padding1;$/;"	m	struct:trapframe
+tf_padding2	trap/trap.h	/^    uint16_t tf_padding2;$/;"	m	struct:trapframe
+tf_padding3	trap/trap.h	/^    uint16_t tf_padding3;$/;"	m	struct:trapframe
+tf_padding4	trap/trap.h	/^    uint16_t tf_padding4;$/;"	m	struct:trapframe
+tf_padding5	trap/trap.h	/^    uint16_t tf_padding5;$/;"	m	struct:trapframe
+tf_regs	trap/trap.h	/^    struct pushregs tf_regs;$/;"	m	struct:trapframe	typeref:struct:trapframe::pushregs
+tf_ss	trap/trap.h	/^    uint16_t tf_ss;$/;"	m	struct:trapframe
+tf_trapno	trap/trap.h	/^    uint32_t tf_trapno;$/;"	m	struct:trapframe
+trapframe	trap/trap.h	/^struct trapframe {$/;"	s
+__alltraps	trap/trapentry.S	/^__alltraps:$/;"	l
+__trapret	trap/trapentry.S	/^__trapret:$/;"	l
+forkrets	trap/trapentry.S	/^forkrets:$/;"	l
+__vectors	trap/vectors.S	/^__vectors:$/;"	l
+vector0	trap/vectors.S	/^vector0:$/;"	l
+vector1	trap/vectors.S	/^vector1:$/;"	l
+vector10	trap/vectors.S	/^vector10:$/;"	l
+vector100	trap/vectors.S	/^vector100:$/;"	l
+vector101	trap/vectors.S	/^vector101:$/;"	l
+vector102	trap/vectors.S	/^vector102:$/;"	l
+vector103	trap/vectors.S	/^vector103:$/;"	l
+vector104	trap/vectors.S	/^vector104:$/;"	l
+vector105	trap/vectors.S	/^vector105:$/;"	l
+vector106	trap/vectors.S	/^vector106:$/;"	l
+vector107	trap/vectors.S	/^vector107:$/;"	l
+vector108	trap/vectors.S	/^vector108:$/;"	l
+vector109	trap/vectors.S	/^vector109:$/;"	l
+vector11	trap/vectors.S	/^vector11:$/;"	l
+vector110	trap/vectors.S	/^vector110:$/;"	l
+vector111	trap/vectors.S	/^vector111:$/;"	l
+vector112	trap/vectors.S	/^vector112:$/;"	l
+vector113	trap/vectors.S	/^vector113:$/;"	l
+vector114	trap/vectors.S	/^vector114:$/;"	l
+vector115	trap/vectors.S	/^vector115:$/;"	l
+vector116	trap/vectors.S	/^vector116:$/;"	l
+vector117	trap/vectors.S	/^vector117:$/;"	l
+vector118	trap/vectors.S	/^vector118:$/;"	l
+vector119	trap/vectors.S	/^vector119:$/;"	l
+vector12	trap/vectors.S	/^vector12:$/;"	l
+vector120	trap/vectors.S	/^vector120:$/;"	l
+vector121	trap/vectors.S	/^vector121:$/;"	l
+vector122	trap/vectors.S	/^vector122:$/;"	l
+vector123	trap/vectors.S	/^vector123:$/;"	l
+vector124	trap/vectors.S	/^vector124:$/;"	l
+vector125	trap/vectors.S	/^vector125:$/;"	l
+vector126	trap/vectors.S	/^vector126:$/;"	l
+vector127	trap/vectors.S	/^vector127:$/;"	l
+vector128	trap/vectors.S	/^vector128:$/;"	l
+vector129	trap/vectors.S	/^vector129:$/;"	l
+vector13	trap/vectors.S	/^vector13:$/;"	l
+vector130	trap/vectors.S	/^vector130:$/;"	l
+vector131	trap/vectors.S	/^vector131:$/;"	l
+vector132	trap/vectors.S	/^vector132:$/;"	l
+vector133	trap/vectors.S	/^vector133:$/;"	l
+vector134	trap/vectors.S	/^vector134:$/;"	l
+vector135	trap/vectors.S	/^vector135:$/;"	l
+vector136	trap/vectors.S	/^vector136:$/;"	l
+vector137	trap/vectors.S	/^vector137:$/;"	l
+vector138	trap/vectors.S	/^vector138:$/;"	l
+vector139	trap/vectors.S	/^vector139:$/;"	l
+vector14	trap/vectors.S	/^vector14:$/;"	l
+vector140	trap/vectors.S	/^vector140:$/;"	l
+vector141	trap/vectors.S	/^vector141:$/;"	l
+vector142	trap/vectors.S	/^vector142:$/;"	l
+vector143	trap/vectors.S	/^vector143:$/;"	l
+vector144	trap/vectors.S	/^vector144:$/;"	l
+vector145	trap/vectors.S	/^vector145:$/;"	l
+vector146	trap/vectors.S	/^vector146:$/;"	l
+vector147	trap/vectors.S	/^vector147:$/;"	l
+vector148	trap/vectors.S	/^vector148:$/;"	l
+vector149	trap/vectors.S	/^vector149:$/;"	l
+vector15	trap/vectors.S	/^vector15:$/;"	l
+vector150	trap/vectors.S	/^vector150:$/;"	l
+vector151	trap/vectors.S	/^vector151:$/;"	l
+vector152	trap/vectors.S	/^vector152:$/;"	l
+vector153	trap/vectors.S	/^vector153:$/;"	l
+vector154	trap/vectors.S	/^vector154:$/;"	l
+vector155	trap/vectors.S	/^vector155:$/;"	l
+vector156	trap/vectors.S	/^vector156:$/;"	l
+vector157	trap/vectors.S	/^vector157:$/;"	l
+vector158	trap/vectors.S	/^vector158:$/;"	l
+vector159	trap/vectors.S	/^vector159:$/;"	l
+vector16	trap/vectors.S	/^vector16:$/;"	l
+vector160	trap/vectors.S	/^vector160:$/;"	l
+vector161	trap/vectors.S	/^vector161:$/;"	l
+vector162	trap/vectors.S	/^vector162:$/;"	l
+vector163	trap/vectors.S	/^vector163:$/;"	l
+vector164	trap/vectors.S	/^vector164:$/;"	l
+vector165	trap/vectors.S	/^vector165:$/;"	l
+vector166	trap/vectors.S	/^vector166:$/;"	l
+vector167	trap/vectors.S	/^vector167:$/;"	l
+vector168	trap/vectors.S	/^vector168:$/;"	l
+vector169	trap/vectors.S	/^vector169:$/;"	l
+vector17	trap/vectors.S	/^vector17:$/;"	l
+vector170	trap/vectors.S	/^vector170:$/;"	l
+vector171	trap/vectors.S	/^vector171:$/;"	l
+vector172	trap/vectors.S	/^vector172:$/;"	l
+vector173	trap/vectors.S	/^vector173:$/;"	l
+vector174	trap/vectors.S	/^vector174:$/;"	l
+vector175	trap/vectors.S	/^vector175:$/;"	l
+vector176	trap/vectors.S	/^vector176:$/;"	l
+vector177	trap/vectors.S	/^vector177:$/;"	l
+vector178	trap/vectors.S	/^vector178:$/;"	l
+vector179	trap/vectors.S	/^vector179:$/;"	l
+vector18	trap/vectors.S	/^vector18:$/;"	l
+vector180	trap/vectors.S	/^vector180:$/;"	l
+vector181	trap/vectors.S	/^vector181:$/;"	l
+vector182	trap/vectors.S	/^vector182:$/;"	l
+vector183	trap/vectors.S	/^vector183:$/;"	l
+vector184	trap/vectors.S	/^vector184:$/;"	l
+vector185	trap/vectors.S	/^vector185:$/;"	l
+vector186	trap/vectors.S	/^vector186:$/;"	l
+vector187	trap/vectors.S	/^vector187:$/;"	l
+vector188	trap/vectors.S	/^vector188:$/;"	l
+vector189	trap/vectors.S	/^vector189:$/;"	l
+vector19	trap/vectors.S	/^vector19:$/;"	l
+vector190	trap/vectors.S	/^vector190:$/;"	l
+vector191	trap/vectors.S	/^vector191:$/;"	l
+vector192	trap/vectors.S	/^vector192:$/;"	l
+vector193	trap/vectors.S	/^vector193:$/;"	l
+vector194	trap/vectors.S	/^vector194:$/;"	l
+vector195	trap/vectors.S	/^vector195:$/;"	l
+vector196	trap/vectors.S	/^vector196:$/;"	l
+vector197	trap/vectors.S	/^vector197:$/;"	l
+vector198	trap/vectors.S	/^vector198:$/;"	l
+vector199	trap/vectors.S	/^vector199:$/;"	l
+vector2	trap/vectors.S	/^vector2:$/;"	l
+vector20	trap/vectors.S	/^vector20:$/;"	l
+vector200	trap/vectors.S	/^vector200:$/;"	l
+vector201	trap/vectors.S	/^vector201:$/;"	l
+vector202	trap/vectors.S	/^vector202:$/;"	l
+vector203	trap/vectors.S	/^vector203:$/;"	l
+vector204	trap/vectors.S	/^vector204:$/;"	l
+vector205	trap/vectors.S	/^vector205:$/;"	l
+vector206	trap/vectors.S	/^vector206:$/;"	l
+vector207	trap/vectors.S	/^vector207:$/;"	l
+vector208	trap/vectors.S	/^vector208:$/;"	l
+vector209	trap/vectors.S	/^vector209:$/;"	l
+vector21	trap/vectors.S	/^vector21:$/;"	l
+vector210	trap/vectors.S	/^vector210:$/;"	l
+vector211	trap/vectors.S	/^vector211:$/;"	l
+vector212	trap/vectors.S	/^vector212:$/;"	l
+vector213	trap/vectors.S	/^vector213:$/;"	l
+vector214	trap/vectors.S	/^vector214:$/;"	l
+vector215	trap/vectors.S	/^vector215:$/;"	l
+vector216	trap/vectors.S	/^vector216:$/;"	l
+vector217	trap/vectors.S	/^vector217:$/;"	l
+vector218	trap/vectors.S	/^vector218:$/;"	l
+vector219	trap/vectors.S	/^vector219:$/;"	l
+vector22	trap/vectors.S	/^vector22:$/;"	l
+vector220	trap/vectors.S	/^vector220:$/;"	l
+vector221	trap/vectors.S	/^vector221:$/;"	l
+vector222	trap/vectors.S	/^vector222:$/;"	l
+vector223	trap/vectors.S	/^vector223:$/;"	l
+vector224	trap/vectors.S	/^vector224:$/;"	l
+vector225	trap/vectors.S	/^vector225:$/;"	l
+vector226	trap/vectors.S	/^vector226:$/;"	l
+vector227	trap/vectors.S	/^vector227:$/;"	l
+vector228	trap/vectors.S	/^vector228:$/;"	l
+vector229	trap/vectors.S	/^vector229:$/;"	l
+vector23	trap/vectors.S	/^vector23:$/;"	l
+vector230	trap/vectors.S	/^vector230:$/;"	l
+vector231	trap/vectors.S	/^vector231:$/;"	l
+vector232	trap/vectors.S	/^vector232:$/;"	l
+vector233	trap/vectors.S	/^vector233:$/;"	l
+vector234	trap/vectors.S	/^vector234:$/;"	l
+vector235	trap/vectors.S	/^vector235:$/;"	l
+vector236	trap/vectors.S	/^vector236:$/;"	l
+vector237	trap/vectors.S	/^vector237:$/;"	l
+vector238	trap/vectors.S	/^vector238:$/;"	l
+vector239	trap/vectors.S	/^vector239:$/;"	l
+vector24	trap/vectors.S	/^vector24:$/;"	l
+vector240	trap/vectors.S	/^vector240:$/;"	l
+vector241	trap/vectors.S	/^vector241:$/;"	l
+vector242	trap/vectors.S	/^vector242:$/;"	l
+vector243	trap/vectors.S	/^vector243:$/;"	l
+vector244	trap/vectors.S	/^vector244:$/;"	l
+vector245	trap/vectors.S	/^vector245:$/;"	l
+vector246	trap/vectors.S	/^vector246:$/;"	l
+vector247	trap/vectors.S	/^vector247:$/;"	l
+vector248	trap/vectors.S	/^vector248:$/;"	l
+vector249	trap/vectors.S	/^vector249:$/;"	l
+vector25	trap/vectors.S	/^vector25:$/;"	l
+vector250	trap/vectors.S	/^vector250:$/;"	l
+vector251	trap/vectors.S	/^vector251:$/;"	l
+vector252	trap/vectors.S	/^vector252:$/;"	l
+vector253	trap/vectors.S	/^vector253:$/;"	l
+vector254	trap/vectors.S	/^vector254:$/;"	l
+vector255	trap/vectors.S	/^vector255:$/;"	l
+vector26	trap/vectors.S	/^vector26:$/;"	l
+vector27	trap/vectors.S	/^vector27:$/;"	l
+vector28	trap/vectors.S	/^vector28:$/;"	l
+vector29	trap/vectors.S	/^vector29:$/;"	l
+vector3	trap/vectors.S	/^vector3:$/;"	l
+vector30	trap/vectors.S	/^vector30:$/;"	l
+vector31	trap/vectors.S	/^vector31:$/;"	l
+vector32	trap/vectors.S	/^vector32:$/;"	l
+vector33	trap/vectors.S	/^vector33:$/;"	l
+vector34	trap/vectors.S	/^vector34:$/;"	l
+vector35	trap/vectors.S	/^vector35:$/;"	l
+vector36	trap/vectors.S	/^vector36:$/;"	l
+vector37	trap/vectors.S	/^vector37:$/;"	l
+vector38	trap/vectors.S	/^vector38:$/;"	l
+vector39	trap/vectors.S	/^vector39:$/;"	l
+vector4	trap/vectors.S	/^vector4:$/;"	l
+vector40	trap/vectors.S	/^vector40:$/;"	l
+vector41	trap/vectors.S	/^vector41:$/;"	l
+vector42	trap/vectors.S	/^vector42:$/;"	l
+vector43	trap/vectors.S	/^vector43:$/;"	l
+vector44	trap/vectors.S	/^vector44:$/;"	l
+vector45	trap/vectors.S	/^vector45:$/;"	l
+vector46	trap/vectors.S	/^vector46:$/;"	l
+vector47	trap/vectors.S	/^vector47:$/;"	l
+vector48	trap/vectors.S	/^vector48:$/;"	l
+vector49	trap/vectors.S	/^vector49:$/;"	l
+vector5	trap/vectors.S	/^vector5:$/;"	l
+vector50	trap/vectors.S	/^vector50:$/;"	l
+vector51	trap/vectors.S	/^vector51:$/;"	l
+vector52	trap/vectors.S	/^vector52:$/;"	l
+vector53	trap/vectors.S	/^vector53:$/;"	l
+vector54	trap/vectors.S	/^vector54:$/;"	l
+vector55	trap/vectors.S	/^vector55:$/;"	l
+vector56	trap/vectors.S	/^vector56:$/;"	l
+vector57	trap/vectors.S	/^vector57:$/;"	l
+vector58	trap/vectors.S	/^vector58:$/;"	l
+vector59	trap/vectors.S	/^vector59:$/;"	l
+vector6	trap/vectors.S	/^vector6:$/;"	l
+vector60	trap/vectors.S	/^vector60:$/;"	l
+vector61	trap/vectors.S	/^vector61:$/;"	l
+vector62	trap/vectors.S	/^vector62:$/;"	l
+vector63	trap/vectors.S	/^vector63:$/;"	l
+vector64	trap/vectors.S	/^vector64:$/;"	l
+vector65	trap/vectors.S	/^vector65:$/;"	l
+vector66	trap/vectors.S	/^vector66:$/;"	l
+vector67	trap/vectors.S	/^vector67:$/;"	l
+vector68	trap/vectors.S	/^vector68:$/;"	l
+vector69	trap/vectors.S	/^vector69:$/;"	l
+vector7	trap/vectors.S	/^vector7:$/;"	l
+vector70	trap/vectors.S	/^vector70:$/;"	l
+vector71	trap/vectors.S	/^vector71:$/;"	l
+vector72	trap/vectors.S	/^vector72:$/;"	l
+vector73	trap/vectors.S	/^vector73:$/;"	l
+vector74	trap/vectors.S	/^vector74:$/;"	l
+vector75	trap/vectors.S	/^vector75:$/;"	l
+vector76	trap/vectors.S	/^vector76:$/;"	l
+vector77	trap/vectors.S	/^vector77:$/;"	l
+vector78	trap/vectors.S	/^vector78:$/;"	l
+vector79	trap/vectors.S	/^vector79:$/;"	l
+vector8	trap/vectors.S	/^vector8:$/;"	l
+vector80	trap/vectors.S	/^vector80:$/;"	l
+vector81	trap/vectors.S	/^vector81:$/;"	l
+vector82	trap/vectors.S	/^vector82:$/;"	l
+vector83	trap/vectors.S	/^vector83:$/;"	l
+vector84	trap/vectors.S	/^vector84:$/;"	l
+vector85	trap/vectors.S	/^vector85:$/;"	l
+vector86	trap/vectors.S	/^vector86:$/;"	l
+vector87	trap/vectors.S	/^vector87:$/;"	l
+vector88	trap/vectors.S	/^vector88:$/;"	l
+vector89	trap/vectors.S	/^vector89:$/;"	l
+vector9	trap/vectors.S	/^vector9:$/;"	l
+vector90	trap/vectors.S	/^vector90:$/;"	l
+vector91	trap/vectors.S	/^vector91:$/;"	l
+vector92	trap/vectors.S	/^vector92:$/;"	l
+vector93	trap/vectors.S	/^vector93:$/;"	l
+vector94	trap/vectors.S	/^vector94:$/;"	l
+vector95	trap/vectors.S	/^vector95:$/;"	l
+vector96	trap/vectors.S	/^vector96:$/;"	l
+vector97	trap/vectors.S	/^vector97:$/;"	l
+vector98	trap/vectors.S	/^vector98:$/;"	l
+vector99	trap/vectors.S	/^vector99:$/;"	l
