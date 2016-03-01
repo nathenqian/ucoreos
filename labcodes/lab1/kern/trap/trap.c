@@ -32,6 +32,7 @@ static struct pseudodesc idt_pd = {
 };
 
 /* idt_init - initialize IDT to each of the entry points in kern/trap/vectors.S */
+extern uintptr_t __vectors[];
 void
 idt_init(void) {
      /* LAB1 YOUR CODE : STEP 2 */
@@ -46,6 +47,11 @@ idt_init(void) {
       *     You don't know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
       *     Notice: the argument of lidt is idt_pd. try to find it!
       */
+    int index = 0;
+    for (; index < 256; index ++) {
+        SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
+    }
+    lidt(&idt_pd);
 }
 
 static const char *
