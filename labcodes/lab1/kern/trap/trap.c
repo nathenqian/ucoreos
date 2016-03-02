@@ -49,8 +49,14 @@ idt_init(void) {
       */
     int index = 0;
     for (; index < 256; index ++) {
-        SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        if (index < IRQ_OFFSET) // trap {
+            SETGATE(idt[index], 1, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        } else {
+            SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        }
     }
+    SETGATE(idt[T_SWITCH_TOU], 1, GD_KTEXT, __vectors[T_SWITCH_TOU], DPL_KERNEL);
+    SETGATE(idt[T_SWITCH_TOK], 1, GD_KTEXT, __vectors[T_SWITCH_TOK], DPL_USER);
     lidt(&idt_pd);
 }
 
@@ -170,8 +176,19 @@ trap_dispatch(struct trapframe *tf) {
         break;
     //LAB1 CHALLENGE 1 : YOUR CODE you should modify below codes.
     case T_SWITCH_TOU:
+        if (tf->tf_cs != USER_CS) {
+            tf->tf_cs = USER_CS;
+            tf->tf_ss = tf->tf_ds = tf->tf_fs = tf->tf_gs = tf->tf_es = USER_DS;
+            tf->tf_eflags |= FL_IOPL_MASK;
+        }
+        break;
     case T_SWITCH_TOK:
-        panic("T_SWITCH_** ??\n");
+        if (tf->tf_cs != KERNEL_CS) {
+            tf->tf_cs = KERNEL_CS;
+            tf->tf_ss = tf->tf_ds = tf->tf_fs = tf->tf_gs = tf->tf_es = KERNEL_DS;
+            tf->tf_eflags |= FL_IOPL_MASK;
+        }
+        // panic("T_SWITCH_** ??\n");
         break;
     case IRQ_OFFSET + IRQ_IDE1:
     case IRQ_OFFSET + IRQ_IDE2:
