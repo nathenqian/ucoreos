@@ -186,7 +186,7 @@ trap_dispatch(struct trapframe *tf) {
         if (tf->tf_cs != KERNEL_CS) {
             tf->tf_cs = KERNEL_CS;
             tf->tf_ss = tf->tf_ds = tf->tf_fs = tf->tf_gs = tf->tf_es = KERNEL_DS;
-            tf->tf_eflags |= FL_IOPL_MASK;
+            tf->tf_eflags &= ~FL_IOPL_MASK;
         }
         // panic("T_SWITCH_** ??\n");
         break;
