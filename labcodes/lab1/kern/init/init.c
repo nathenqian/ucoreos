@@ -87,7 +87,7 @@ lab1_switch_to_user(void) {
     asm volatile(
         "sub $0x08, %%esp\n;"
         "int %0\n;"
-        "add $0x08, %%esp;\n"
+        "movl %%ebp, %%esp;\n"
         : : "i"(T_SWITCH_TOU));
 }
 
