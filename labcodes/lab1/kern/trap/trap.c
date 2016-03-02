@@ -49,7 +49,7 @@ idt_init(void) {
       */
     int index = 0;
     for (; index < 256; index ++) {
-        if (index < IRQ_OFFSET) // trap {
+        if (index < IRQ_OFFSET) { // trap {
             SETGATE(idt[index], 1, GD_KTEXT, __vectors[index], DPL_KERNEL);
         } else {
             SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
