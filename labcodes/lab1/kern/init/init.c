@@ -85,9 +85,9 @@ static void
 lab1_switch_to_user(void) {
     //LAB1 CHALLENGE 1 : TODO
     asm volatile(
-        "sub $0x08 %%esp\n"
-        "int %0\n"
-        "add $0x08 %%esp\n"
+        "sub $0x08, %%esp\n;"
+        "int %0\n;"
+        "add $0x08, %%esp;\n"
         : : "i"(T_SWITCH_TOU));
 }
 
@@ -95,9 +95,9 @@ static void
 lab1_switch_to_kernel(void) {
     //LAB1 CHALLENGE 1 :  TODO
     asm volatile(
-        "sub $0x08 %%esp\n"
-        "int %0\n"
-        "add $0x08 %%esp\n"
+        "sub $0x08, %%esp\n;"
+        "int %0\n;"
+        "add $0x08, %%esp\n;"
         : : "i"(T_SWITCH_TOK));
 }
 
