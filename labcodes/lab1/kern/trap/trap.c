@@ -149,6 +149,24 @@ print_regs(struct pushregs *regs) {
 /* trap_dispatch - dispatch based on what type of trap occurred */
 
 static void
+lab1_print_cur_status(void) {
+    static int round = 0;
+    uint16_t reg1, reg2, reg3, reg4;
+    asm volatile (
+            "mov %%cs, %0;"
+            "mov %%ds, %1;"
+            "mov %%es, %2;"
+            "mov %%ss, %3;"
+            : "=m"(reg1), "=m"(reg2), "=m"(reg3), "=m"(reg4));
+    cprintf("%d: @ring %d\n", round, reg1 & 3);
+    cprintf("%d:  cs = %x\n", round, reg1);
+    cprintf("%d:  ds = %x\n", round, reg2);
+    cprintf("%d:  es = %x\n", round, reg3);
+    cprintf("%d:  ss = %x\n", round, reg4);
+    round ++;
+}
+
+static void
 trap_dispatch(struct trapframe *tf) {
     char c;
 
@@ -173,6 +191,23 @@ trap_dispatch(struct trapframe *tf) {
     case IRQ_OFFSET + IRQ_KBD:
         c = cons_getc();
         cprintf("kbd [%03d] %c\n", c, c);
+        if (c == '3') {
+            asm volatile(
+            "sub $0x08, %%esp\n;"
+            "int %0\n;"
+            "movl %%ebp, %%esp;\n"
+            : : "i"(T_SWITCH_TOU));
+            lab1_print_cur_status();
+        } 
+        if (c == '0') {
+            asm volatile(
+                "sub $0x08, %%esp\n;"
+                "int %0\n;"
+                "movl %%ebp, %%esp;\n"
+                : : "i"(T_SWITCH_TOK));
+            }
+            lab1_print_cur_status();
+        }
         break;
     //LAB1 CHALLENGE 1 : YOUR CODE you should modify below codes.
     case T_SWITCH_TOU:
