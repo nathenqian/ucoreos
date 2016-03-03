@@ -1,0 +1,111 @@
+%!TEX program = xelatex
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{amssymb}
+
+% fonts
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=SimHei]{SimSun}
+\setCJKfamilyfont{hei}{SimHei}
+\setCJKfamilyfont{kai}{KaiTi}
+\setCJKfamilyfont{fang}{FangSong}
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\kai}{\CJKfamily{kai}}
+\newcommand{\fang}{\CJKfamily{fang}}
+
+% style
+\usepackage[top=2.54cm, bottom=2.54cm, left=3.18cm, right=3.18cm]{geometry}
+\linespread{1.5}
+\usepackage{indentfirst}
+\parindent 2em
+\punctstyle{quanjiao}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+
+% figures and tables
+\usepackage{graphicx}
+\usepackage[font={bf, footnotesize}, textfont=md]{caption}
+\makeatletter
+    \newcommand\fcaption{\def\@captype{figure}\caption}
+    \newcommand\tcaption{\def\@captype{table}\caption}
+\makeatother
+\usepackage{booktabs}
+\renewcommand\figurename{图}
+\renewcommand\tablename{表}
+\newcommand{\fref}[1]{\textbf{图 \ref{#1}}}
+\newcommand{\tref}[1]{\textbf{表 \ref{#1}}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} % multiply lines in one grid
+\usepackage{longtable} % long table
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+
+\usepackage{xcolor}
+\renewcommand{\r}{\color{red}}
+\usepackage{tabulary}
+% start of document
+\title{\textbf{操作系统第一次实验报告}}
+\author{
+    \kai 钱迪晨 \quad 计35 \quad 2013011402
+}
+\date{\kai\today}
+
+% -----------------start here------------------%
+\begin{document}
+\lstset{                        %Settings for listings package.
+  language=[ANSI]{C++},
+  % backgroundcolor=\color{lightgray},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{olive},
+  directivestyle=\color{blue},
+  extendedchars=false,
+  % frame=single,%shadowbox
+  framerule=0pt,
+  keywordstyle=\color{blue}\bfseries,
+  morekeywords={*,define,*,include...},
+  numbersep=5pt,
+  rulesepcolor=\color{red!20!green!20!blue!20},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=2,
+  stringstyle=\color{purple},
+  tabsize=4,
+  title=\lstname
+}
+
+\maketitle
+
+\section{练习1}
+\subsection{题目1}
+操作系统镜像文件ucore.img是如何一步一步生成的？(需要比较详细地解释Makefile中每一条相关命令和命令参数的含义，以及说明命令导致的结果)。
+
+答：请看report\/makefile\_explain.make文件里面的注释。
+\subsection{题目2}
+一个被系统认为是符合规范的硬盘主引导扇区的特征是什么？
+答：特征有如下几方面。
+\begin{enumerate}
+  \item 大小为512字节。
+  \item 第511字节为0x55，第512字节为0xAA。
+  \item 具体操作代码大小最大只有510字节。
+\end{enumerate}
+
+% \begin{center}
+%     \includegraphics[height=10cm]{result/9_epoch_1.jpg}
+%     \fcaption{第1轮迭代训练的结果}\label{1}
+% \end{center}
+
+% \begin{enumerate}
+%     \item 随着实验的进行，图片的确变得更加的准确，而不仅仅是肉眼上的复原效果更加好了，但是训练的次数过多也会使得画质变得更差。
+%     \item 10次迭代的时候，答案是最优的。
+%     \item 绿色通道随着迭代次数上升最准确，但是红色和蓝色通道就有一点不正确。
+% \end{enumerate}
+
+
+
+\end{document}
+% -----------------end------------------%
