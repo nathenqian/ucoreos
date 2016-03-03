@@ -209,9 +209,9 @@ trap_dispatch(struct trapframe *tf) {
         if (c == '3') {
             if (tf->tf_cs != USER_CS) {
                 tf1 = *tf;
-                tf1->tf_cs = USER_CS;
+                tf1.tf_cs = USER_CS;
                 tf1.tf_ds = tf1.tf_es = tf1.tf_ss = USER_DS;
-                tf1->tf_esp = (uint32_t)tf + sizeof(struct trapframe) - 8;
+                tf1.tf_esp = (uint32_t)tf + sizeof(struct trapframe) - 8;
                 tf1.tf_eflags |= FL_IOPL_MASK;
                 ((uint32_t *)tf - 1) = (uint32_t)&tf1;
             }
