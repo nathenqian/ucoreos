@@ -179,6 +179,7 @@ static void func2() {
         "movl %%ebp, %%esp;\n"
         : : "i"(T_SWITCH_TOK));
 }
+static struct trapframe tf1, tf2;
 static void
 trap_dispatch(struct trapframe *tf) {
     char c;
@@ -195,6 +196,7 @@ trap_dispatch(struct trapframe *tf) {
         if (ticks == TICK_NUM) {
             ticks = 0;
             print_ticks();
+            lab1_print_cur_status();
         }
         break;
     case IRQ_OFFSET + IRQ_COM1:
@@ -205,12 +207,19 @@ trap_dispatch(struct trapframe *tf) {
         c = cons_getc();
         cprintf("kbd [%03d] %c\n", c, c);
         if (c == '3') {
-            func1();
-            lab1_print_cur_status();
+            if (tf->tf_cs != USER_CS) {
+                tf1 = *tf;
+                tf1->tf_cs = USER_CS;
+                tf1.tf_ds = tf1.tf_es = tf1.tf_ss = USER_DS;
+                tf1->tf_esp = (uint32_t)tf + sizeof(struct trapframe) - 8;
+                tf1.tf_eflags |= FL_IOPL_MASK;
+                ((uint32_t *)tf - 1) = (uint32_t)&tf1;
+            }
         } 
         if (c == '0') {
-            func2();
-            lab1_print_cur_status();
+            if (tf->tf_cs != KERNEL_CS) {
+
+            }
         }
         break;
     //LAB1 CHALLENGE 1 : YOUR CODE you should modify below codes.
