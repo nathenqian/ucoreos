@@ -14,7 +14,8 @@ void grade_backtrace(void);
 static void lab1_switch_test(void);
 
 static int cnt = 0;
-
+static void
+lab1_print_cur_status(void);
 int
 kern_init(void) {
     extern char edata[], end[];
