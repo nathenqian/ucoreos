@@ -204,8 +204,8 @@ trap_dispatch(struct trapframe *tf) {
                 "sub $0x08, %%esp\n;"
                 "int %0\n;"
                 "movl %%ebp, %%esp;\n"
-                : : "i"(T_SWITCH_TOK));
-            }
+                : : "i"(T_SWITCH_TOK)
+            );
             lab1_print_cur_status();
         }
         break;
