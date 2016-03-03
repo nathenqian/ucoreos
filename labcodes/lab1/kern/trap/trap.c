@@ -196,7 +196,6 @@ trap_dispatch(struct trapframe *tf) {
         if (ticks == TICK_NUM) {
             ticks = 0;
             print_ticks();
-            lab1_print_cur_status();
         }
         break;
     case IRQ_OFFSET + IRQ_COM1:
@@ -214,11 +213,15 @@ trap_dispatch(struct trapframe *tf) {
                 tf1.tf_esp = (uint32_t)tf + sizeof(struct trapframe) - 8;
                 tf1.tf_eflags |= FL_IOPL_MASK;
                 *((uint32_t *)tf - 1) = (uint32_t)&tf1;
+                cprintf("switch to user");
             }
         } 
         if (c == '0') {
             if (tf->tf_cs != KERNEL_CS) {
-
+                tf->tf_cs = KERNEL_CS;
+                tf->tf_ds = tf->tf_es = KERNEL_DS;
+                tf->tf_eflags &= ~FL_IOPL_MASK;
+                cprintf("switch to kernel");
             }
         }
         break;

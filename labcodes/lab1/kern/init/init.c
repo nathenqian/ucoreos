@@ -13,6 +13,8 @@ int kern_init(void) __attribute__((noreturn));
 void grade_backtrace(void);
 static void lab1_switch_test(void);
 
+static int cnt = 0;
+
 int
 kern_init(void) {
     extern char edata[], end[];
@@ -40,7 +42,13 @@ kern_init(void) {
     lab1_switch_test();
 
     /* do nothing */
-    while (1);
+    while (1) {
+        cnt += 1;
+        if (cnt == 100000000) {
+            lab1_print_cur_status();
+            cnt = 0;
+        }
+    }
 }
 
 void __attribute__((noinline))
