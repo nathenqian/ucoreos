@@ -165,7 +165,20 @@ lab1_print_cur_status(void) {
     cprintf("%d:  ss = %x\n", round, reg4);
     round ++;
 }
-
+static void func1() {
+    asm volatile(
+        "sub $0x08, %%esp\n;"
+        "int %0\n;"
+        "movl %%ebp, %%esp;\n"
+        : : "i"(T_SWITCH_TOU));
+}
+static void func2() {
+    asm volatile(
+        "sub $0x08, %%esp\n;"
+        "int %0\n;"
+        "movl %%ebp, %%esp;\n"
+        : : "i"(T_SWITCH_TOK));
+}
 static void
 trap_dispatch(struct trapframe *tf) {
     char c;
@@ -192,20 +205,11 @@ trap_dispatch(struct trapframe *tf) {
         c = cons_getc();
         cprintf("kbd [%03d] %c\n", c, c);
         if (c == '3') {
-            asm volatile(
-            "sub $0x08, %%esp\n;"
-            "int %0\n;"
-            "movl %%ebp, %%esp;\n"
-            : : "i"(T_SWITCH_TOU));
+            func1();
             lab1_print_cur_status();
         } 
         if (c == '0') {
-            asm volatile(
-                "sub $0x08, %%esp\n;"
-                "int %0\n;"
-                "movl %%ebp, %%esp;\n"
-                : : "i"(T_SWITCH_TOK)
-            );
+            func2();
             lab1_print_cur_status();
         }
         break;
