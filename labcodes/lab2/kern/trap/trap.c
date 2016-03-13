@@ -46,6 +46,7 @@ idt_init(void) {
       *     You don't know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
       *     Notice: the argument of lidt is idt_pd. try to find it!
       */
+    extern uintptr_t __vectors[];
     int index = 0;
     for (; index < 256; index ++) {
         if (index < IRQ_OFFSET) { // trap {
