@@ -99,7 +99,7 @@ default_alloc_pages(size_t n) {
             smaller_page->property = n - p->property;
             prev = list_prev(le);
             list_del(le);
-            list_add_after(prev, le2page(smaller_page, page_link));
+            list_add_after(prev, smaller_page);
             return p;
         } else 
         if (p->property == n) {
