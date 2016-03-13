@@ -46,6 +46,17 @@ idt_init(void) {
       *     You don't know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
       *     Notice: the argument of lidt is idt_pd. try to find it!
       */
+    int index = 0;
+    for (; index < 256; index ++) {
+        if (index < IRQ_OFFSET) { // trap {
+            SETGATE(idt[index], 1, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        } else {
+            SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        }
+    }
+    SETGATE(idt[T_SWITCH_TOU], 1, GD_KTEXT, __vectors[T_SWITCH_TOU], DPL_KERNEL);
+    SETGATE(idt[T_SWITCH_TOK], 1, GD_KTEXT, __vectors[T_SWITCH_TOK], DPL_USER);
+    lidt(&idt_pd);
 }
 
 static const char *
