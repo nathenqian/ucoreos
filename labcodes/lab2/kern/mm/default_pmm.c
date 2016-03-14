@@ -95,6 +95,7 @@ default_alloc_pages(size_t n) {
         if (p->property > n) {
             struct Page *smaller_page = p + n;
             SetPageProperty(smaller_page);
+            ClearPageProperty(p);
             set_page_ref(smaller_page, 0);
             smaller_page->property = p->property - n;
             prev = list_prev(le);
