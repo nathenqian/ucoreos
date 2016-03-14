@@ -93,7 +93,7 @@ default_alloc_pages(size_t n) {
     while ((le = list_next(le)) != &free_list) {
         struct Page *p = le2page(le, page_link);
         if (p->property > n) {
-            struct Page *smaller_page = (Page *)(((char *)p) + PGSIZE * n);
+            struct Page *smaller_page = (struct Page *)(((char *)p) + PGSIZE * n);
             SetPageProperty(smaller_page);
             set_page_ref(smaller_page, 0);
             smaller_page->property = n - p->property;
