@@ -105,6 +105,7 @@ default_alloc_pages(size_t n) {
             return p;
         } else 
         if (p->property == n) {
+            ClearPageProperty(p);
             list_del(le);
             return p;
         }
