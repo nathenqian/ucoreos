@@ -215,7 +215,7 @@ basic_check(void) {
     assert(alloc_page() == NULL);
 
     assert(nr_free == 0);
-    free_list = free_lits_store;
+    free_list = free_list_store;
     nr_free = nr_free_store;
 
     free_page(p);
