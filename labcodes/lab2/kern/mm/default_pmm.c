@@ -93,10 +93,10 @@ default_alloc_pages(size_t n) {
     while ((le = list_next(le)) != &free_list) {
         struct Page *p = le2page(le, page_link);
         if (p->property > n) {
-            struct Page *smaller_page = (struct Page *)(((char *)p) + PGSIZE * n);
+            struct Page *smaller_page = p + p->property;
             SetPageProperty(smaller_page);
             set_page_ref(smaller_page, 0);
-            smaller_page->property = n - p->property;
+            smaller_page->property = p->property - n;
             prev = list_prev(le);
             list_del(le);
             list_add_after(prev, &(smaller_page->page_link));
@@ -146,17 +146,17 @@ default_free_pages(struct Page *base, size_t n) {
     while ((le = list_next(le)) != &free_list) {
         p = le2page(le, page_link);
         
-        if (((char *)base) + base->property * PGSIZE == (char *)p) {
+        if (base + base->property == p) {
             base->property += p->property;
             ClearPageProperty(p);
             list_del(&(p->page_link));
         }
-        else if ((char *)p + p->property * PGSIZE == (char *)base) {
+        else if (p + p->property == base) {
             p->property += base->property;
             ClearPageProperty(base);
             base = p;
             list_del(&(p->page_link));
-        } else if ((char *)p + p->property * PGSIZE < (char *)base) {
+        } else if (p + p->property < base) {
             smaller_page = le;
         }
     }
