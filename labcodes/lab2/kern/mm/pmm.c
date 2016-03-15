@@ -380,7 +380,7 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
         memset(KADDR(page2pa(page)), 0, PGSIZE);
         *pdep = page2pa(page) | PTE_P | PTE_W | PTE_U;
     }
-    return &(pte_t*)KADDR(PDE_ADDR(*pdep))[PTX(la)];
+    return (pte_t *)(&((pte_t*)KADDR(PDE_ADDR(*pdep)))[PTX(la)]);
 
     // if (0) {              // (2) check if entry is not present
                           // (3) check if creating is needed, then alloc page for page table
@@ -438,7 +438,7 @@ page_remove_pte(pde_t *pgdir, uintptr_t la, pte_t *ptep) {
     // }
 // #endif
     if (*ptep & PTE_P) {
-        struct *page = pte2page(*ptep);
+        struct Page *page = pte2page(*ptep);
         page_ref_dec(page);
         if (page_ref(page) == 0)
             free_page(page);
