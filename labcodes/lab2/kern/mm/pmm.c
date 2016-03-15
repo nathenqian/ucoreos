@@ -369,19 +369,30 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
      *   PTE_U           0x004                   // page table/directory entry flags bit : User can access
      */
 // #if 0
-    pde_t *pdep = &pgdir[PDX(la)];   // (1) find page directory entry
+    // pde_t *pdep = &pgdir[PDX(la)];   // (1) find page directory entry
 
-    if (*pdep & PTE_P == 0) {
-        // not present
-        struct Page *page = NULL;
-        if (!create || (page = alloc_page()) == NULL)
+    // if (*pdep & PTE_P == 0) {
+    //     // not present
+    //     struct Page *page = NULL;
+    //     if (!create || (page = alloc_page()) == NULL)
+    //         return NULL;
+    //     set_page_ref(page, 1);
+    //     memset(KADDR(page2pa(page)), 0, PGSIZE);
+    //     *pdep = page2pa(page) | PTE_P | PTE_W | PTE_U;
+    // }
+    // return (pte_t *)(&((pte_t*)KADDR(PDE_ADDR(*pdep)))[PTX(la)];
+     pde_t *pdep = &pgdir[PDX(la)];
+    if (!(*pdep & PTE_P)) {
+        struct Page *page;
+        if (!create || (page = alloc_page()) == NULL) {
             return NULL;
+        }
         set_page_ref(page, 1);
-        memset(KADDR(page2pa(page)), 0, PGSIZE);
-        *pdep = page2pa(page) | PTE_P | PTE_W | PTE_U;
+        uintptr_t pa = page2pa(page);
+        memset(KADDR(pa), 0, PGSIZE);
+        *pdep = pa | PTE_U | PTE_W | PTE_P;
     }
-    return (pte_t *)(&((pte_t*)KADDR(PDE_ADDR(*pdep)))[PTX(la)]);
-
+    return &((pte_t *)KADDR(PDE_ADDR(*pdep)))[PTX(la)];
     // if (0) {              // (2) check if entry is not present
                           // (3) check if creating is needed, then alloc page for page table
                           // CAUTION: this page is used for page table, not for common data page
@@ -437,11 +448,19 @@ page_remove_pte(pde_t *pgdir, uintptr_t la, pte_t *ptep) {
                                   //(6) flush tlb
     // }
 // #endif
+    // if (*ptep & PTE_P) {
+    //     struct *page = pte2page(*ptep);
+    //     page_ref_dec(page);
+    //     if (page_ref(page) == 0)
+    //         free_page(page);
+    //     *ptep = 0;
+    //     tlb_invalidate(pgdir, la);
+    // }
     if (*ptep & PTE_P) {
         struct Page *page = pte2page(*ptep);
-        page_ref_dec(page);
-        if (page_ref(page) == 0)
+        if (page_ref_dec(page) == 0) {
             free_page(page);
+        }
         *ptep = 0;
         tlb_invalidate(pgdir, la);
     }
@@ -490,7 +509,7 @@ page_insert(pde_t *pgdir, struct Page *page, uintptr_t la, uint32_t perm) {
 void
 tlb_invalidate(pde_t *pgdir, uintptr_t la) {
     if (rcr3() == PADDR(pgdir)) {
-        invlpg((void *)la);
+        ivnlpg((void *)la);
     }
 }
 
