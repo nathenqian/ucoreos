@@ -371,7 +371,7 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
 // #if 0
     pde_t *pdep = &pgdir[PDX(la)];   // (1) find page directory entry
 
-    if (*pdep & PTE_P == 0) {
+    if ((*pdep & PTE_P) == 0) {
         // not present
         struct Page *page = NULL;
         if (!create || (page = alloc_page()) == NULL)
@@ -381,18 +381,6 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
         *pdep = page2pa(page) | PTE_P | PTE_W | PTE_U;
     }
     return (pte_t *)(&(((pte_t*)KADDR(PDE_ADDR(*pdep))))[PTX(la)]);
-    // pde_t *pdep = &pgdir[PDX(la)];
-    // if (!(*pdep & PTE_P)) {
-    //     struct Page *page;
-    //     if (!create || (page = alloc_page()) == NULL) {
-    //         return NULL;
-    //     }
-    //     set_page_ref(page, 1);
-    //     uintptr_t pa = page2pa(page);
-    //     memset(KADDR(pa), 0, PGSIZE);
-    //     *pdep = pa | PTE_U | PTE_W | PTE_P;
-    // }
-    // return &((pte_t *)KADDR(PDE_ADDR(*pdep)))[PTX(la)];
     // if (0) {              // (2) check if entry is not present
                           // (3) check if creating is needed, then alloc page for page table
                           // CAUTION: this page is used for page table, not for common data page
