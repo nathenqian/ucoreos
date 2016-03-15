@@ -380,7 +380,7 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
         memset(KADDR(page2pa(page)), 0, PGSIZE);
         *pdep = page2pa(page) | PTE_P | PTE_W | PTE_U;
     }
-    return (pte_t *)(&((pte_t*)KADDR(PDE_ADDR(*pdep))))[PTX(la)];
+    return (pte_t *)(&(((pte_t*)KADDR(PDE_ADDR(*pdep))))[PTX(la)]);
     // pde_t *pdep = &pgdir[PDX(la)];
     // if (!(*pdep & PTE_P)) {
     //     struct Page *page;
