@@ -364,15 +364,43 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
     *   mm->pgdir : the PDT of these vma
     *
     */
-
+    if ((ptep = get_pte(mm->pgdir, addr, 1)) == NULL) {
+        cprintf("get_pte in do_pgfault failed\n");
+        goto failed;
+    }
+    
+    if (*ptep == 0) { // if the phy addr isn't exist, then alloc a page & map the phy addr with logical addr
+        if (pgdir_alloc_page(mm->pgdir, addr, perm) == NULL) {
+            cprintf("pgdir_alloc_page in do_pgfault failed\n");
+            goto failed;
+        }
+    }
+    else { // if this pte is a swap entry, then load data from disk to a page with phy addr
+           // and call page_insert to map the phy addr with logical addr
+        if(swap_init_ok) {
+            struct Page *page=NULL;
+            if ((ret = swap_in(mm, addr, &page)) != 0) {
+                cprintf("swap_in in do_pgfault failed\n");
+                goto failed;
+            }    
+            page_insert(mm->pgdir, page, addr, perm);
+            swap_map_swappable(mm, addr, page, 1);
+            page->pra_vaddr = addr;
+        }
+        else {
+            cprintf("no swap_init_ok but ptep is %x, failed\n",*ptep);
+            goto failed;
+        }
+   }
+   
 // #if 0
     /*LAB3 EXERCISE 1: YOUR CODE*/
-    ptep = get_pte(mm->pgdir, addr, 1);              //(1) try to find a pte, if pte's PT(Page Table) isn't existed, then create a PT.
-    if (*ptep == 0) {
-                            //(2) if the phy addr isn't exist, then alloc a page & map the phy addr with logical addr
-        pgdir_alloc_page(mm->pgdir, addr, perm);
-    }
-    else {
+    // ptep = get_pte(mm->pgdir, addr, 1);              //(1) try to find a pte, if pte's PT(Page Table) isn't existed, then create a PT.
+    // if (*ptep == 0) {
+    //                         //(2) if the phy addr isn't exist, then alloc a page & map the phy addr with logical addr
+    //     pgdir_alloc_page(mm->pgdir, addr, perm);
+    // }
+    // else {
     /*LAB3 EXERCISE 2: YOUR CODE
     * Now we think this pte is a  swap entry, we should load data from disk to a page with phy addr,
     * and map the phy addr with logical addr, trigger swap manager to record the access situation of this page.
@@ -384,22 +412,22 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
     *    page_insert ： build the map of phy addr of an Page with the linear addr la
     *    swap_map_swappable ： set the page swappable
     */
-        if (swap_init_ok) {
-            struct Page *page = NULL;
-            swap_in(mm, addr, page);
-            page_insert(mm->pgdir, page, addr, perm);
-            page->pra_vaddr = addr;
-            swap_map_swappable(mm->pgdir, page, addr, 1);
-                                    //(1）According to the mm AND addr, try to load the content of right disk page
-                                    //    into the memory which page managed.
-                                    //(2) According to the mm, addr AND page, setup the map of phy addr <---> logical addr
-                                    //(3) make the page swappable.
-        }
-        else {
-            cprintf("no swap_init_ok but ptep is %x, failed\n",*ptep);
-            goto failed;
-        }
-   }
+   //      if (swap_init_ok) {
+   //          struct Page *page = NULL;
+   //          swap_in(mm, addr, page);
+   //          page_insert(mm->pgdir, page, addr, perm);
+   //          page->pra_vaddr = addr;
+   //          swap_map_swappable(mm->pgdir, page, addr, 1);
+   //                                  //(1）According to the mm AND addr, try to load the content of right disk page
+   //                                  //    into the memory which page managed.
+   //                                  //(2) According to the mm, addr AND page, setup the map of phy addr <---> logical addr
+   //                                  //(3) make the page swappable.
+   //      }
+   //      else {
+   //          cprintf("no swap_init_ok but ptep is %x, failed\n",*ptep);
+   //          goto failed;
+   //      }
+   // }
 // #endif
    ret = 0;
 failed:
