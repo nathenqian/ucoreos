@@ -415,7 +415,7 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
         if (swap_init_ok) {
             struct Page *page = NULL;
             swap_in(mm, addr, &page);
-            page_insert(mm-p>gdir, page, addr, perm);
+            page_insert(mm->pgdir, page, addr, perm);
             page->pra_vaddr = addr;
             swap_map_swappable(mm, addr, page, 1);
                                     //(1）According to the mm AND addr, try to load the content of right disk page
