@@ -67,13 +67,13 @@ _fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick
 
     while (true) {
         if (head == (list_entry_t*) mm->sm_priv) {
-            head = head.next;
+            head = list_next(head);
         }
         struct Page *p = le2page(last, pra_page_link);
         pte_t *ptep = get_pte(mm->pgdir, p->pra_vaddr, 0);
         if ((*ptep & 0x40) > 0) {
             *ptep ^= 0x40;
-            head = head.next;
+            head = list_next(head);
         } else {
             //swap out
             list_del(temp_head);
