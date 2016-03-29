@@ -61,15 +61,15 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
 static int
 _fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick)
 {
-    list_entry_t *head=(list_entry_t*) mm->sm_priv, *temp_head = head, *prev, *next;
+    list_entry_t *head=(list_entry_t*) mm->sm_priv, *temp_head = head, *prev;
     assert(head != NULL);
     assert(in_tick==0);
 
-    while (true) {
+    while (1) {
         if (head == (list_entry_t*) mm->sm_priv) {
             head = list_next(head);
         }
-        struct Page *p = le2page(last, pra_page_link);
+        struct Page *p = le2page(head, pra_page_link);
         pte_t *ptep = get_pte(mm->pgdir, p->pra_vaddr, 0);
         if ((*ptep & 0x40) > 0) {
             *ptep ^= 0x40;
