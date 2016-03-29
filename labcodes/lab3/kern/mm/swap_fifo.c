@@ -78,6 +78,7 @@ _fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick
             //swap out
             list_del(temp_head);
             prev = list_prev(head);
+            *ptr_page = le2page(head, pra_page_link);
             list_del(head);
             list_add_after(prev, temp_head);
             return 0;
