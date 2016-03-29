@@ -48,7 +48,7 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
     list_entry_t *entry=&(page->pra_page_link);
  
     assert(entry != NULL && head != NULL);
-    list_add_after(head, entry);
+    list_add_before(head, entry);
     //record the page access situlation
     /*LAB3 EXERCISE 2: YOUR CODE*/ 
     //(1)link the most recent arrival page at the back of the pra_list_head qeueue.
@@ -61,14 +61,32 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
 static int
 _fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick)
 {
-     list_entry_t *head=(list_entry_t*) mm->sm_priv;
-         assert(head != NULL);
-     assert(in_tick==0);
+    list_entry_t *head=(list_entry_t*) mm->sm_priv, *temp_head = head, *prev, *next;
+    assert(head != NULL);
+    assert(in_tick==0);
 
-     list_entry_t *last = list_prev(head);
-     struct Page *p = le2page(last, pra_page_link);
-     list_del(last);
-     *ptr_page = p;
+    while (true) {
+        if (head == (list_entry_t*) mm->sm_priv) {
+            head = head.next;
+        }
+        struct Page *p = le2page(last, pra_page_link);
+        pte_t *ptep = get_pte(mm->pgdir, p->pra_vaddr, 0);
+        if ((*ptep & 0x40) > 0) {
+            *ptep ^= 0x40;
+            head = head.next;
+        } else {
+            //swap out
+            list_del(temp_head);
+            prev = list_prev(head);
+            list_del(head);
+            list_add_after(prev, temp_head);
+            return 0;
+        }
+    } 
+    // list_entry_t *last = list_prev(head);
+    // struct Page *p = le2page(last, pra_page_link);
+    // list_del(last);
+    // *ptr_page = p;
 
      /* Select the victim */
      /*LAB3 EXERCISE 2: YOUR CODE*/ 
