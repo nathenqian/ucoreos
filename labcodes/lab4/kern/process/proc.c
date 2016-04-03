@@ -91,7 +91,7 @@ alloc_proc(void) {
         proc->pid = -1;
         proc->runs = 0;
         proc->kstack = 0;
-        proc->need_resched = false;
+        proc->need_resched = 0;
         proc->parent = NULL;
         proc->mm = NULL;
         memset(&(proc->context), 0, sizeof(struct context));
