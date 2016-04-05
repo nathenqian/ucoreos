@@ -347,5 +347,21 @@ print_stackframe(void) {
       *           NOTICE: the calling funciton's return addr eip  = ss:[ebp+4]
       *                   the calling funciton's ebp = ss:[ebp]
       */
+    uint32_t ebp = read_ebp(), eip = read_eip();
+    int i, j, k;
+    for (i = 0; i < STACKFRAME_DEPTH && ebp != 0; i ++) {
+            // ebp:0x00007b28 eip:0x00100992 args:0x00010094 0x00010094 0x00007b58 0x00100096
+        // kern/debug/kdebug.c:305: print_stackframe+22
+        cprintf("ebp:0x%08x eip:0x%08x ", ebp, eip);
+        j = ebp + 8;
+        for (k = 0; k < 4; k ++) {
+            cprintf("0x%08x ", *((uint32_t *)j));
+            j = j + 4;
+        }
+        cprintf("\n");
+        print_debuginfo(eip - 1);
+        eip = *((uint32_t *)(ebp + 4));
+        ebp = *((uint32_t *)ebp);
+    }
 }
 

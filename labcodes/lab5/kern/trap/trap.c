@@ -56,6 +56,19 @@ idt_init(void) {
      /* LAB5 YOUR CODE */ 
      //you should update your lab1 code (just add ONE or TWO lines of code), let user app to use syscall to get the service of ucore
      //so you should setup the syscall interrupt gate in here
+      extern uintptr_t __vectors[];
+    int index = 0;
+    for (; index < 256; index ++) {
+        if (index < IRQ_OFFSET) { // trap {
+            SETGATE(idt[index], 1, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        } else {
+            SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
+        }
+    }
+    SETGATE(idt[T_SWITCH_TOU], 1, GD_KTEXT, __vectors[T_SWITCH_TOU], DPL_KERNEL);
+    SETGATE(idt[T_SWITCH_TOK], 1, GD_KTEXT, __vectors[T_SWITCH_TOK], DPL_USER);
+    SETGATE(idt[T_SYSCALL], 1, GD_KTEXT, __vectors[T_SYSCALL], DPL_USER);
+    lidt(&idt_pd);
 }
 
 static const char *
@@ -219,6 +232,14 @@ trap_dispatch(struct trapframe *tf) {
          * (2) Every TICK_NUM cycle, you can print some info using a funciton, such as print_ticks().
          * (3) Too Simple? Yes, I think so!
          */
+        ticks += 1;
+        if (ticks == TICK_NUM) {
+            ticks = 0;
+            print_ticks();
+        }
+        if (ticks % TICK_NUM == 0) {
+            current->need_resched = 1;
+        }
         /* LAB5 YOUR CODE */
         /* you should upate you lab1 code (just add ONE or TWO lines of code):
          *    Every TICK_NUM cycle, you should set current process's current->need_resched = 1
