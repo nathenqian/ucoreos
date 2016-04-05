@@ -56,17 +56,24 @@ idt_init(void) {
      /* LAB5 YOUR CODE */ 
      //you should update your lab1 code (just add ONE or TWO lines of code), let user app to use syscall to get the service of ucore
      //so you should setup the syscall interrupt gate in here
-      extern uintptr_t __vectors[];
-    int index = 0;
-    for (; index < 256; index ++) {
-        if (index < IRQ_OFFSET) { // trap {
-            SETGATE(idt[index], 1, GD_KTEXT, __vectors[index], DPL_KERNEL);
-        } else {
-            SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
-        }
+    extern uintptr_t __vectors[];
+    // int index = 0;
+    // for (; index < 256; index ++) {
+    //     if (index < IRQ_OFFSET) { // trap {
+    //         SETGATE(idt[index], 1, GD_KTEXT, __vectors[index], DPL_KERNEL);
+    //     } else {
+    //         SETGATE(idt[index], 0, GD_KTEXT, __vectors[index], DPL_KERNEL);
+    //     }
+    // }
+    // SETGATE(idt[T_SWITCH_TOU], 1, GD_KTEXT, __vectors[T_SWITCH_TOU], DPL_KERNEL);
+    // SETGATE(idt[T_SWITCH_TOK], 1, GD_KTEXT, __vectors[T_SWITCH_TOK], DPL_USER);
+    // SETGATE(idt[T_SYSCALL], 1, GD_KTEXT, __vectors[T_SYSCALL], DPL_USER);
+    // lidt(&idt_pd);
+    extern uintptr_t __vectors[];
+    int i;
+    for (i = 0; i < sizeof(idt) / sizeof(struct gatedesc); i ++) {
+        SETGATE(idt[i], 0, GD_KTEXT, __vectors[i], DPL_KERNEL);
     }
-    SETGATE(idt[T_SWITCH_TOU], 1, GD_KTEXT, __vectors[T_SWITCH_TOU], DPL_KERNEL);
-    SETGATE(idt[T_SWITCH_TOK], 1, GD_KTEXT, __vectors[T_SWITCH_TOK], DPL_USER);
     SETGATE(idt[T_SYSCALL], 1, GD_KTEXT, __vectors[T_SYSCALL], DPL_USER);
     lidt(&idt_pd);
 }
