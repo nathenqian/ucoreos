@@ -496,15 +496,15 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
         }
         //call get_pte to find process B's pte according to the addr start. If pte is NULL, just alloc a PT
 
-        // if ((*ptep) & PTE_P == 0) {
-        //     // swap in if it's in disk
-        //     cprintf("copy_range swap in\n");
-        //     struct Page *swap_page = NULL;
-        //     swap_in(from_mm, start, &swap_page);
-        //     page_insert(from, swap_page, start, PTE_U);
-        //     swap_page->pra_vaddr = start;
-        //     swap_map_swappable(from_mm, start, swap_page, 1);
-        // }
+        if ((*ptep) & PTE_P == 0) {
+            // swap in if it's in disk
+            cprintf("copy_range swap in\n");
+            struct Page *swap_page = NULL;
+            swap_in(from_mm, start, &swap_page);
+            page_insert(from, swap_page, start, PTE_U);
+            swap_page->pra_vaddr = start;
+            swap_map_swappable(from_mm, start, swap_page, 1);
+        }
 
         if (*ptep & PTE_P) {
             if ((nptep = get_pte(to, start, 1)) == NULL) {
@@ -513,22 +513,14 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
         uint32_t perm = (*ptep & PTE_USER);
         //cow
         cprintf("copy range %08x\n", start);
-        // struct Page *page = pte2page(*ptep);
-
-        // if (*ptep & PTE_W) {
-        //     *ptep = *ptep ^ PTE_W;
-        //     cprintf("copy range remove PTE_W\n");
-        //     page_insert(from, page, start, perm);
-        // }
-        // page_insert(to, page, start, perm);
         struct Page *page = pte2page(*ptep);
-        if(*ptep & PTE_W){
-            perm &= (~PTE_W);
-            page_insert(from,page,start,perm);
+
+        if (*ptep & PTE_W) {
+            perm &= ~PTE_W;
+            cprintf("copy range remove PTE_W\n");
+            page_insert(from, page, start, perm);
         }
         page_insert(to, page, start, perm);
-        // assert(ret == 0);
-
 
         //get page from ptep
         // struct Page *page = pte2page(*ptep);
