@@ -194,6 +194,7 @@ dup_mmap(struct mm_struct *to, struct mm_struct *from) {
     while ((le = list_prev(le)) != list) {
         struct vma_struct *vma, *nvma;
         vma = le2vma(le, list_link);
+        cprintf("dup_mmap %d %d %d\n", vma->vm_start, vma->vm_end, vma->vm_flags);
         nvma = vma_create(vma->vm_start, vma->vm_end, vma->vm_flags);
         if (nvma == NULL) {
             return -E_NO_MEM;
