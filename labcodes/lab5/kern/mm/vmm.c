@@ -474,7 +474,7 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
                 page->pra_vaddr = addr;
                 swap_map_swappable(mm, addr, page, 1);
 
-                if ((error_code & 0x2) == 0x2 && (*(get_pte(mm->pgdir, addr, 0)) & PTE_W == 0)) {
+                if ((error_code & 0x2) == 0x2 && ((*(get_pte(mm->pgdir, addr, 0)) & PTE_W) == 0)) {
                     // write and can't write
                     if (cow) {
                         need_copy = 1;
