@@ -483,7 +483,7 @@ exit_range(pde_t *pgdir, uintptr_t start, uintptr_t end) {
  * CALL GRAPH: copy_mm-->dup_mmap-->copy_range
  */
 int
-copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, struct mm_struct *to_mm = NULL, struct mm_struct *from_mm = NULL) {
+copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, struct mm_struct *to_mm, struct mm_struct *from_mm) {
     assert(start % PGSIZE == 0 && end % PGSIZE == 0);
     assert(USER_ACCESS(start, end));
     // copy content by page unit.
