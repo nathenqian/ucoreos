@@ -424,9 +424,11 @@ do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {
     if (setup_kstack(proc) != 0) {
         goto bad_fork_cleanup_proc;
     }
+    cprintf("before copy_mm current free pages: %d\n", nr_free_pages());
     if (copy_mm(clone_flags, proc) != 0) {
         goto bad_fork_cleanup_kstack;
     }
+    cprintf("after copy_mm current free pages: %d\n", nr_free_pages());
     copy_thread(proc, stack, tf);
 
     bool intr_flag;

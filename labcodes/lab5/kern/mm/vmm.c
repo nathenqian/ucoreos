@@ -202,7 +202,8 @@ dup_mmap(struct mm_struct *to, struct mm_struct *from) {
         insert_vma_struct(to, nvma);
 
         bool share = 0;
-        if (copy_range(to->pgdir, from->pgdir, vma->vm_start, vma->vm_end, share) != 0) {
+
+        if (copy_range(to->pgdir, from->pgdir, vma->vm_start, vma->vm_end, share, to, from) != 0) {
             return -E_NO_MEM;
         }
     }
@@ -457,37 +458,48 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
         pgdir_alloc_page(mm->pgdir, addr, perm);
     }
     else {
-
-    /*LAB3 EXERCISE 2: YOUR CODE
-    * Now we think this pte is a  swap entry, we should load data from disk to a page with phy addr,
-    * and map the phy addr with logical addr, trigger swap manager to record the access situation of this page.
-    *
-    *  Some Useful MACROs and DEFINEs, you can use them in below implementation.
-    *  MACROs or Functions:
-    *    swap_in(mm, addr, &page) : alloc a memory page, then according to the swap entry in PTE for addr,
-    *                               find the addr of disk page, read the content of disk page into this memroy page
-    *    page_insert ： build the map of phy addr of an Page with the linear addr la
-    *    swap_map_swappable ： set the page swappable
-    */
-    /*
-     * LAB5 CHALLENGE ( the implmentation Copy on Write)
-		There are 2 situlations when code comes here.
-		  1) *ptep & PTE_P == 1, it means one process try to write a readonly page. 
-		     If the vma includes this addr is writable, then we can set the page writable by rewrite the *ptep.
-		     This method could be used to implement the Copy on Write (COW) thchnology(a fast fork process method).
-		  2) *ptep & PTE_P == 0 & but *ptep!=0, it means this pte is a  swap entry.
-		     We should add the LAB3's results here.
-     */
-    if (swap_init_ok) {
+        if (swap_init_ok) {
+            bool cow = ((vma->vm_flags & VM_WRITE) == VM_WRITE), need_copy = 0;
             struct Page *page = NULL;
-            swap_in(mm, addr, &page);
-            page_insert(mm->pgdir, page, addr, perm);
-            page->pra_vaddr = addr;
-            swap_map_swappable(mm, addr, page, 1);
-                                    //(1）According to the mm AND addr, try to load the content of right disk page
-                                    //    into the memory which page managed.
-                                    //(2) According to the mm, addr AND page, setup the map of phy addr <---> logical addr
-                                    //(3) make the page swappable.
+            if （*ptep & PTE_P) {
+                // present but write failed
+                cprintf("write a non-writable pte: COW!\n");
+                page = pte2page(*ptep);
+                // must write not read, need copy
+                need_copy = 1;
+            } else {
+                // not present should swap in
+                swap_in(mm, addr, &page);
+                page_insert(mm->pgdir, page, addr, perm);
+                page->pra_vaddr = addr;
+                swap_map_swappable(mm, addr, page, 1);
+
+                if ((error_code & 0x2) == 0x2 && (get_pte(mm->pgdir, addr) & PTE_W == 0)) {
+                    // write and can't write
+                    if (cow) {
+                        need_copy = 1;
+                    } else {
+                        cprintf("error, write a unwriteable vma block\n");
+                        goto failed;
+                    }
+                }
+            }
+
+            if (need_copy) {
+                struct Page *npage = alloc_page();
+                memcpy(page2kva(npage), page2kva(page), PGSIZE);
+                cprintf("do_pgfault copy page here\n");
+                page_insert(mm->pgdir, npage, addr, PTE_W | PTE_U);
+            }
+            // struct Page *page = NULL;
+            // swap_in(mm, addr, &page);
+            // page_insert(mm->pgdir, page, addr, perm);
+            // page->pra_vaddr = addr;
+            // swap_map_swappable(mm, addr, page, 1);
+            //                         //(1）According to the mm AND addr, try to load the content of right disk page
+            //                         //    into the memory which page managed.
+            //                         //(2) According to the mm, addr AND page, setup the map of phy addr <---> logical addr
+            //                         //(3) make the page swappable.
         }
         else {
             cprintf("no swap_init_ok but ptep is %x, failed\n",*ptep);
