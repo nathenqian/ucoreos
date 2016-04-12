@@ -397,6 +397,7 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
 
     pgfault_num++;
     //If the addr is in the range of a mm's vma?
+    cprintf("vma = %08x\n", vma);
     if (vma == NULL || vma->vm_start > addr) {
         cprintf("not valid addr %x, and  can not find it in vma\n", addr);
         goto failed;
