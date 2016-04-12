@@ -500,8 +500,8 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
             // swap in if it's in disk
             cprintf("copy_range swap in\n");
             struct Page *swap_page = NULL;
-            swap_in(from, start, &swap_page);
-            page_insert(from->pgdir, swap_page, start, PTE_U);
+            swap_in(from_mm, start, &swap_page);
+            page_insert(from, swap_page, start, PTE_U);
             swap_page->pra_vaddr = start;
             swap_map_swappable(from_mm, start, swap_page, 1);
         }
