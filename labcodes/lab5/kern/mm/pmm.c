@@ -512,11 +512,12 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
             }
         uint32_t perm = (*ptep & PTE_USER);
         //cow
-        cprintf("copy range copy\n");
+        cprintf("copy range %08x\n", start);
         struct Page *page = pte2page(*ptep);
 
         if (*ptep & PTE_W) {
             *ptep = *ptep ^ PTE_W;
+            cprintf("copy range remove PTE_W\n");
             page_insert(from, page, start, perm);
         }
         page_insert(to, page, start, perm);
