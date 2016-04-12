@@ -496,7 +496,7 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
         }
         //call get_pte to find process B's pte according to the addr start. If pte is NULL, just alloc a PT
 
-        if (*ptep & PTE_P == 0) {
+        if ((*ptep) & PTE_P == 0) {
             // swap in if it's in disk
             cprintf("copy_range swap in\n");
             struct Page *swap_page = NULL;
@@ -548,7 +548,7 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
          // memcpy(dst_kvaddr, src_kvaddr, PGSIZE);
          // page_insert(to, npage, start, perm);
 
-        assert(ret == 0);
+        // assert(ret == 0);
         }
         start += PGSIZE;
     } while (start != 0 && start < end);
