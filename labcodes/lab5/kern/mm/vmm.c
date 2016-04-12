@@ -461,7 +461,7 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
         if (swap_init_ok) {
             bool cow = ((vma->vm_flags & VM_WRITE) == VM_WRITE), need_copy = 0;
             struct Page *page = NULL;
-            if （*ptep & PTE_P) {
+            if (*ptep & PTE_P) {
                 // present but write failed
                 cprintf("write a non-writable pte: COW!\n");
                 page = pte2page(*ptep);
