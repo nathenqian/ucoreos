@@ -128,8 +128,17 @@ _fifo_init(void)
 static int
 _fifo_set_unswappable(struct mm_struct *mm, uintptr_t addr)
 {
-    list_entry_t *head=(list_entry_t*) mm->sm_priv;
+    list_entry_t *head=(list_entry_t*) mm->sm_priv, *end = head;
     assert(head != NULL);
+    head = list_next(head);
+    while (head != end) {
+        struct Page *p = le2page(head, pra_page_link);
+        if (p->pra_vaddr == addr) {
+            list_del(p);
+            cprintf("unswap delete\n");
+            return 0;
+        }
+    }
     return 0;
 }
 
