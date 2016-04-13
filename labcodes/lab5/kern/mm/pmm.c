@@ -517,6 +517,7 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
 
         if (*ptep & PTE_W) {
             perm &= ~PTE_W;
+            swap_set_unswappable(from_mm, start);
             cprintf("copy range remove PTE_W\n");
             page_insert(from, page, start, perm);
         }
