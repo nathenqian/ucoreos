@@ -130,11 +130,6 @@ _fifo_set_unswappable(struct mm_struct *mm, uintptr_t addr)
 {
     list_entry_t *head=(list_entry_t*) mm->sm_priv;
     assert(head != NULL);
-    
-    list_entry_t *last = list_prev(head);
-    struct Page *p = le2page(last, pra_page_link);
-    list_del(last);
-    *ptr_page = p;
     return 0;
 }
 
