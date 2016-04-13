@@ -26,6 +26,7 @@
  */
 
 list_entry_t pra_list_head;
+static bool  init_;
 /*
  * (2) _fifo_init_mm: init pra_list_head and let  mm->sm_priv point to the addr of pra_list_head.
  *              Now, From the memory control struct mm_struct, we can access FIFO PRA
@@ -33,7 +34,10 @@ list_entry_t pra_list_head;
 static int
 _fifo_init_mm(struct mm_struct *mm)
 {     
+     if (!init_) {
      list_init(&pra_list_head);
+	init_ = 1;
+	}
      mm->sm_priv = &pra_list_head;
      //cprintf(" mm->sm_priv %x in fifo_init_mm\n",mm->sm_priv);
      return 0;
@@ -49,7 +53,7 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
  
     assert(entry != NULL && head != NULL);
     list_add_after(head, entry);
-    cprintf("map swappable %08x\n", addr);
+    cprintf("map swappable %08x %08x %08x %08x\n", mm, addr, head, list_next(head));
     //record the page access situlation
     /*LAB3 EXERCISE 2: YOUR CODE*/ 
     //(1)link the most recent arrival page at the back of the pra_list_head qeueue.
@@ -130,14 +134,17 @@ _fifo_set_unswappable(struct mm_struct *mm, uintptr_t addr)
 {
     list_entry_t *head=(list_entry_t*) mm->sm_priv, *end = head;
     assert(head != NULL);
+    cprintf("unswap start check %08x %08x %08x %08x\n", mm, head, list_next(head), list_prev(head));
     head = list_next(head);
     while (head != end) {
         struct Page *p = le2page(head, pra_page_link);
+        cprintf("unswap check %08x\n", p->pra_vaddr);
         if (p->pra_vaddr == addr) {
-            list_del(p);
+            list_del(head);
             cprintf("unswap delete\n");
             return 0;
         }
+        head = list_next(head);
     }
     return 0;
 }
