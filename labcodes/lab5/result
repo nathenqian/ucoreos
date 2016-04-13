@@ -2,23 +2,23 @@
 
 Special kernel symbols:
   entry  0xc010002a (phys)
-  etext  0xc010d672 (phys)
-  edata  0xc019ff2a (phys)
-  end    0xc01a30b8 (phys)
-Kernel executable memory footprint: 653KB
-ebp:0xc012df38 eip:0xc0101f62 0x00010094 0x00000000 0xc012df68 0xc01000d3 
+  etext  0xc010c33a (phys)
+  edata  0xc019cf2a (phys)
+  end    0xc01a00b8 (phys)
+Kernel executable memory footprint: 641KB
+ebp:0xc012af38 eip:0xc0100adf 0x00010094 0x00000000 0xc012af68 0xc01000d3 
     kern/debug/kdebug.c:350: print_stackframe+21
-ebp:0xc012df48 eip:0xc0102249 0x00000000 0x00000000 0x00000000 0xc012dfb8 
+ebp:0xc012af48 eip:0xc0100dc6 0x00000000 0x00000000 0x00000000 0xc012afb8 
     kern/debug/kmonitor.c:129: mon_backtrace+10
-ebp:0xc012df68 eip:0xc01000d3 0x00000000 0xc012df90 0xffff0000 0xc012df94 
+ebp:0xc012af68 eip:0xc01000d3 0x00000000 0xc012af90 0xffff0000 0xc012af94 
     kern/init/init.c:58: grade_backtrace2+33
-ebp:0xc012df88 eip:0xc01000fc 0x00000000 0xffff0000 0xc012dfb4 0x0000002a 
+ebp:0xc012af88 eip:0xc01000fc 0x00000000 0xffff0000 0xc012afb4 0x0000002a 
     kern/init/init.c:63: grade_backtrace1+38
-ebp:0xc012dfa8 eip:0xc010011a 0x00000000 0xc010002a 0xffff0000 0x0000001d 
+ebp:0xc012afa8 eip:0xc010011a 0x00000000 0xc010002a 0xffff0000 0x0000001d 
     kern/init/init.c:68: grade_backtrace0+23
-ebp:0xc012dfc8 eip:0xc010013f 0xc010d69c 0xc010d680 0x0000318e 0x00000000 
+ebp:0xc012afc8 eip:0xc010013f 0xc010c35c 0xc010c340 0x0000318e 0x00000000 
     kern/init/init.c:73: grade_backtrace+34
-ebp:0xc012dff8 eip:0xc010007f 0x00000000 0x00000000 0x0000ffff 0x40cf9a00 
+ebp:0xc012aff8 eip:0xc010007f 0x00000000 0x00000000 0x0000ffff 0x40cf9a00 
     kern/init/init.c:33: kern_init+84
 memory management: default_pmm_manager
 e820map:
@@ -42,26 +42,30 @@ use SLOB allocator
 kmalloc_init() succeeded!
 check_vma_struct() succeeded!
 page fault at 0x00000100: K/W [no page found].
-vma = c0385030, addr = 00000100
+vma = c0382030, addr = 00000100
 check_pgfault() succeeded!
 check_vmm() succeeded.
-before copy_mm current free pages: 31862
-after copy_mm current free pages: 31862
+before copy_mm current free pages: 31865
+after copy_mm current free pages: 31865
 ide 0:      10000(sectors), 'QEMU HARDDISK'.
 ide 1:     262144(sectors), 'QEMU HARDDISK'.
 SWAP: manager = fifo swap manager
-BEGIN check_swap: count 1, total 31862
+BEGIN check_swap: count 1, total 31865
 setup Page Table for vaddr 0X1000, so alloc a page
 setup Page Table vaddr 0~4MB OVER!
 set up init env for check_swap begin!
 page fault at 0x00001000: K/W [no page found].
-vma = c0385140, addr = 00001000
+vma = c0382140, addr = 00001000
+map swappable 00001000
 page fault at 0x00002000: K/W [no page found].
-vma = c0385140, addr = 00002000
+vma = c0382140, addr = 00002000
+map swappable 00002000
 page fault at 0x00003000: K/W [no page found].
-vma = c0385140, addr = 00003000
+vma = c0382140, addr = 00003000
+map swappable 00003000
 page fault at 0x00004000: K/W [no page found].
-vma = c0385140, addr = 00004000
+vma = c0382140, addr = 00004000
+map swappable 00004000
 set up init env for check_swap over!
 write Virt Page c in fifo_check_swap
 write Virt Page a in fifo_check_swap
@@ -69,69 +73,97 @@ write Virt Page d in fifo_check_swap
 write Virt Page b in fifo_check_swap
 write Virt Page e in fifo_check_swap
 page fault at 0x00005000: K/W [no page found].
-vma = c0385140, addr = 00005000
+vma = c0382140, addr = 00005000
 swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
+map swappable 00005000
 write Virt Page b in fifo_check_swap
 write Virt Page a in fifo_check_swap
 page fault at 0x00001000: K/W [no page found].
-vma = c0385140, addr = 00001000
+vma = c0382140, addr = 00001000
 swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
 swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
+map swappable 00001000
 write Virt Page b in fifo_check_swap
 page fault at 0x00002000: K/W [no page found].
-vma = c0385140, addr = 00002000
+vma = c0382140, addr = 00002000
 swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
 swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
+map swappable 00002000
 write Virt Page c in fifo_check_swap
 page fault at 0x00003000: K/W [no page found].
-vma = c0385140, addr = 00003000
+vma = c0382140, addr = 00003000
 swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
 swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
+map swappable 00003000
 write Virt Page d in fifo_check_swap
 page fault at 0x00004000: K/W [no page found].
-vma = c0385140, addr = 00004000
+vma = c0382140, addr = 00004000
 swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
 swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
+map swappable 00004000
 write Virt Page e in fifo_check_swap
 page fault at 0x00005000: K/W [no page found].
-vma = c0385140, addr = 00005000
+vma = c0382140, addr = 00005000
 swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
 swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
+map swappable 00005000
 write Virt Page a in fifo_check_swap
 page fault at 0x00001000: K/R [no page found].
-vma = c0385140, addr = 00001000
+vma = c0382140, addr = 00001000
 swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
 swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
+map swappable 00001000
 count is 0, total is 5
 check_swap() succeeded!
 ++ setup timer interrupts
-before copy_mm current free pages: 31855
-after copy_mm current free pages: 31855
+before copy_mm current free pages: 31858
+after copy_mm current free pages: 31858
 kernel_execve: pid = 2, name = "exit".
+map swappable 00200000
+map swappable 00201000
+map swappable 00202000
+map swappable 00203000
+map swappable 00800000
+map swappable 00801000
+map swappable 00802000
 I am the parent. Forking the child...
-before copy_mm current free pages: 31838
+before copy_mm current free pages: 31841
 dup_mmap -1343225856 -1342177280 11
 copy range afffc000
+copy range remove PTE_W
 copy range afffd000
+copy range remove PTE_W
 copy range afffe000
+copy range remove PTE_W
 copy range affff000
+copy range remove PTE_W
 dup_mmap 8396800 8400896 3
 copy range 00802000
+unswap delete
+copy range remove PTE_W
 dup_mmap 8388608 8396800 5
 copy range 00800000
 copy range 00801000
 dup_mmap 2097152 2113536 3
 copy range 00200000
+unswap delete
+copy range remove PTE_W
 copy range 00201000
+unswap delete
+copy range remove PTE_W
 copy range 00202000
+unswap delete
+copy range remove PTE_W
 copy range 00203000
-after copy_mm current free pages: 31834
-vma = c0385228, addr = afffff48
+unswap delete
+copy range remove PTE_W
+after copy_mm current free pages: 31837
+vma = c0382228, addr = afffff48
 write a non-writable pte: COW!
 do_pgfault copy page here
 I am parent, fork a child pid 3
 I am the parent, waiting now..
-vma = c03852f8, addr = afffff48
+vma = c03822f8, addr = afffff48
 write a non-writable pte: COW!
 do_pgfault copy page here
 I am the child.
@@ -144,4 +176,3 @@ kernel panic at kern/process/proc.c:468:
 
 Welcome to the kernel debug monitor!!
 Type 'help' for a list of commands.
-K> 
