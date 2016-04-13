@@ -49,7 +49,7 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
  
     assert(entry != NULL && head != NULL);
     list_add_after(head, entry);
-    printf("map swappable %08x\n", addr);
+    cprintf("map swappable %08x\n", addr);
     //record the page access situlation
     /*LAB3 EXERCISE 2: YOUR CODE*/ 
     //(1)link the most recent arrival page at the back of the pra_list_head qeueue.
