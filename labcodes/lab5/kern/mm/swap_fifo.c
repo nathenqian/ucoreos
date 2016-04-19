@@ -34,13 +34,14 @@ static bool  init_;
 static int
 _fifo_init_mm(struct mm_struct *mm)
 {     
-     if (!init_) {
-     list_init(&pra_list_head);
-	init_ = 1;
-	}
-     mm->sm_priv = &pra_list_head;
-     //cprintf(" mm->sm_priv %x in fifo_init_mm\n",mm->sm_priv);
-     return 0;
+     // if (!init_) {
+     // list_init(&pra_list_head);
+	// init_ = 1;
+	// }
+    list_entry_t pra_list_head = kmalloc(sizeof(list_entry_t));
+    mm->sm_priv = &pra_list_head;
+    //cprintf(" mm->sm_priv %x in fifo_init_mm\n",mm->sm_priv);
+    return 0;
 }
 /*
  * (3)_fifo_map_swappable: According FIFO PRA, we should link the most recent arrival page at the back of pra_list_head qeueue
