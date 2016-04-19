@@ -512,7 +512,7 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, s
             }
         uint32_t perm = (*ptep & PTE_USER);
         //cow
-        cprintf("copy range %08x from = %08x to = %08x\n", start, from_mm, to_mm);
+        // cprintf("copy range %08x from = %08x to = %08x\n", start, from_mm, to_mm);
         struct Page *page = pte2page(*ptep);
 
         if (*ptep & PTE_W) {
