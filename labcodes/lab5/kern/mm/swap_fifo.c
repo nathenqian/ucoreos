@@ -40,6 +40,7 @@ _fifo_init_mm(struct mm_struct *mm)
 	// }
     list_entry_t *pra_list_head = (list_entry_t *)kmalloc(sizeof(list_entry_t));
     mm->sm_priv = pra_list_head;
+    list_init(pra_list_head);
     //cprintf(" mm->sm_priv %x in fifo_init_mm\n",mm->sm_priv);
     return 0;
 }
