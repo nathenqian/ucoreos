@@ -55,7 +55,7 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
  
     assert(entry != NULL && head != NULL);
     list_add_after(head, entry);
-    cprintf("map swappable %08x %08x %08x %08x\n", mm, addr, head, list_next(head));
+    cprintf("map swappable %08x %08x \n", mm, addr);
     //record the page access situlation
     /*LAB3 EXERCISE 2: YOUR CODE*/ 
     //(1)link the most recent arrival page at the back of the pra_list_head qeueue.
@@ -136,14 +136,12 @@ _fifo_set_unswappable(struct mm_struct *mm, uintptr_t addr)
 {
     list_entry_t *head=(list_entry_t*) mm->sm_priv, *end = head;
     assert(head != NULL);
-    cprintf("unswap start check %08x %08x %08x %08x\n", mm, head, list_next(head), list_prev(head));
     head = list_next(head);
     while (head != end) {
         struct Page *p = le2page(head, pra_page_link);
-        cprintf("unswap check %08x\n", p->pra_vaddr);
         if (p->pra_vaddr == addr) {
             list_del(head);
-            cprintf("unswap delete\n");
+            cprintf("unswap delete %08x\n", p->pra_vaddr);
             return 0;
         }
         head = list_next(head);
