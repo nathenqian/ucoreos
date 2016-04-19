@@ -546,6 +546,8 @@ load_icode(unsigned char *binary, size_t size) {
 
     uint32_t vm_flags, perm;
     struct proghdr *ph_end = ph + elf->e_phnum;
+    current->mm = mm;
+    
     for (; ph < ph_end; ph ++) {
 
         // cprintf("fork copy enter\n");
@@ -633,7 +635,6 @@ load_icode(unsigned char *binary, size_t size) {
     
     //(5) set current process's mm, sr3, and set CR3 reg = physical addr of Page Directory
     mm_count_inc(mm);
-    current->mm = mm;
     current->cr3 = PADDR(mm->pgdir);
     lcr3(PADDR(mm->pgdir));
 
