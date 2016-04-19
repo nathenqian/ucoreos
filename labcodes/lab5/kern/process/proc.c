@@ -548,7 +548,7 @@ load_icode(unsigned char *binary, size_t size) {
     struct proghdr *ph_end = ph + elf->e_phnum;
     for (; ph < ph_end; ph ++) {
 
-        cprintf("fork copy enter\n");
+        // cprintf("fork copy enter\n");
     //(3.4) find every program section headers
         if (ph->p_type != ELF_PT_LOAD) {
             continue ;
@@ -583,9 +583,6 @@ load_icode(unsigned char *binary, size_t size) {
             if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
                 goto bad_cleanup_mmap;
             }
-            cprintf("fork copy 1\n");
-            page->pra_vaddr = la;
-            swap_map_swappable(mm, la, page, 1);
 
             off = start - la, size = PGSIZE - off, la += PGSIZE;
             if (end < la) {
@@ -604,7 +601,6 @@ load_icode(unsigned char *binary, size_t size) {
             }
             off = start + PGSIZE - la, size = PGSIZE - off;
 
-            cprintf("fork copy 2\n");
             if (end < la) {
                 size -= la - end;
             }
@@ -617,9 +613,7 @@ load_icode(unsigned char *binary, size_t size) {
                 goto bad_cleanup_mmap;
             }
             off = start - la, size = PGSIZE - off, la += PGSIZE;
-            cprintf("fork copy 3\n");
-page->pra_vaddr = la;
-            swap_map_swappable(mm, la, page, 1);
+
             if (end < la) {
                 size -= la - end;
             }
