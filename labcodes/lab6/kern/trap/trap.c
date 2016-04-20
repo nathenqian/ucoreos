@@ -243,7 +243,8 @@ trap_dispatch(struct trapframe *tf) {
 	     * sched_class_proc_tick
          */
         // ticks += 1;
-        sched_class_proc_tick(current);
+        // /sched_class_proc_tick(current);
+         
         // if (ticks == TICK_NUM) {
             // ticks = 0;
             // print_ticks();
