@@ -75,7 +75,7 @@ wakeup_proc(struct proc_struct *proc) {
     local_intr_restore(intr_flag);
 }
 
-void process_tick(proc_struct *proc) {
+void process_tick(struct proc_struct *proc) {
     sched_class_proc_tick(proc);
 }
 

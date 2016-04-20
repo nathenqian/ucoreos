@@ -47,7 +47,7 @@ struct run_queue {
 void sched_init(void);
 void wakeup_proc(struct proc_struct *proc);
 void schedule(void);
-void process_tick(proc_struct *proc)
+void process_tick(struct proc_struct *proc)
 
 #endif /* !__KERN_SCHEDULE_SCHED_H__ */
 
