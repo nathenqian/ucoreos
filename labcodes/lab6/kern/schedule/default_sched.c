@@ -23,7 +23,7 @@ proc_stride_comp_f(void *a, void *b)
      else return -1;
 }
 
-/*
+/* 
  * stride_init initializes the run-queue rq with correct assignment for
  * member variables, including:
  *
