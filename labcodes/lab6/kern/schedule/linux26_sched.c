@@ -15,8 +15,8 @@ linux26_init(struct run_queue *rq) {
       */
     int i;
     for (i = 0; i < LINUX26_MAX_PRIORITY; i ++) {
-      list_init(rq->active_list[i]);
-      list_init(rq->expire_list[i]);
+      list_init(&(rq->active_list[i]));
+      list_init(&(rq->expire_list[i]));
     }
     rq->active_bitmap = rq->expire_bitmap = 0;
     rq->proc_num = 0;
