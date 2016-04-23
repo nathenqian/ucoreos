@@ -78,8 +78,8 @@ linux26_dequeue(struct run_queue *rq, struct proc_struct *proc) {
       */
 
     list_del(&(proc->run_link));
-    if (list_empty(&(rq->expire_list[proc->lab6_priority]))) {
-      rq->expire_bitmap &= ~(((unsigned int)1) << proc->lab6_priority);
+    if (list_empty(&(rq->active_list[proc->lab6_priority]))) {
+      rq->active_bitmap &= ~(((unsigned int)1) << proc->lab6_priority);
     }
     rq->proc_num --;
 
@@ -107,7 +107,6 @@ linux26_pick_next(struct run_queue *rq) {
       * (3) return p
       */
      unsigned int u, t;
-     if (rq->lab6_run_pool == NULL) return NULL;
      if (rq->active_bitmap == 0) {
       unsigned int temp = rq->active_bitmap;
       rq->active_bitmap = rq->expire_bitmap;
@@ -117,9 +116,9 @@ linux26_pick_next(struct run_queue *rq) {
       rq->expire_list = stemp;
      }
      if (rq->active_bitmap == 0) return NULL;
-     for (u = 1, t = 1; t <= 32; t ++, u <<= 1)
-      if ((rq->active_bitmap) & u != 0) {
-        struct proc_struct *p = le2proc(rq->active_list[u].next, run_link);
+     for (u = 1, t = 0; t < 32; t ++, u <<= 1)
+      if (((rq->active_bitmap) & u) != 0) {
+        struct proc_struct *p = le2proc(rq->active_list[t].next, run_link);
         return p;
       }
 }
