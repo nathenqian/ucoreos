@@ -4,44 +4,20 @@
 #include <assert.h>
 #include <default_sched.h>
 
-#define USE_SKEW_HEAP 1
+#define LINUX26_MAX_PRIORITY 32
 
-/* You should define the BigStride constant here*/
-/* LAB6: YOUR CODE */
-#define BIG_STRIDE 0x7FFFFFFF   /* you should give a value, and is ??? */
-
-/* The compare function for two skew_heap_node_t's and the
- * corresponding procs*/
-static int
-proc_stride_comp_f(void *a, void *b)
-{
-     struct proc_struct *p = le2proc(a, lab6_run_pool);
-     struct proc_struct *q = le2proc(b, lab6_run_pool);
-     int32_t c = p->lab6_stride - q->lab6_stride;
-     if (c > 0) return 1;
-     else if (c == 0) return 0;
-     else return -1;
-}
-
-/* 
- * stride_init initializes the run-queue rq with correct assignment for
- * member variables, including:
- *
- *   - run_list: should be a empty list after initialization.
- *   - lab6_run_pool: NULL
- *   - proc_num: 0
- *   - max_time_slice: no need here, the variable would be assigned by the caller.
- *
- * hint: see libs/list.h for routines of the list structures.
- */
 static void
-stride_init(struct run_queue *rq) {
+linux26_init(struct run_queue *rq) {
      /* LAB6: YOUR CODE 
       * (1) init the ready process list: rq->run_list
       * (2) init the run pool: rq->lab6_run_pool
       * (3) set number of process: rq->proc_num to 0       
       */
-    rq->lab6_run_pool = NULL;
+    for (int i = 0; i < LINUX26_MAX_PRIORITY; i ++) {
+      list_init(rq->active_list[i]);
+      list_init(rq->expire_list[i]);
+    }
+    rq->active_bitmap = rq->expire_bitmap = 0;
     rq->proc_num = 0;
 }
 
@@ -59,7 +35,7 @@ stride_init(struct run_queue *rq) {
  * queue structures.
  */
 static void
-stride_enqueue(struct run_queue *rq, struct proc_struct *proc) {
+linux26_enqueue(struct run_queue *rq, struct proc_struct *proc) {
      /* LAB6: YOUR CODE 
       * (1) insert the proc into rq correctly
       * NOTICE: you can use skew_heap or list. Important functions
@@ -69,7 +45,11 @@ stride_enqueue(struct run_queue *rq, struct proc_struct *proc) {
       * (3) set proc->rq pointer to rq
       * (4) increase rq->proc_num
       */
-    rq->lab6_run_pool = skew_heap_insert(rq->lab6_run_pool, &(proc->lab6_run_pool), proc_stride_comp_f);
+    if (list_empty(&(rq->expire_list[proc->lab6_priority]))) {
+      rq->expire_bitmap |= ((unsigned int)1) << proc->lab6_priority;
+    }
+    list_add_before(&(rq->expire_list[proc->lab6_priority]), &proc->run_link);
+
     if (proc->time_slice == 0 || proc->time_slice > rq->max_time_slice) {
         proc->time_slice = rq->max_time_slice;
     }
@@ -86,14 +66,18 @@ stride_enqueue(struct run_queue *rq, struct proc_struct *proc) {
  * queue structures.
  */
 static void
-stride_dequeue(struct run_queue *rq, struct proc_struct *proc) {
+linux26_dequeue(struct run_queue *rq, struct proc_struct *proc) {
      /* LAB6: YOUR CODE 
       * (1) remove the proc from rq correctly
       * NOTICE: you can use skew_heap or list. Important functions
       *         skew_heap_remove: remove a entry from skew_heap
       *         list_del_init: remove a entry from the  list
       */
-    rq->lab6_run_pool = skew_heap_remove(rq->lab6_run_pool, &(proc->lab6_run_pool), proc_stride_comp_f);
+
+    list_del(&(proc->run_link));
+    if (list_empty(&(rq->expire_list[proc->lab6_priority]))) {
+      rq->expire_bitmap &= ~(((unsigned int)1) << proc->lab6_priority);
+    }
     rq->proc_num --;
 
 }
@@ -111,7 +95,7 @@ stride_dequeue(struct run_queue *rq, struct proc_struct *proc) {
  * queue structures.
  */
 static struct proc_struct *
-stride_pick_next(struct run_queue *rq) {
+linux26_pick_next(struct run_queue *rq) {
      /* LAB6: YOUR CODE 
       * (1) get a  proc_struct pointer p  with the minimum value of stride
              (1.1) If using skew_heap, we can use le2proc get the p from rq->lab6_run_poll
@@ -120,12 +104,20 @@ stride_pick_next(struct run_queue *rq) {
       * (3) return p
       */
      if (rq->lab6_run_pool == NULL) return NULL;
-     struct proc_struct *p = le2proc(rq->lab6_run_pool, lab6_run_pool);
-     if (p->lab6_priority == 0)
-        p->lab6_stride += BIG_STRIDE;
-     else 
-        p->lab6_stride += BIG_STRIDE / p->lab6_priority;
-     return p;
+     if (rq->active_bitmap == 0) {
+      unsigned int temp = rq->active_bitmap;
+      rq->active_bitmap = rq->expire_bitmap;
+      rq->expire_bitmap = temp;
+      list_entry_t *stemp = rq->active_list;
+      rq->active_list = rq->expire_list;
+      rq->expire_list = stemp;
+     }
+     if (rq->active_bitmap == 0) return NULL;
+     for (unsigned int u = 1, t = 1; t <= 32; t ++, u <<= 1)
+      if (rq->active_bitmap & u != 0) {
+        struct proc_struct *p = le2proc(rq->active_list[i]->next, run_link);
+        return p;
+      }
 }
 
 /*
@@ -137,7 +129,7 @@ stride_pick_next(struct run_queue *rq) {
  * switching.
  */
 static void
-stride_proc_tick(struct run_queue *rq, struct proc_struct *proc) {
+linux26_proc_tick(struct run_queue *rq, struct proc_struct *proc) {
      /* LAB6: YOUR CODE */
     if (proc->time_slice > 0) {
         -- proc->time_slice;
@@ -146,11 +138,11 @@ stride_proc_tick(struct run_queue *rq, struct proc_struct *proc) {
     }
 }
 
-struct sched_class default_sched_class = {
-     .name = "stride_scheduler",
-     .init = stride_init,
-     .enqueue = stride_enqueue,
-     .dequeue = stride_dequeue,
-     .pick_next = stride_pick_next,
-     .proc_tick = stride_proc_tick,
+struct sched_class linux26_sched_class = {
+     .name = "linux26_scheduler",
+     .init = linux26_init,
+     .enqueue = linux26_enqueue,
+     .dequeue = linux26_dequeue,
+     .pick_next = linux26_pick_next,
+     .proc_tick = linux26_proc_tick,
 };
