@@ -42,8 +42,9 @@ struct run_queue {
     int max_time_slice;
     // For LAB6 ONLY
     skew_heap_entry_t *lab6_run_pool;
-    list_entry_t expire_list[32];
-    list_entry_t active_list[32];
+    list_entry_t *expire_list;
+    list_entry_t *active_list;
+    list_entry_t list1[32], list2[32];
     unsigned int expire_bitmap, active_bitmap;
 };
 

@@ -14,6 +14,8 @@ linux26_init(struct run_queue *rq) {
       * (3) set number of process: rq->proc_num to 0       
       */
     int i;
+    rq->active_list = rq->list1;
+    rq->expire_list = rq->list2;
     for (i = 0; i < LINUX26_MAX_PRIORITY; i ++) {
       list_init(&(rq->active_list[i]));
       list_init(&(rq->expire_list[i]));
@@ -116,7 +118,7 @@ linux26_pick_next(struct run_queue *rq) {
      }
      if (rq->active_bitmap == 0) return NULL;
      for (u = 1, t = 1; t <= 32; t ++, u <<= 1)
-      if (rq->active_bitmap & u != 0) {
+      if ((rq->active_bitmap) & u != 0) {
         struct proc_struct *p = le2proc(rq->active_list[u].next, run_link);
         return p;
       }
