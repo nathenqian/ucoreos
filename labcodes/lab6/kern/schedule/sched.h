@@ -43,7 +43,7 @@ struct run_queue {
     // For LAB6 ONLY
     skew_heap_entry_t *lab6_run_pool;
     list_entry_t expire_list[32];
-    list_entry_t acitive_list[32];
+    list_entry_t active_list[32];
     unsigned int expire_bitmap, acitive_bitmap;
 };
 

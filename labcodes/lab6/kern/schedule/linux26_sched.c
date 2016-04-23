@@ -117,7 +117,7 @@ linux26_pick_next(struct run_queue *rq) {
      if (rq->active_bitmap == 0) return NULL;
      for (u = 1, t = 1; t <= 32; t ++, u <<= 1)
       if (rq->active_bitmap & u != 0) {
-        struct proc_struct *p = le2proc(rq->active_list[i].next, run_link);
+        struct proc_struct *p = le2proc(rq->active_list[u].next, run_link);
         return p;
       }
 }
