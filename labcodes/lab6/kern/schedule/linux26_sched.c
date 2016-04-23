@@ -13,7 +13,8 @@ linux26_init(struct run_queue *rq) {
       * (2) init the run pool: rq->lab6_run_pool
       * (3) set number of process: rq->proc_num to 0       
       */
-    for (int i = 0; i < LINUX26_MAX_PRIORITY; i ++) {
+    int i;
+    for (i = 0; i < LINUX26_MAX_PRIORITY; i ++) {
       list_init(rq->active_list[i]);
       list_init(rq->expire_list[i]);
     }
@@ -103,6 +104,7 @@ linux26_pick_next(struct run_queue *rq) {
       * (2) update p;s stride value: p->lab6_stride
       * (3) return p
       */
+     unsigned int u, t;
      if (rq->lab6_run_pool == NULL) return NULL;
      if (rq->active_bitmap == 0) {
       unsigned int temp = rq->active_bitmap;
@@ -113,9 +115,9 @@ linux26_pick_next(struct run_queue *rq) {
       rq->expire_list = stemp;
      }
      if (rq->active_bitmap == 0) return NULL;
-     for (unsigned int u = 1, t = 1; t <= 32; t ++, u <<= 1)
+     for (u = 1, t = 1; t <= 32; t ++, u <<= 1)
       if (rq->active_bitmap & u != 0) {
-        struct proc_struct *p = le2proc(rq->active_list[i]->next, run_link);
+        struct proc_struct *p = le2proc(rq->active_list[i].next, run_link);
         return p;
       }
 }
