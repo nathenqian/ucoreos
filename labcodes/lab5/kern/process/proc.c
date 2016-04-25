@@ -855,6 +855,7 @@ init_main(void *arg) {
             if (*temp == 0) {
                 Page *page = alloc_page();
                 page_insert(pgdir, page, vaddr, PTE_W | PTE_U);
+                cprintf("%08x %d %d\n", vaddr, i, nr_free_pages());
                 break;
             }
             vaddr -= 0x1000;
