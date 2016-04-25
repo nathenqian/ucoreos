@@ -3,7 +3,7 @@
 #include <proc.h>
 #include <sched.h>
 #include <assert.h>
-
+#include <pmm.h>
 void
 wakeup_proc(struct proc_struct *proc) {
     assert(proc->state != PROC_ZOMBIE);
@@ -44,6 +44,7 @@ schedule(void) {
         }
         next->runs ++;
         if (next != current) {
+            cprintf("now free page = %d\n", nr_free_pages());
             proc_run(next);
         }
     }
