@@ -843,33 +843,38 @@ init_main(void *arg) {
     size_t nr_free_pages_store = nr_free_pages();
     size_t kernel_allocated_store = kallocated();
 
-    uint32_t vaddr = 0x80000000;
-    int i;
-    extern pde_t *boot_pgdir;
-    for (i = 0; i < 31850; i ++) {
-        while (1) {
-            if (get_pte(boot_pgdir, vaddr, 0) == NULL) {
-                get_pte(boot_pgdir, vaddr, 1);
-            }
-            pte_t *temp = get_pte(boot_pgdir, vaddr, 0);
-            if (*temp == 0) {
-                struct Page *page = alloc_page();
-                page_insert(boot_pgdir, page, vaddr, PTE_W | PTE_U);
-                cprintf("%08x %d %d\n", vaddr, i, nr_free_pages());
-                break;
-            }
-            vaddr -= 0x1000;
-            cprintf("%08x %d %d\n", vaddr, i, nr_free_pages());
-        } 
-    }
-    // int pid = kernel_thread(user_main, NULL, 0);
-    // if (pid <= 0) {
-        // panic("create user_main failed.\n");
+    // uint32_t vaddr = 0x80000000;
+    // int i;
+    // extern pde_t *boot_pgdir;
+    // for (i = 0; i < 31850; i ++) {
+    //     while (1) {
+    //         if (get_pte(boot_pgdir, vaddr, 0) == NULL) {
+    //             get_pte(boot_pgdir, vaddr, 1);
+    //         }
+    //         pte_t *temp = get_pte(boot_pgdir, vaddr, 0);
+    //         if (*temp == 0) {
+    //             struct Page *page = alloc_page();
+    //             page_insert(boot_pgdir, page, vaddr, PTE_W | PTE_U);
+    //             cprintf("%08x %d %d\n", vaddr, i, nr_free_pages());
+    //             break;
+    //         }
+    //         vaddr -= 0x1000;
+    //         cprintf("%08x %d %d\n", vaddr, i, nr_free_pages());
+    //     } 
     // }
+    exterm const struct pmm_manager *pmm_manager;
+    pmm_manager->alloc_pages(30000);
 
-    // while (do_wait(0, NULL) == 0) {
-        // schedule();
-    // }
+    size_t nr_free_pages_store = nr_free_pages();
+
+    int pid = kernel_thread(user_main, NULL, 0);
+    if (pid <= 0) {
+        panic("create user_main failed.\n");
+    }
+
+    while (do_wait(0, NULL) == 0) {
+        schedule();
+    }
 
     // cprintf("all user-mode processes have quit.\n");
     // assert(initproc->cptr == NULL && initproc->yptr == NULL && initproc->optr == NULL);
