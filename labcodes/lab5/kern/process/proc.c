@@ -850,6 +850,11 @@ init_main(void *arg) {
         while (1) {
             if (get_pte(boot_pgdir, vaddr, 0) == NULL) {
                 get_pte(boot_pgdir, vaddr, 1);
+            }
+            pte_t *temp = get_pte(boot_pgdir, vaddr, 0);
+            if (*temp == 0) {
+                Page *page = alloc_page();
+                page_insert(pgdir, page, vaddr, PTE_W | PTE_U);
                 break;
             }
             vaddr -= 0x1000;
