@@ -483,7 +483,7 @@ exit_range(pde_t *pgdir, uintptr_t start, uintptr_t end) {
  * CALL GRAPH: copy_mm-->dup_mmap-->copy_range
  */
 int
-copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share) {
+copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, struct mm_struct *to_mm, struct mm_struct *from_mm) {
     assert(start % PGSIZE == 0 && end % PGSIZE == 0);
     assert(USER_ACCESS(start, end));
     // copy content by page unit.
@@ -495,18 +495,41 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share) {
             continue ;
         }
         //call get_pte to find process B's pte according to the addr start. If pte is NULL, just alloc a PT
+
+        if ((*ptep) & PTE_P == 0) {
+            // swap in if it's in disk
+            cprintf("copy_range swap in\n");
+            struct Page *swap_page = NULL;
+            swap_in(from_mm, start, &swap_page);
+            page_insert(from, swap_page, start, PTE_U);
+            swap_page->pra_vaddr = start;
+            swap_map_swappable(from_mm, start, swap_page, 1);
+        }
+
         if (*ptep & PTE_P) {
             if ((nptep = get_pte(to, start, 1)) == NULL) {
                 return -E_NO_MEM;
             }
         uint32_t perm = (*ptep & PTE_USER);
-        //get page from ptep
+        //cow
+        cprintf("copy range %08x from = %08x to = %08x\n", start, from_mm, to_mm);
         struct Page *page = pte2page(*ptep);
+
+        if (*ptep & PTE_W) {
+            perm &= ~PTE_W;
+            swap_set_unswappable(from_mm, start);
+            cprintf("copy range remove PTE_W\n");
+            page_insert(from, page, start, perm);
+        }
+        page_insert(to, page, start, perm);
+
+        //get page from ptep
+        // struct Page *page = pte2page(*ptep);
         // alloc a page for process B
-        struct Page *npage=alloc_page();
-        assert(page!=NULL);
-        assert(npage!=NULL);
-        int ret=0;
+        // struct Page *npage=alloc_page();
+        // assert(page!=NULL);
+        // assert(npage!=NULL);
+        // int ret=0;
         /* LAB5:EXERCISE2 YOUR CODE
          * replicate content of page to npage, build the map of phy addr of nage with the linear addr start
          *
@@ -522,12 +545,12 @@ copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share) {
          * (4) build the map of phy addr of  nage with the linear addr start
          */
 
-         char *src_kvaddr = (char *)page2kva(page);
-         char *dst_kvaddr = (char *)page2kva(npage);
-         memcpy(dst_kvaddr, src_kvaddr, PGSIZE);
-         page_insert(to, npage, start, perm);
+         // char *src_kvaddr = (char *)page2kva(page);
+         // char *dst_kvaddr = (char *)page2kva(npage);
+         // memcpy(dst_kvaddr, src_kvaddr, PGSIZE);
+         // page_insert(to, npage, start, perm);
 
-        assert(ret == 0);
+        // assert(ret == 0);
         }
         start += PGSIZE;
     } while (start != 0 && start < end);

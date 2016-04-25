@@ -6,7 +6,7 @@
 #include <memlayout.h>
 #include <atomic.h>
 #include <assert.h>
-
+#include <vmm.h>
 // pmm_manager is a physical memory management class. A special pmm manager - XXX_pmm_manager
 // only needs to implement the methods in pmm_manager class, then XXX_pmm_manager can be used
 // by ucore to manage the total physical memory space.
@@ -45,7 +45,9 @@ void tlb_invalidate(pde_t *pgdir, uintptr_t la);
 struct Page *pgdir_alloc_page(pde_t *pgdir, uintptr_t la, uint32_t perm);
 void unmap_range(pde_t *pgdir, uintptr_t start, uintptr_t end);
 void exit_range(pde_t *pgdir, uintptr_t start, uintptr_t end);
-int copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share);
+
+int copy_range(pde_t *to, pde_t *from, uintptr_t start, uintptr_t end, bool share, 
+    struct mm_struct *to_mm, struct mm_struct *from_mm);
 
 void print_pgdir(void);
 

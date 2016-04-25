@@ -424,9 +424,11 @@ do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {
     if (setup_kstack(proc) != 0) {
         goto bad_fork_cleanup_proc;
     }
+    cprintf("before copy_mm current free pages: %d\n", nr_free_pages());
     if (copy_mm(clone_flags, proc) != 0) {
         goto bad_fork_cleanup_kstack;
     }
+    cprintf("after copy_mm current free pages: %d\n", nr_free_pages());
     copy_thread(proc, stack, tf);
 
     bool intr_flag;
@@ -545,6 +547,8 @@ load_icode(unsigned char *binary, size_t size) {
     uint32_t vm_flags, perm;
     struct proghdr *ph_end = ph + elf->e_phnum;
     for (; ph < ph_end; ph ++) {
+
+        cprintf("fork copy enter\n");
     //(3.4) find every program section headers
         if (ph->p_type != ELF_PT_LOAD) {
             continue ;
@@ -574,10 +578,15 @@ load_icode(unsigned char *binary, size_t size) {
      //(3.6) alloc memory, and  copy the contents of every program section (from, from+end) to process's memory (la, la+end)
         end = ph->p_va + ph->p_filesz;
      //(3.6.1) copy TEXT/DATA section of bianry program
+        cprintf("start = %08x end = %08x\n", start, end);
         while (start < end) {
             if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
                 goto bad_cleanup_mmap;
             }
+            cprintf("fork copy 1\n");
+            page->pra_vaddr = la;
+            swap_map_swappable(mm, la, page, 1);
+
             off = start - la, size = PGSIZE - off, la += PGSIZE;
             if (end < la) {
                 size -= la - end;
@@ -594,6 +603,8 @@ load_icode(unsigned char *binary, size_t size) {
                 continue ;
             }
             off = start + PGSIZE - la, size = PGSIZE - off;
+
+            cprintf("fork copy 2\n");
             if (end < la) {
                 size -= la - end;
             }
@@ -606,6 +617,9 @@ load_icode(unsigned char *binary, size_t size) {
                 goto bad_cleanup_mmap;
             }
             off = start - la, size = PGSIZE - off, la += PGSIZE;
+            cprintf("fork copy 3\n");
+page->pra_vaddr = la;
+            swap_map_swappable(mm, la, page, 1);
             if (end < la) {
                 size -= la - end;
             }
@@ -646,7 +660,7 @@ load_icode(unsigned char *binary, size_t size) {
     tf->tf_eip = elf->e_entry;
     tf->tf_esp = USTACKTOP;
     tf->tf_eflags = FL_IF;
-
+    cprintf("    load icode fin\n");
 
     ret = 0;
 out:
