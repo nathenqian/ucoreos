@@ -863,7 +863,7 @@ init_main(void *arg) {
     //     } 
     // }
     extern const struct pmm_manager *pmm_manager;
-    pmm_manager->alloc_pages(30000);
+    pmm_manager->alloc_pages(31829);
     cprintf("pmm now size = %d\n", nr_free_pages());
     // nr_free_pages_store = nr_free_pages();
 
