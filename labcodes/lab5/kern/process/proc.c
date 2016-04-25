@@ -843,6 +843,18 @@ init_main(void *arg) {
     size_t nr_free_pages_store = nr_free_pages();
     size_t kernel_allocated_store = kallocated();
 
+    uint32_t vaddr = 0x80000000;
+    int i;
+    extern pde_t *boot_pgdir;
+    for (int i = 0; i < 31850; i ++) {
+        while (1) {
+            if (get_pte(boot_pgdir, vaddr, 0) == NULL) {
+                get_pte(boot_pgdir, vaddr, 1);
+                break;
+            }
+            vaddr -= 0x1000;
+        } 
+    }
     // int pid = kernel_thread(user_main, NULL, 0);
     // if (pid <= 0) {
         // panic("create user_main failed.\n");
