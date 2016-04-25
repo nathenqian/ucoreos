@@ -853,6 +853,7 @@ init_main(void *arg) {
                 break;
             }
             vaddr -= 0x1000;
+            cprintf("%08x\n", vaddr);
         } 
     }
     // int pid = kernel_thread(user_main, NULL, 0);
