@@ -846,7 +846,7 @@ init_main(void *arg) {
     uint32_t vaddr = 0x80000000;
     int i;
     extern pde_t *boot_pgdir;
-    for (int i = 0; i < 31850; i ++) {
+    for (i = 0; i < 31850; i ++) {
         while (1) {
             if (get_pte(boot_pgdir, vaddr, 0) == NULL) {
                 get_pte(boot_pgdir, vaddr, 1);
