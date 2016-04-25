@@ -75,6 +75,7 @@ _fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick
      struct Page *p = le2page(last, pra_page_link);
      list_del(last);
      *ptr_page = p;
+     cprintf("swap out victim %08x\n", p);
      /* Select the victim */
      /*LAB3 EXERCISE 2: YOUR CODE*/ 
      //(1)  unlink the  earliest arrival page in front of pra_list_head qeueue
