@@ -655,7 +655,7 @@ load_icode(unsigned char *binary, size_t size) {
     tf->tf_eip = elf->e_entry;
     tf->tf_esp = USTACKTOP;
     tf->tf_eflags = FL_IF;
-    cprintf("    load icode fin\n");
+    cprintf("    load icode fin, now free page = %d\n", nr_free_pages());
 
     ret = 0;
 out:
