@@ -454,6 +454,7 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
     *   mm->pgdir : the PDT of these vma
     *
     */
+    cprintf("start process\n");
     ptep = get_pte(mm->pgdir, addr, 1);              //(1) try to find a pte, if pte's PT(Page Table) isn't existed, then create a PT.
     if (*ptep == 0) {
                             //(2) if the phy addr isn't exist, then alloc a page & map the phy addr with logical addr
@@ -471,6 +472,11 @@ do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr) {
                 need_copy = 1;
             } else {
                 // not present should swap in
+                cprintf("pgfault swap out\n");
+
+                cprintf("free pages = %d\n", nr_free_pages());
+                swap_out(mm, 1, 0);
+                cprintf("free pages = %d\n", nr_free_pages());
                 swap_in(mm, addr, &page);
                 page_insert(mm->pgdir, page, addr, perm);
                 page->pra_vaddr = addr;

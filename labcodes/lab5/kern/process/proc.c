@@ -631,7 +631,7 @@ load_icode(unsigned char *binary, size_t size) {
     assert(pgdir_alloc_page(mm->pgdir, USTACKTOP-PGSIZE , PTE_USER) != NULL);
     assert(pgdir_alloc_page(mm->pgdir, USTACKTOP-2*PGSIZE , PTE_USER) != NULL);
     assert(pgdir_alloc_page(mm->pgdir, USTACKTOP-3*PGSIZE , PTE_USER) != NULL);
-    cprintf("load icode here correct\n");
+    cprintf("load icode here correct page = %d\n", nr_free_pages());
     assert(pgdir_alloc_page(mm->pgdir, USTACKTOP-4*PGSIZE , PTE_USER) != NULL);
     
     //(5) set current process's mm, sr3, and set CR3 reg = physical addr of Page Directory
@@ -843,7 +843,8 @@ static int
 init_main(void *arg) {
     size_t nr_free_pages_store = nr_free_pages();
     size_t kernel_allocated_store = kallocated();
-
+    extern int check_mm_struct_flag;
+    check_mm_struct_flag = 1;
     // uint32_t vaddr = 0x80000000;
     // int i;
     // extern pde_t *boot_pgdir;

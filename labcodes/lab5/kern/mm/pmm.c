@@ -149,7 +149,7 @@ static void
 init_memmap(struct Page *base, size_t n) {
     pmm_manager->init_memmap(base, n);
 }
-
+int check_mm_struct_flag;
 //alloc_pages - call pmm->alloc_pages to allocate a continuous n*PAGESIZE memory 
 struct Page *
 alloc_pages(size_t n) {
@@ -167,10 +167,15 @@ alloc_pages(size_t n) {
          if (page != NULL || n > 1 || swap_init_ok == 0) break;
          
          extern struct mm_struct *check_mm_struct;
-         //cprintf("page %x, call swap_out in alloc_pages %d\n",page, n);
+         extern struct proc_struct *current;
+         // check_mm_struct_flag;
+         cprintf("page %x, call swap_out in alloc_pages %d\n",page, n);
+         if (check_mm_struct_flag == 0)
          swap_out(check_mm_struct, n, 0);
+         else
+         swap_out(current->mm, n, 0);
     }
-    //cprintf("n %d,get page %x, No %d in alloc_pages\n",n,page,(page-pages));
+    cprintf("n %d,get page %x, No %d in alloc_pages\n",n,page,(page-pages));
     return page;
 }
 
@@ -609,7 +614,9 @@ tlb_invalidate(pde_t *pgdir, uintptr_t la) {
 //                  - pa<->la with linear address la and the PDT pgdir
 struct Page *
 pgdir_alloc_page(pde_t *pgdir, uintptr_t la, uint32_t perm) {
+    cprintf("alloc page\n");
     struct Page *page = alloc_page();
+    cprintf("alloc page end\n");
     if (page != NULL) {
         if (page_insert(pgdir, page, la, perm) != 0) {
             free_page(page);

@@ -1,0 +1,4377 @@
++ cc kern/process/proc.c
++ ld bin/kernel
+(THU.CST) os is loading ...
+
+Special kernel symbols:
+  entry  0xc010002a (phys)
+  etext  0xc010d8a8 (phys)
+  edata  0xc01a7826 (phys)
+  end    0xc01aa9b8 (phys)
+Kernel executable memory footprint: 683KB
+ebp:0xc012df38 eip:0xc0101f62 0x00010094 0x00000000 0xc012df68 0xc01000d3 
+    kern/debug/kdebug.c:350: print_stackframe+21
+ebp:0xc012df48 eip:0xc0102249 0x00000000 0x00000000 0x00000000 0xc012dfb8 
+    kern/debug/kmonitor.c:129: mon_backtrace+10
+ebp:0xc012df68 eip:0xc01000d3 0x00000000 0xc012df90 0xffff0000 0xc012df94 
+    kern/init/init.c:58: grade_backtrace2+33
+ebp:0xc012df88 eip:0xc01000fc 0x00000000 0xffff0000 0xc012dfb4 0x0000002a 
+    kern/init/init.c:63: grade_backtrace1+38
+ebp:0xc012dfa8 eip:0xc010011a 0x00000000 0xc010002a 0xffff0000 0x0000001d 
+    kern/init/init.c:68: grade_backtrace0+23
+ebp:0xc012dfc8 eip:0xc010013f 0xc010d8dc 0xc010d8c0 0x00003192 0x00000000 
+    kern/init/init.c:73: grade_backtrace+34
+ebp:0xc012dff8 eip:0xc010007f 0x00000000 0x00000000 0x0000ffff 0x40cf9a00 
+    kern/init/init.c:33: kern_init+84
+memory management: default_pmm_manager
+e820map:
+  memory: 0009fc00, [00000000, 0009fbff], type = 1.
+  memory: 00000400, [0009fc00, 0009ffff], type = 2.
+  memory: 00010000, [000f0000, 000fffff], type = 2.
+  memory: 07efe000, [00100000, 07ffdfff], type = 1.
+  memory: 00002000, [07ffe000, 07ffffff], type = 2.
+  memory: 00040000, [fffc0000, ffffffff], type = 2.
+n 1,get page c01b0560, No 683 in alloc_pages
+n 1,get page c01b0580, No 684 in alloc_pages
+n 1,get page c01b05a0, No 685 in alloc_pages
+n 1,get page 0, No 33499776 in alloc_pages
+n 1,get page c01b0560, No 683 in alloc_pages
+n 1,get page c01b0580, No 684 in alloc_pages
+n 1,get page c01b05a0, No 685 in alloc_pages
+n 1,get page 0, No 33499776 in alloc_pages
+n 1,get page c01b0560, No 683 in alloc_pages
+n 1,get page 0, No 33499776 in alloc_pages
+n 5,get page c01b0560, No 683 in alloc_pages
+n 1,get page 0, No 33499776 in alloc_pages
+n 4,get page 0, No 33499776 in alloc_pages
+n 3,get page c01b05a0, No 685 in alloc_pages
+n 1,get page 0, No 33499776 in alloc_pages
+n 1,get page c01b0560, No 683 in alloc_pages
+n 2,get page c01b05a0, No 685 in alloc_pages
+n 5,get page c01b0560, No 683 in alloc_pages
+n 1,get page 0, No 33499776 in alloc_pages
+check_alloc_page() succeeded!
+n 1,get page c01b0560, No 683 in alloc_pages
+n 1,get page c01b0580, No 684 in alloc_pages
+n 1,get page c01b05a0, No 685 in alloc_pages
+n 1,get page c01b05c0, No 686 in alloc_pages
+check_pgdir() succeeded!
+n 1,get page c01b0580, No 684 in alloc_pages
+n 1,get page c01b05a0, No 685 in alloc_pages
+n 1,get page c01b05c0, No 686 in alloc_pages
+n 1,get page c01b05e0, No 687 in alloc_pages
+n 1,get page c01b0600, No 688 in alloc_pages
+n 1,get page c01b0620, No 689 in alloc_pages
+n 1,get page c01b0640, No 690 in alloc_pages
+n 1,get page c01b0660, No 691 in alloc_pages
+n 1,get page c01b0680, No 692 in alloc_pages
+n 1,get page c01b06a0, No 693 in alloc_pages
+n 1,get page c01b06c0, No 694 in alloc_pages
+n 1,get page c01b06e0, No 695 in alloc_pages
+n 1,get page c01b0700, No 696 in alloc_pages
+n 1,get page c01b0720, No 697 in alloc_pages
+n 1,get page c01b0740, No 698 in alloc_pages
+n 1,get page c01b0760, No 699 in alloc_pages
+n 1,get page c01b0780, No 700 in alloc_pages
+n 1,get page c01b07a0, No 701 in alloc_pages
+n 1,get page c01b07c0, No 702 in alloc_pages
+n 1,get page c01b07e0, No 703 in alloc_pages
+n 1,get page c01b0800, No 704 in alloc_pages
+n 1,get page c01b0820, No 705 in alloc_pages
+n 1,get page c01b0840, No 706 in alloc_pages
+n 1,get page c01b0860, No 707 in alloc_pages
+n 1,get page c01b0880, No 708 in alloc_pages
+n 1,get page c01b08a0, No 709 in alloc_pages
+n 1,get page c01b08c0, No 710 in alloc_pages
+n 1,get page c01b08e0, No 711 in alloc_pages
+n 1,get page c01b0900, No 712 in alloc_pages
+n 1,get page c01b0920, No 713 in alloc_pages
+n 1,get page c01b0940, No 714 in alloc_pages
+n 1,get page c01b0960, No 715 in alloc_pages
+n 1,get page c01b0980, No 716 in alloc_pages
+n 1,get page c01b09a0, No 717 in alloc_pages
+n 1,get page c01b09c0, No 718 in alloc_pages
+n 1,get page c01b09e0, No 719 in alloc_pages
+n 1,get page c01b0a00, No 720 in alloc_pages
+n 1,get page c01b0a20, No 721 in alloc_pages
+n 1,get page c01b0a40, No 722 in alloc_pages
+n 1,get page c01b0a60, No 723 in alloc_pages
+n 1,get page c01b0a80, No 724 in alloc_pages
+n 1,get page c01b0aa0, No 725 in alloc_pages
+n 1,get page c01b0ac0, No 726 in alloc_pages
+n 1,get page c01b0ae0, No 727 in alloc_pages
+n 1,get page c01b0b00, No 728 in alloc_pages
+n 1,get page c01b0b20, No 729 in alloc_pages
+n 1,get page c01b0b40, No 730 in alloc_pages
+n 1,get page c01b0b60, No 731 in alloc_pages
+n 1,get page c01b0b80, No 732 in alloc_pages
+n 1,get page c01b0ba0, No 733 in alloc_pages
+n 1,get page c01b0bc0, No 734 in alloc_pages
+n 1,get page c01b0be0, No 735 in alloc_pages
+n 1,get page c01b0c00, No 736 in alloc_pages
+n 1,get page c01b0c20, No 737 in alloc_pages
+n 1,get page c01b0c40, No 738 in alloc_pages
+n 1,get page c01b0c60, No 739 in alloc_pages
+n 1,get page c01b0c80, No 740 in alloc_pages
+n 1,get page c01b0ca0, No 741 in alloc_pages
+n 1,get page c01b0cc0, No 742 in alloc_pages
+n 1,get page c01b0ce0, No 743 in alloc_pages
+n 1,get page c01b0d00, No 744 in alloc_pages
+n 1,get page c01b0d20, No 745 in alloc_pages
+n 1,get page c01b0d40, No 746 in alloc_pages
+n 1,get page c01b0d60, No 747 in alloc_pages
+n 1,get page c01b0d80, No 748 in alloc_pages
+n 1,get page c01b0da0, No 749 in alloc_pages
+n 1,get page c01b0dc0, No 750 in alloc_pages
+n 1,get page c01b0de0, No 751 in alloc_pages
+n 1,get page c01b0e00, No 752 in alloc_pages
+n 1,get page c01b0e20, No 753 in alloc_pages
+n 1,get page c01b0e40, No 754 in alloc_pages
+n 1,get page c01b0e60, No 755 in alloc_pages
+n 1,get page c01b0e80, No 756 in alloc_pages
+n 1,get page c01b0ea0, No 757 in alloc_pages
+n 1,get page c01b0ec0, No 758 in alloc_pages
+n 1,get page c01b0ee0, No 759 in alloc_pages
+n 1,get page c01b0f00, No 760 in alloc_pages
+n 1,get page c01b0f20, No 761 in alloc_pages
+n 1,get page c01b0f40, No 762 in alloc_pages
+n 1,get page c01b0f60, No 763 in alloc_pages
+n 1,get page c01b0f80, No 764 in alloc_pages
+n 1,get page c01b0fa0, No 765 in alloc_pages
+n 1,get page c01b0fc0, No 766 in alloc_pages
+n 1,get page c01b0fe0, No 767 in alloc_pages
+n 1,get page c01b1000, No 768 in alloc_pages
+n 1,get page c01b1020, No 769 in alloc_pages
+n 1,get page c01b1040, No 770 in alloc_pages
+n 1,get page c01b1060, No 771 in alloc_pages
+n 1,get page c01b1080, No 772 in alloc_pages
+n 1,get page c01b10a0, No 773 in alloc_pages
+n 1,get page c01b10c0, No 774 in alloc_pages
+n 1,get page c01b10e0, No 775 in alloc_pages
+n 1,get page c01b1100, No 776 in alloc_pages
+n 1,get page c01b1120, No 777 in alloc_pages
+n 1,get page c01b1140, No 778 in alloc_pages
+n 1,get page c01b1160, No 779 in alloc_pages
+n 1,get page c01b1180, No 780 in alloc_pages
+n 1,get page c01b11a0, No 781 in alloc_pages
+n 1,get page c01b11c0, No 782 in alloc_pages
+n 1,get page c01b11e0, No 783 in alloc_pages
+n 1,get page c01b1200, No 784 in alloc_pages
+n 1,get page c01b1220, No 785 in alloc_pages
+n 1,get page c01b1240, No 786 in alloc_pages
+n 1,get page c01b1260, No 787 in alloc_pages
+n 1,get page c01b1280, No 788 in alloc_pages
+n 1,get page c01b12a0, No 789 in alloc_pages
+n 1,get page c01b12c0, No 790 in alloc_pages
+n 1,get page c01b12e0, No 791 in alloc_pages
+n 1,get page c01b1300, No 792 in alloc_pages
+n 1,get page c01b1320, No 793 in alloc_pages
+n 1,get page c01b1340, No 794 in alloc_pages
+n 1,get page c01b1360, No 795 in alloc_pages
+n 1,get page c01b1380, No 796 in alloc_pages
+n 1,get page c01b13a0, No 797 in alloc_pages
+n 1,get page c01b13c0, No 798 in alloc_pages
+n 1,get page c01b13e0, No 799 in alloc_pages
+n 1,get page c01b1400, No 800 in alloc_pages
+n 1,get page c01b1420, No 801 in alloc_pages
+n 1,get page c01b1440, No 802 in alloc_pages
+n 1,get page c01b1460, No 803 in alloc_pages
+n 1,get page c01b1480, No 804 in alloc_pages
+n 1,get page c01b14a0, No 805 in alloc_pages
+n 1,get page c01b14c0, No 806 in alloc_pages
+n 1,get page c01b14e0, No 807 in alloc_pages
+n 1,get page c01b1500, No 808 in alloc_pages
+n 1,get page c01b1520, No 809 in alloc_pages
+n 1,get page c01b1540, No 810 in alloc_pages
+n 1,get page c01b1560, No 811 in alloc_pages
+n 1,get page c01b1580, No 812 in alloc_pages
+n 1,get page c01b15a0, No 813 in alloc_pages
+n 1,get page c01b15c0, No 814 in alloc_pages
+n 1,get page c01b15e0, No 815 in alloc_pages
+n 1,get page c01b1600, No 816 in alloc_pages
+n 1,get page c01b1620, No 817 in alloc_pages
+n 1,get page c01b1640, No 818 in alloc_pages
+n 1,get page c01b1660, No 819 in alloc_pages
+n 1,get page c01b1680, No 820 in alloc_pages
+n 1,get page c01b16a0, No 821 in alloc_pages
+n 1,get page c01b16c0, No 822 in alloc_pages
+n 1,get page c01b16e0, No 823 in alloc_pages
+n 1,get page c01b1700, No 824 in alloc_pages
+n 1,get page c01b1720, No 825 in alloc_pages
+n 1,get page c01b1740, No 826 in alloc_pages
+n 1,get page c01b1760, No 827 in alloc_pages
+n 1,get page c01b1780, No 828 in alloc_pages
+n 1,get page c01b17a0, No 829 in alloc_pages
+n 1,get page c01b17c0, No 830 in alloc_pages
+n 1,get page c01b17e0, No 831 in alloc_pages
+n 1,get page c01b1800, No 832 in alloc_pages
+n 1,get page c01b1820, No 833 in alloc_pages
+n 1,get page c01b1840, No 834 in alloc_pages
+n 1,get page c01b1860, No 835 in alloc_pages
+n 1,get page c01b1880, No 836 in alloc_pages
+n 1,get page c01b18a0, No 837 in alloc_pages
+n 1,get page c01b18c0, No 838 in alloc_pages
+n 1,get page c01b18e0, No 839 in alloc_pages
+n 1,get page c01b1900, No 840 in alloc_pages
+n 1,get page c01b1920, No 841 in alloc_pages
+n 1,get page c01b1940, No 842 in alloc_pages
+n 1,get page c01b1960, No 843 in alloc_pages
+n 1,get page c01b1980, No 844 in alloc_pages
+n 1,get page c01b19a0, No 845 in alloc_pages
+n 1,get page c01b19c0, No 846 in alloc_pages
+n 1,get page c01b19e0, No 847 in alloc_pages
+n 1,get page c01b1a00, No 848 in alloc_pages
+n 1,get page c01b1a20, No 849 in alloc_pages
+n 1,get page c01b1a40, No 850 in alloc_pages
+n 1,get page c01b1a60, No 851 in alloc_pages
+n 1,get page c01b1a80, No 852 in alloc_pages
+n 1,get page c01b1aa0, No 853 in alloc_pages
+n 1,get page c01b1ac0, No 854 in alloc_pages
+n 1,get page c01b1ae0, No 855 in alloc_pages
+n 1,get page c01b1b00, No 856 in alloc_pages
+n 1,get page c01b1b20, No 857 in alloc_pages
+n 1,get page c01b1b40, No 858 in alloc_pages
+n 1,get page c01b1b60, No 859 in alloc_pages
+n 1,get page c01b1b80, No 860 in alloc_pages
+n 1,get page c01b1ba0, No 861 in alloc_pages
+n 1,get page c01b1bc0, No 862 in alloc_pages
+n 1,get page c01b1be0, No 863 in alloc_pages
+n 1,get page c01b1c00, No 864 in alloc_pages
+n 1,get page c01b1c20, No 865 in alloc_pages
+n 1,get page c01b1c40, No 866 in alloc_pages
+n 1,get page c01b1c60, No 867 in alloc_pages
+n 1,get page c01b1c80, No 868 in alloc_pages
+n 1,get page c01b1ca0, No 869 in alloc_pages
+n 1,get page c01b1cc0, No 870 in alloc_pages
+n 1,get page c01b1ce0, No 871 in alloc_pages
+n 1,get page c01b1d00, No 872 in alloc_pages
+n 1,get page c01b1d20, No 873 in alloc_pages
+n 1,get page c01b1d40, No 874 in alloc_pages
+n 1,get page c01b1d60, No 875 in alloc_pages
+n 1,get page c01b1d80, No 876 in alloc_pages
+n 1,get page c01b1da0, No 877 in alloc_pages
+n 1,get page c01b1dc0, No 878 in alloc_pages
+n 1,get page c01b1de0, No 879 in alloc_pages
+n 1,get page c01b1e00, No 880 in alloc_pages
+n 1,get page c01b1e20, No 881 in alloc_pages
+n 1,get page c01b1e40, No 882 in alloc_pages
+n 1,get page c01b1e60, No 883 in alloc_pages
+n 1,get page c01b1e80, No 884 in alloc_pages
+n 1,get page c01b1ea0, No 885 in alloc_pages
+n 1,get page c01b1ec0, No 886 in alloc_pages
+n 1,get page c01b1ee0, No 887 in alloc_pages
+n 1,get page c01b1f00, No 888 in alloc_pages
+n 1,get page c01b1f20, No 889 in alloc_pages
+n 1,get page c01b1f40, No 890 in alloc_pages
+n 1,get page c01b1f60, No 891 in alloc_pages
+n 1,get page c01b1f80, No 892 in alloc_pages
+n 1,get page c01b1fa0, No 893 in alloc_pages
+n 1,get page c01b1fc0, No 894 in alloc_pages
+n 1,get page c01b1fe0, No 895 in alloc_pages
+n 1,get page c01b2000, No 896 in alloc_pages
+n 1,get page c01b2020, No 897 in alloc_pages
+n 1,get page c01b2040, No 898 in alloc_pages
+n 1,get page c01b2060, No 899 in alloc_pages
+n 1,get page c01b2080, No 900 in alloc_pages
+n 1,get page c01b20a0, No 901 in alloc_pages
+n 1,get page c01b20c0, No 902 in alloc_pages
+n 1,get page c01b20e0, No 903 in alloc_pages
+n 1,get page c01b2100, No 904 in alloc_pages
+n 1,get page c01b2120, No 905 in alloc_pages
+n 1,get page c01b2140, No 906 in alloc_pages
+n 1,get page c01b2160, No 907 in alloc_pages
+n 1,get page c01b2180, No 908 in alloc_pages
+n 1,get page c01b21a0, No 909 in alloc_pages
+check_boot_pgdir() succeeded!
+-------------------- BEGIN --------------------
+PDE(0e0) c0000000-f8000000 38000000 urw
+  |-- PTE(38000) c0000000-f8000000 38000000 -rw
+PDE(001) fac00000-fb000000 00400000 -rw
+  |-- PTE(000e0) faf00000-fafe0000 000e0000 urw
+  |-- PTE(00001) fafeb000-fafec000 00001000 -rw
+--------------------- END ---------------------
+use SLOB allocator
+kmalloc_init() succeeded!
+n 1,get page c01b2180, No 908 in alloc_pages
+check_vma_struct() succeeded!
+page fault at 0x00000100: K/W [no page found].
+vma = c038c030, addr = 00000100
+start process
+n 1,get page c01b21a0, No 909 in alloc_pages
+alloc page
+n 1,get page c01b21c0, No 910 in alloc_pages
+alloc page end
+check_pgfault() succeeded!
+check_vmm() succeeded.
+n 2,get page c01b21a0, No 909 in alloc_pages
+before copy_mm current free pages: 31855
+after copy_mm current free pages: 31855
+ide 0:      10000(sectors), 'QEMU HARDDISK'.
+ide 1:     262144(sectors), 'QEMU HARDDISK'.
+SWAP: manager = fifo swap manager
+BEGIN check_swap: count 1, total 31855
+setup Page Table for vaddr 0X1000, so alloc a page
+n 1,get page c01b21e0, No 911 in alloc_pages
+setup Page Table vaddr 0~4MB OVER!
+n 1,get page c01b2200, No 912 in alloc_pages
+n 1,get page c01b2220, No 913 in alloc_pages
+n 1,get page c01b2240, No 914 in alloc_pages
+n 1,get page c01b2260, No 915 in alloc_pages
+set up init env for check_swap begin!
+page fault at 0x00001000: K/W [no page found].
+vma = c038c150, addr = 00001000
+start process
+alloc page
+n 1,get page c01b2200, No 912 in alloc_pages
+alloc page end
+map swappable c038c118 00001000 
+page fault at 0x00002000: K/W [no page found].
+vma = c038c150, addr = 00002000
+start process
+alloc page
+n 1,get page c01b2220, No 913 in alloc_pages
+alloc page end
+map swappable c038c118 00002000 
+page fault at 0x00003000: K/W [no page found].
+vma = c038c150, addr = 00003000
+start process
+alloc page
+n 1,get page c01b2240, No 914 in alloc_pages
+alloc page end
+map swappable c038c118 00003000 
+page fault at 0x00004000: K/W [no page found].
+vma = c038c150, addr = 00004000
+start process
+alloc page
+n 1,get page c01b2260, No 915 in alloc_pages
+alloc page end
+map swappable c038c118 00004000 
+set up init env for check_swap over!
+write Virt Page c in fifo_check_swap
+write Virt Page a in fifo_check_swap
+write Virt Page d in fifo_check_swap
+write Virt Page b in fifo_check_swap
+write Virt Page e in fifo_check_swap
+page fault at 0x00005000: K/W [no page found].
+vma = c038c150, addr = 00005000
+start process
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c01b2200 cnt = 3
+ptep = 00390067 v = 00001000 sect = 00000200
+swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
+n 1,get page c01b2200, No 912 in alloc_pages
+alloc page end
+map swappable c038c118 00005000 
+write Virt Page b in fifo_check_swap
+write Virt Page a in fifo_check_swap
+page fault at 0x00001000: K/W [no page found].
+vma = c038c150, addr = 00001000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c01b2220 cnt = 3
+ptep = 00391067 v = 00002000 sect = 00000300
+swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
+free pages = 1
+n 1,get page c01b2220, No 913 in alloc_pages
+swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
+map swappable c038c118 00001000 
+write Virt Page b in fifo_check_swap
+page fault at 0x00002000: K/W [no page found].
+vma = c038c150, addr = 00002000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c01b2240 cnt = 3
+ptep = 00392067 v = 00003000 sect = 00000400
+swap_out: i 0, store page in vaddr 0x3000 to disk swap entry 4
+free pages = 1
+n 1,get page c01b2240, No 914 in alloc_pages
+swap_in: load disk swap entry 3 with swap_page in vadr 0x2000
+map swappable c038c118 00002000 
+write Virt Page c in fifo_check_swap
+page fault at 0x00003000: K/W [no page found].
+vma = c038c150, addr = 00003000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c01b2260 cnt = 3
+ptep = 00393067 v = 00004000 sect = 00000500
+swap_out: i 0, store page in vaddr 0x4000 to disk swap entry 5
+free pages = 1
+n 1,get page c01b2260, No 915 in alloc_pages
+swap_in: load disk swap entry 4 with swap_page in vadr 0x3000
+map swappable c038c118 00003000 
+write Virt Page d in fifo_check_swap
+page fault at 0x00004000: K/W [no page found].
+vma = c038c150, addr = 00004000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c01b2200 cnt = 3
+ptep = 00390067 v = 00005000 sect = 00000600
+swap_out: i 0, store page in vaddr 0x5000 to disk swap entry 6
+free pages = 1
+n 1,get page c01b2200, No 912 in alloc_pages
+swap_in: load disk swap entry 5 with swap_page in vadr 0x4000
+map swappable c038c118 00004000 
+write Virt Page e in fifo_check_swap
+page fault at 0x00005000: K/W [no page found].
+vma = c038c150, addr = 00005000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c01b2220 cnt = 3
+ptep = 00391067 v = 00001000 sect = 00000200
+swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
+free pages = 1
+n 1,get page c01b2220, No 913 in alloc_pages
+swap_in: load disk swap entry 6 with swap_page in vadr 0x5000
+map swappable c038c118 00005000 
+write Virt Page a in fifo_check_swap
+page fault at 0x00001000: K/R [no page found].
+vma = c038c150, addr = 00001000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c01b2240 cnt = 3
+ptep = 00392067 v = 00002000 sect = 00000300
+swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
+free pages = 1
+n 1,get page c01b2240, No 914 in alloc_pages
+swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
+map swappable c038c118 00001000 
+count is 0, total is 5
+check_swap() succeeded!
+++ setup timer interrupts
+now free page = 31850
+pmm now size = 20
+n 2,get page c02aad40, No 32746 in alloc_pages
+before copy_mm current free pages: 18
+after copy_mm current free pages: 18
+now free page = 18
+kernel_execve: pid = 2, name = "cowtest".
+n 1,get page c02aad80, No 32748 in alloc_pages
+start = 00200000 end = 002038a1
+alloc page
+n 1,get page c02aada0, No 32749 in alloc_pages
+alloc page end
+n 1,get page c02aadc0, No 32750 in alloc_pages
+map swappable c038c1d8 00200000 
+alloc page
+n 1,get page c02aade0, No 32751 in alloc_pages
+alloc page end
+map swappable c038c1d8 00201000 
+alloc page
+n 1,get page c02aae00, No 32752 in alloc_pages
+alloc page end
+map swappable c038c1d8 00202000 
+alloc page
+n 1,get page c02aae20, No 32753 in alloc_pages
+alloc page end
+map swappable c038c1d8 00203000 
+start = 00800020 end = 0080136a
+alloc page
+n 1,get page c02aae40, No 32754 in alloc_pages
+alloc page end
+n 1,get page c02aae60, No 32755 in alloc_pages
+map swappable c038c1d8 00800000 
+alloc page
+n 1,get page c02aae80, No 32756 in alloc_pages
+alloc page end
+map swappable c038c1d8 00801000 
+start = 00802000 end = 00802008
+alloc page
+n 1,get page c02aaea0, No 32757 in alloc_pages
+alloc page end
+map swappable c038c1d8 00802000 
+alloc page
+n 1,get page c02aaec0, No 32758 in alloc_pages
+alloc page end
+map swappable c038c1d8 00803000 
+alloc page
+n 1,get page c02aaee0, No 32759 in alloc_pages
+alloc page end
+map swappable c038c1d8 00804000 
+alloc page
+n 1,get page c02aaf00, No 32760 in alloc_pages
+alloc page end
+map swappable c038c1d8 00805000 
+alloc page
+n 1,get page c02aaf20, No 32761 in alloc_pages
+alloc page end
+map swappable c038c1d8 00806000 
+alloc page
+n 1,get page c02aaf40, No 32762 in alloc_pages
+alloc page end
+map swappable c038c1d8 00807000 
+alloc page
+n 1,get page c02aaf60, No 32763 in alloc_pages
+alloc page end
+map swappable c038c1d8 00808000 
+alloc page
+n 1,get page c02aaf80, No 32764 in alloc_pages
+alloc page end
+map swappable c038c1d8 00809000 
+alloc page
+n 1,get page c02aafa0, No 32765 in alloc_pages
+alloc page end
+map swappable c038c1d8 0080a000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aada0 cnt = 14
+ptep = 07fed007 v = 00200000 sect = 00020100
+swap_out: i 0, store page in vaddr 0x200000 to disk swap entry 513
+n 1,get page c02aada0, No 32749 in alloc_pages
+alloc page end
+map swappable c038c1d8 0080b000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aade0 cnt = 14
+ptep = 07fef007 v = 00201000 sect = 00020200
+swap_out: i 0, store page in vaddr 0x201000 to disk swap entry 514
+n 1,get page c02aade0, No 32751 in alloc_pages
+alloc page end
+map swappable c038c1d8 0080c000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aae00 cnt = 14
+ptep = 07ff0007 v = 00202000 sect = 00020300
+swap_out: i 0, store page in vaddr 0x202000 to disk swap entry 515
+n 1,get page c02aae00, No 32752 in alloc_pages
+alloc page end
+map swappable c038c1d8 0080d000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aae20 cnt = 14
+ptep = 07ff1007 v = 00203000 sect = 00020400
+swap_out: i 0, store page in vaddr 0x203000 to disk swap entry 516
+n 1,get page c02aae20, No 32753 in alloc_pages
+alloc page end
+map swappable c038c1d8 0080e000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aae40 cnt = 14
+ptep = 07ff2005 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+n 1,get page c02aae40, No 32754 in alloc_pages
+alloc page end
+map swappable c038c1d8 0080f000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aae80 cnt = 14
+ptep = 07ff4005 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+n 1,get page c02aae80, No 32756 in alloc_pages
+alloc page end
+map swappable c038c1d8 00810000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaea0 cnt = 14
+ptep = 07ff5007 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+n 1,get page c02aaea0, No 32757 in alloc_pages
+alloc page end
+map swappable c038c1d8 00811000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaec0 cnt = 14
+ptep = 07ff6007 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+n 1,get page c02aaec0, No 32758 in alloc_pages
+alloc page end
+map swappable c038c1d8 00812000 
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaee0 cnt = 14
+ptep = 07ff7007 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+n 1,get page c02aaee0, No 32759 in alloc_pages
+alloc page end
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaf00 cnt = 13
+ptep = 07ff8007 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+n 1,get page c02aaf00, No 32760 in alloc_pages
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaf20 cnt = 12
+ptep = 07ff9007 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+n 1,get page c02aaf20, No 32761 in alloc_pages
+alloc page end
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaf40 cnt = 11
+ptep = 07ffa007 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+n 1,get page c02aaf40, No 32762 in alloc_pages
+alloc page end
+load icode here correct page = 0
+alloc page
+page 0, call swap_out in alloc_pages 1
+swap out victim c02aaf60 cnt = 10
+ptep = 07ffb007 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+n 1,get page c02aaf60, No 32763 in alloc_pages
+alloc page end
+    load icode fin, now free page = 0
+vma = c038c230, addr = 00800020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc007 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801340
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd007 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+cow swap out test begin.
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed007 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef007 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0007 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1007 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2007 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4007 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5007 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6007 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+vma = c038c230, addr = 00800118
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 0080135a
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+cowtest a = 1
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 2
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 3
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 4
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 5
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 6
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 7
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 8
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 9
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+vma = c038c230, addr = 00800118
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 0080135a
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+cowtest a = 10
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 11
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 12
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 13
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 14
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 15
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00808000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00811000 sect = 00081200
+swap_out: i 0, store page in vaddr 0x811000 to disk swap entry 2066
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2057 with swap_page in vadr 0x808000
+map swappable c038c1d8 00808000 
+vma = c038c250, addr = 00809000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00812000 sect = 00081300
+swap_out: i 0, store page in vaddr 0x812000 to disk swap entry 2067
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2058 with swap_page in vadr 0x809000
+map swappable c038c1d8 00809000 
+vma = c038c250, addr = 0080a000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 00802000 sect = 00080300
+swap_out: i 0, store page in vaddr 0x802000 to disk swap entry 2051
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2059 with swap_page in vadr 0x80a000
+map swappable c038c1d8 0080a000 
+vma = c038c250, addr = 0080b000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 00803000 sect = 00080400
+swap_out: i 0, store page in vaddr 0x803000 to disk swap entry 2052
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2060 with swap_page in vadr 0x80b000
+map swappable c038c1d8 0080b000 
+vma = c038c250, addr = 0080c000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 00804000 sect = 00080500
+swap_out: i 0, store page in vaddr 0x804000 to disk swap entry 2053
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2061 with swap_page in vadr 0x80c000
+map swappable c038c1d8 0080c000 
+vma = c038c250, addr = 0080d000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 00805000 sect = 00080600
+swap_out: i 0, store page in vaddr 0x805000 to disk swap entry 2054
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2062 with swap_page in vadr 0x80d000
+map swappable c038c1d8 0080d000 
+vma = c038c250, addr = 0080e000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 00806000 sect = 00080700
+swap_out: i 0, store page in vaddr 0x806000 to disk swap entry 2055
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2063 with swap_page in vadr 0x80e000
+map swappable c038c1d8 0080e000 
+vma = c038c250, addr = 0080f000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 00807000 sect = 00080800
+swap_out: i 0, store page in vaddr 0x807000 to disk swap entry 2056
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2064 with swap_page in vadr 0x80f000
+map swappable c038c1d8 0080f000 
+vma = c038c250, addr = 00810000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6025 v = 00800000 sect = 00080100
+swap_out: i 0, store page in vaddr 0x800000 to disk swap entry 2049
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2065 with swap_page in vadr 0x810000
+map swappable c038c1d8 00810000 
+vma = c038c230, addr = 00800feb
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaf80 cnt = 9
+ptep = 07ffc025 v = 00801000 sect = 00080200
+swap_out: i 0, store page in vaddr 0x801000 to disk swap entry 2050
+free pages = 1
+n 1,get page c02aaf80, No 32764 in alloc_pages
+swap_in: load disk swap entry 2049 with swap_page in vadr 0x800000
+map swappable c038c1d8 00800000 
+vma = c038c230, addr = 00801000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aafa0 cnt = 9
+ptep = 07ffd067 v = 00808000 sect = 00080900
+swap_out: i 0, store page in vaddr 0x808000 to disk swap entry 2057
+free pages = 1
+n 1,get page c02aafa0, No 32765 in alloc_pages
+swap_in: load disk swap entry 2050 with swap_page in vadr 0x801000
+map swappable c038c1d8 00801000 
+vma = c038c250, addr = 00811000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aada0 cnt = 9
+ptep = 07fed067 v = 00809000 sect = 00080a00
+swap_out: i 0, store page in vaddr 0x809000 to disk swap entry 2058
+free pages = 1
+n 1,get page c02aada0, No 32749 in alloc_pages
+swap_in: load disk swap entry 2066 with swap_page in vadr 0x811000
+map swappable c038c1d8 00811000 
+vma = c038c250, addr = 00812000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aade0 cnt = 9
+ptep = 07fef067 v = 0080a000 sect = 00080b00
+swap_out: i 0, store page in vaddr 0x80a000 to disk swap entry 2059
+free pages = 1
+n 1,get page c02aade0, No 32751 in alloc_pages
+swap_in: load disk swap entry 2067 with swap_page in vadr 0x812000
+map swappable c038c1d8 00812000 
+vma = c038c250, addr = 00802020
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae00 cnt = 9
+ptep = 07ff0067 v = 0080b000 sect = 00080c00
+swap_out: i 0, store page in vaddr 0x80b000 to disk swap entry 2060
+free pages = 1
+n 1,get page c02aae00, No 32752 in alloc_pages
+swap_in: load disk swap entry 2051 with swap_page in vadr 0x802000
+map swappable c038c1d8 00802000 
+cowtest a = 16
+vma = c038c250, addr = 00803000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae20 cnt = 9
+ptep = 07ff1067 v = 0080c000 sect = 00080d00
+swap_out: i 0, store page in vaddr 0x80c000 to disk swap entry 2061
+free pages = 1
+n 1,get page c02aae20, No 32753 in alloc_pages
+swap_in: load disk swap entry 2052 with swap_page in vadr 0x803000
+map swappable c038c1d8 00803000 
+vma = c038c250, addr = 00804000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae40 cnt = 9
+ptep = 07ff2067 v = 0080d000 sect = 00080e00
+swap_out: i 0, store page in vaddr 0x80d000 to disk swap entry 2062
+free pages = 1
+n 1,get page c02aae40, No 32754 in alloc_pages
+swap_in: load disk swap entry 2053 with swap_page in vadr 0x804000
+map swappable c038c1d8 00804000 
+vma = c038c250, addr = 00805000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aae80 cnt = 9
+ptep = 07ff4067 v = 0080e000 sect = 00080f00
+swap_out: i 0, store page in vaddr 0x80e000 to disk swap entry 2063
+free pages = 1
+n 1,get page c02aae80, No 32756 in alloc_pages
+swap_in: load disk swap entry 2054 with swap_page in vadr 0x805000
+map swappable c038c1d8 00805000 
+vma = c038c250, addr = 00806000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaea0 cnt = 9
+ptep = 07ff5067 v = 0080f000 sect = 00081000
+swap_out: i 0, store page in vaddr 0x80f000 to disk swap entry 2064
+free pages = 1
+n 1,get page c02aaea0, No 32757 in alloc_pages
+swap_in: load disk swap entry 2055 with swap_page in vadr 0x806000
+map swappable c038c1d8 00806000 
+vma = c038c250, addr = 00807000
+start process
+pgfault swap out
+free pages = 0
+swap out victim c02aaec0 cnt = 9
+ptep = 07ff6067 v = 00810000 sect = 00081100
+swap_out: i 0, store page in vaddr 0x810000 to disk swap entry 2065
+free pages = 1
+n 1,get page c02aaec0, No 32758 in alloc_pages
+swap_in: load disk swap entry 2056 with swap_page in vadr 0x807000
+map swappable c038c1d8 00807000 
+vma = c038c250, addr = 00808000
+start process

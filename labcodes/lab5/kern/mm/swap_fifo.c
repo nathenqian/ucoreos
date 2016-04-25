@@ -52,7 +52,7 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
 {
     list_entry_t *head=(list_entry_t*) mm->sm_priv;
     list_entry_t *entry=&(page->pra_page_link);
- 
+    if (addr > 0x90000000) return 0; 
     assert(entry != NULL && head != NULL);
     list_add_after(head, entry);
     cprintf("map swappable %08x %08x \n", mm, addr);
@@ -68,14 +68,20 @@ _fifo_map_swappable(struct mm_struct *mm, uintptr_t addr, struct Page *page, int
 static int
 _fifo_swap_out_victim(struct mm_struct *mm, struct Page ** ptr_page, int in_tick)
 {
-     list_entry_t *head=(list_entry_t*) mm->sm_priv;
+     list_entry_t *head=(list_entry_t*) mm->sm_priv, *debug = head, *end = head;
+     int debug_cnt = 0;
          assert(head != NULL);
      assert(in_tick==0);
      list_entry_t *last = list_prev(head);
      struct Page *p = le2page(last, pra_page_link);
      list_del(last);
      *ptr_page = p;
-     cprintf("swap out victim %08x\n", p);
+     while (1) {
+        debug = list_next(debug);
+        if (debug == end) break;
+        debug_cnt += 1;
+     }
+     cprintf("swap out victim %08x cnt = %d\n", p, debug_cnt);
      /* Select the victim */
      /*LAB3 EXERCISE 2: YOUR CODE*/ 
      //(1)  unlink the  earliest arrival page in front of pra_list_head qeueue

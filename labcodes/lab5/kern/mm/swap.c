@@ -100,6 +100,7 @@ swap_out(struct mm_struct *mm, int n, int in_tick)
           
           v=page->pra_vaddr; 
           pte_t *ptep = get_pte(mm->pgdir, v, 0);
+cprintf("ptep = %08x v = %08x sect = %08x\n", *ptep, v, (page->pra_vaddr/PGSIZE+1)<<8);
           assert((*ptep & PTE_P) != 0);
 
           if (swapfs_write( (page->pra_vaddr/PGSIZE+1)<<8, page) != 0) {
