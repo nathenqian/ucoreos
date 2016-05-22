@@ -108,21 +108,12 @@ alloc_proc(void) {
      */
      //LAB5 YOUR CODE : (update LAB4 steps)
     /*
-     * below fields(add in LAB5) in proc_struct need to be initialized	
+     * below fields(add in LAB5) in proc_struct need to be initialized  
      *       uint32_t wait_state;                        // waiting state
      *       struct proc_struct *cptr, *yptr, *optr;     // relations between processes
-	 */
-     //LAB6 YOUR CODE : (update LAB5 steps)
-    /*
-     * below fields(add in LAB6) in proc_struct need to be initialized
-     *     struct run_queue *rq;                       // running queue contains Process
-     *     list_entry_t run_link;                      // the entry linked in run queue
-     *     int time_slice;                             // time slice for occupying the CPU
-     *     skew_heap_entry_t lab6_run_pool;            // FOR LAB6 ONLY: the entry in the run pool
-     *     uint32_t lab6_stride;                       // FOR LAB6 ONLY: the current stride of the process
-     *     uint32_t lab6_priority;                     // FOR LAB6 ONLY: the priority of process, set by lab6_set_priority(uint32_t)
      */
-     proc->state = PROC_UNINIT;
+    //LAB8:EXERCISE2 YOUR CODE HINT:need add some code to init fs in proc_struct, ...
+        proc->state = PROC_UNINIT;
         proc->pid = -1;
         proc->runs = 0;
         proc->kstack = 0;
@@ -134,7 +125,7 @@ alloc_proc(void) {
         proc->cr3 = boot_cr3;
         proc->flags = 0;
         memset(proc->name, 0, PROC_NAME_LEN);
-     proc->wait_state = 0;
+        proc->wait_state = 0;
         proc->cptr = proc->optr = proc->yptr = NULL;
         proc->rq = NULL;
         list_init(&(proc->run_link));
@@ -143,7 +134,6 @@ alloc_proc(void) {
         proc->lab6_stride = 0;
         proc->lab6_priority = 0;
         proc->filesp = NULL;
-    //LAB8:EXERCISE2 YOUR CODE HINT:need add some code to init fs in proc_struct, ...
     }
     return proc;
 }
@@ -392,84 +382,7 @@ copy_thread(struct proc_struct *proc, uintptr_t esp, struct trapframe *tf) {
     proc->context.esp = (uintptr_t)(proc->tf);
 }
 
-//copy_files&put_files function used by do_fork in LAB8
-//copy the files_struct from current to proc
-static int
-copy_files(uint32_t clone_flags, struct proc_struct *proc) {
-    struct files_struct *filesp, *old_filesp = current->filesp;
-    assert(old_filesp != NULL);
-
-    if (clone_flags & CLONE_FS) {
-        filesp = old_filesp;
-        goto good_files_struct;
-    }
-
-    int ret = -E_NO_MEM;
-    if ((filesp = files_create()) == NULL) {
-        goto bad_files_struct;
-    }
-
-    if ((ret = dup_files(filesp, old_filesp)) != 0) {
-        goto bad_dup_cleanup_fs;
-    }
-
-good_files_struct:
-    files_count_inc(filesp);
-    proc->filesp = filesp;
-    return 0;
-
-bad_dup_cleanup_fs:
-    files_destroy(filesp);
-bad_files_struct:
-    return ret;
-}
-
-//decrease the ref_count of files, and if ref_count==0, then destroy files_struct
-static void
-put_files(struct proc_struct *proc) {
-    struct files_struct *filesp = proc->filesp;
-    if (filesp != NULL) {
-        if (files_count_dec(filesp) == 0) {
-            files_destroy(filesp);
-        }
-    }
-}
-
-/* do_fork -     parent process for a new child process
- * @clone_flags: used to guide how to clone the child process
- * @stack:       the parent's user stack pointer. if stack==0, It means to fork a kernel thread.
- * @tf:          the trapframe info, which will be copied to child process's proc->tf
- */
-
-// static int
-// copy_fs(uint32_t clone_flags, struct proc_struct *proc) {
-//     struct files_struct *fs, *oldfs = current->filesp;
-
-//     /* current is a kernel thread */
-    
-//     if (clone_flags & CLONE_FS) {
-//         fs = oldfs;
-//         goto good_fs;
-//     }
-
-//     int ret = -E_NO_MEM;
-//     fs = files_create();
-//     ret = dup_files(fs, oldfs);
-
-//     if (ret != 0) {
-//         goto bad_cleanup_fs;
-//     }
-
-// good_fs:
-//     files_count_inc(fs);
-//     proc->filesp = fs;
-//     return 0;
-// bad_cleanup_fs:
-//     files_destroy(fs);
-// bad_mm:
-//     return ret;
-// }
-
+//copy_fs&put_fs function used by do_fork in LAB8
 static int
 copy_fs(uint32_t clone_flags, struct proc_struct *proc) {
     struct files_struct *filesp, *old_filesp = current->filesp;
@@ -500,6 +413,21 @@ bad_files_struct:
     return ret;
 }
 
+static void
+put_fs(struct proc_struct *proc) {
+    struct files_struct *filesp = proc->filesp;
+    if (filesp != NULL) {
+        if (files_count_dec(filesp) == 0) {
+            files_destroy(filesp);
+        }
+    }
+}
+
+/* do_fork -     parent process for a new child process
+ * @clone_flags: used to guide how to clone the child process
+ * @stack:       the parent's user stack pointer. if stack==0, It means to fork a kernel thread.
+ * @tf:          the trapframe info, which will be copied to child process's proc->tf
+ */
 int
 do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {
     int ret = -E_NO_FREE_PROC;
@@ -508,37 +436,6 @@ do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {
         goto fork_out;
     }
     ret = -E_NO_MEM;
-
-    if ((proc = alloc_proc()) == NULL) {
-        goto fork_out;
-    }
-    proc->parent = current;
-    if (setup_kstack(proc) != 0) {
-        goto bad_fork_cleanup_proc;
-    }
-    if (copy_fs(clone_flags, proc) != 0) { //for LAB8
-        goto bad_fork_cleanup_kstack;
-    }
-    if (copy_mm(clone_flags, proc) != 0) {
-        goto bad_fork_cleanup_kstack;
-    }
-    copy_thread(proc, stack, tf);
-
-    bool intr_flag;
-    local_intr_save(intr_flag);
-    {
-        proc->pid = get_pid();
-        hash_proc(proc);
-        set_links(proc);
-        // list_add(&proc_list, &(proc->list_link));
-        // nr_process ++;
-    }
-    local_intr_restore(intr_flag);
-
-    wakeup_proc(proc);
-
-    ret = proc->pid;
-
     //LAB4:EXERCISE2 YOUR CODE
     //LAB8:EXERCISE2 YOUR CODE  HINT:how to copy the fs in parent's proc_struct?
     /*
@@ -566,19 +463,49 @@ do_fork(uint32_t clone_flags, uintptr_t stack, struct trapframe *tf) {
     //    6. call wakeup_proc to make the new child process RUNNABLE
     //    7. set ret vaule using child proc's pid
 
-	//LAB5 YOUR CODE : (update LAB4 steps)
+    //LAB5 YOUR CODE : (update LAB4 steps)
    /* Some Functions
     *    set_links:  set the relation links of process.  ALSO SEE: remove_links:  lean the relation links of process 
     *    -------------------
-	*    update step 1: set child proc's parent to current process, make sure current process's wait_state is 0
-	*    update step 5: insert proc_struct into hash_list && proc_list, set the relation links of process
+    *    update step 1: set child proc's parent to current process, make sure current process's wait_state is 0
+    *    update step 5: insert proc_struct into hash_list && proc_list, set the relation links of process
     */
-	
+    if ((proc = alloc_proc()) == NULL) {
+        goto fork_out;
+    }
+
+    proc->parent = current;
+    assert(current->wait_state == 0);
+
+    if (setup_kstack(proc) != 0) {
+        goto bad_fork_cleanup_proc;
+    }
+    if (copy_fs(clone_flags, proc) != 0) { //for LAB8
+        goto bad_fork_cleanup_kstack;
+    }
+    if (copy_mm(clone_flags, proc) != 0) {
+        goto bad_fork_cleanup_kstack;
+    }
+    copy_thread(proc, stack, tf);
+
+    bool intr_flag;
+    local_intr_save(intr_flag);
+    {
+        proc->pid = get_pid();
+        hash_proc(proc);
+        set_links(proc);
+
+    }
+    local_intr_restore(intr_flag);
+
+    wakeup_proc(proc);
+
+    ret = proc->pid;
 fork_out:
     return ret;
 
 bad_fork_cleanup_fs:  //for LAB8
-    put_files(proc);
+    put_fs(proc);
 bad_fork_cleanup_kstack:
     put_kstack(proc);
 bad_fork_cleanup_proc:
@@ -609,7 +536,7 @@ do_exit(int error_code) {
         }
         current->mm = NULL;
     }
-    put_files(current); //for LAB8
+    put_fs(current); //for LAB8
     current->state = PROC_ZOMBIE;
     current->exit_code = error_code;
     
@@ -670,7 +597,7 @@ load_icode(int fd, int argc, char **kargv) {
      *  pgdir_alloc_page - allocate new memory for  TEXT/DATA/BSS/stack parts
      *  lcr3             - update Page Directory Addr Register -- CR3
      */
-	/* (1) create a new mm for current process
+    /* (1) create a new mm for current process
      * (2) create a new PDT, and mm->pgdir= kernel virtual addr of PDT
      * (3) copy TEXT/DATA/BSS parts in binary to memory space of process
      *    (3.1) read raw data content in file and resolve elfhdr
@@ -685,7 +612,6 @@ load_icode(int fd, int argc, char **kargv) {
      * (7) setup trapframe for user environment
      * (8) if up steps failed, you should cleanup the env.
      */
-
     assert(argc >= 0 && argc <= EXEC_MAX_ARG_NUM);
 
     if (current->mm != NULL) {
@@ -1100,7 +1026,8 @@ init_main(void *arg) {
     assert(nr_process == 2);
     assert(list_next(&proc_list) == &(initproc->list_link));
     assert(list_prev(&proc_list) == &(initproc->list_link));
-
+    assert(nr_free_pages_store == nr_free_pages());
+    assert(kernel_allocated_store == kallocated());
     cprintf("init check memory pass.\n");
     return 0;
 }
