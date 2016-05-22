@@ -457,7 +457,7 @@ copy_fs(uint32_t clone_flags, struct proc_struct *proc) {
     dup_fs(fs, oldfs);
 
     if (ret != 0) {
-        goto bad_dup_cleanup_mmap;
+        goto bad_cleanup_fs;
     }
 
 good_fs:
