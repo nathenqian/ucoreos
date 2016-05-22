@@ -589,30 +589,64 @@ sfs_io_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, void *buf, off_t offset
     uint32_t blkno = offset / SFS_BLKSIZE;          // The NO. of Rd/Wr begin block
     uint32_t nblks = endpos / SFS_BLKSIZE - blkno;  // The size of Rd/Wr blocks
 
-    uint32_t left = offset, right = endpos, exact_right = left;
+    // uint32_t left = offset, right = endpos, exact_right = left;
 
-    exact_right = left - left % SFS_BLKSIZE + SFS_BLKSIZE - 1;
+    // exact_right = left - left % SFS_BLKSIZE + SFS_BLKSIZE - 1;
 
-    if (exact_right > endpos)
-        right = endpos;
-    else
-        right = exact_right;
+    // if (exact_right > endpos)
+    //     right = endpos;
+    // else
+    //     right = exact_right;
 
-    while (1) {
-        size = right - left + 1;
-        sfs_bmap_load_nolock(sfs, sin, blkno, &ino);
-        sfs_buf_op(sfs, buf, size, ino, left % SFS_BLKSIZE);
-        buf += size;
+    // while (1) {
+    //     size = right - left + 1;
+    //     sfs_bmap_load_nolock(sfs, sin, blkno, &ino);
+    //     sfs_buf_op(sfs, buf, size, ino, left % SFS_BLKSIZE);
+    //     buf += size;
+    //     alen += size;
+    //     if (right == endpos)
+    //         break;
+    //     left = left - left % SFS_BLKSIZE + SFS_BLKSIZE;
+    //     right = left + SFS_BLKSIZE - 1;
+    //     if (right > endpos)
+    //         right = endpos;
+    //     blkno += 1;
+    // }
+    if ((blkoff = offset % SFS_BLKSIZE) != 0) {
+        size = (nblks != 0) ? (SFS_BLKSIZE - blkoff) : (endpos - offset);
+        if ((ret = sfs_bmap_load_nolock(sfs, sin, blkno, &ino)) != 0) {
+            goto out;
+        }
+        if ((ret = sfs_buf_op(sfs, buf, size, ino, blkoff)) != 0) {
+            goto out;
+        }
         alen += size;
-        if (right == endpos)
-            break;
-        left = left - left % SFS_BLKSIZE + SFS_BLKSIZE;
-        right = left + SFS_BLKSIZE - 1;
-        if (right > endpos)
-            right = endpos;
-        blkno += 1;
+        if (nblks == 0) {
+            goto out;
+        }
+        buf += size, blkno ++, nblks --;
     }
 
+    size = SFS_BLKSIZE;
+    while (nblks != 0) {
+        if ((ret = sfs_bmap_load_nolock(sfs, sin, blkno, &ino)) != 0) {
+            goto out;
+        }
+        if ((ret = sfs_block_op(sfs, buf, ino, 1)) != 0) {
+            goto out;
+        }
+        alen += size, buf += size, blkno ++, nblks --;
+    }
+
+    if ((size = endpos % SFS_BLKSIZE) != 0) {
+        if ((ret = sfs_bmap_load_nolock(sfs, sin, blkno, &ino)) != 0) {
+            goto out;
+        }
+        if ((ret = sfs_buf_op(sfs, buf, size, ino, 0)) != 0) {
+            goto out;
+        }
+        alen += size;
+    }
 
     
   //LAB8:EXERCISE1 YOUR CODE HINT: call sfs_bmap_load_nolock, sfs_rbuf, sfs_rblock,etc. read different kind of blocks in file
