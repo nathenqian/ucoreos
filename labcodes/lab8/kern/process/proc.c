@@ -495,7 +495,7 @@ good_files_struct:
     return 0;
 
 bad_dup_cleanup_fs:
-    files_destroy(fs);
+    files_destroy(filesp);
 bad_files_struct:
     return ret;
 }
