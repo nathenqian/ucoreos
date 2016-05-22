@@ -441,62 +441,32 @@ put_files(struct proc_struct *proc) {
  * @tf:          the trapframe info, which will be copied to child process's proc->tf
  */
 
-// static int
-// copy_fs(uint32_t clone_flags, struct proc_struct *proc) {
-//     struct files_struct *fs, *oldfs = current->filesp;
-
-//     /* current is a kernel thread */
-    
-//     if (clone_flags & CLONE_FS) {
-//         fs = oldfs;
-//         goto good_fs;
-//     }
-
-//     int ret = -E_NO_MEM;
-//     fs = files_create();
-//     ret = dup_files(fs, oldfs);
-
-//     if (ret != 0) {
-//         goto bad_cleanup_fs;
-//     }
-
-// good_fs:
-//     files_count_inc(fs);
-//     proc->filesp = fs;
-//     return 0;
-// bad_cleanup_fs:
-//     files_destroy(fs);
-// bad_mm:
-//     return ret;
-// }
-
 static int
 copy_fs(uint32_t clone_flags, struct proc_struct *proc) {
-    struct files_struct *filesp, *old_filesp = current->filesp;
-    assert(old_filesp != NULL);
+    struct files_struct *fs, *oldfs = current->filesp;
 
+    /* current is a kernel thread */
+    
     if (clone_flags & CLONE_FS) {
-        filesp = old_filesp;
-        goto good_files_struct;
+        fs = oldfs;
+        goto good_fs;
     }
 
     int ret = -E_NO_MEM;
-    if ((filesp = files_create()) == NULL) {
-        goto bad_files_struct;
+    fs = files_create();
+    ret = dup_files(fs, oldfs);
+
+    if (ret != 0) {
+        goto bad_cleanup_fs;
     }
 
-    if ((ret = dup_files(filesp, old_filesp)) != 0) {
-        goto bad_dup_cleanup_fs;
-    }
-
-good_files_struct:
-    files_count_inc(filesp);
-    proc->filesp = filesp;
+good_fs:
+    files_count_inc(fs);
+    proc->filesp = fs;
     return 0;
-
-bad_dup_cleanup_fs:
+bad_cleanup_fs:
     files_destroy(fs);
-bad_files_struct:
+bad_mm:
     return ret;
 }
 
@@ -827,7 +797,6 @@ load_icode(int fd, int argc, char **kargv) {
     tf->tf_ds = tf->tf_es = tf->tf_ss = USER_DS;
     tf->tf_esp = stacktop;
     tf->tf_eip = elf->e_entry;
-    cprintf("tf->eip = %08x\n", elf->e_entry);
     tf->tf_eflags = FL_IF;
     ret = 0;
 out:
