@@ -754,6 +754,7 @@ load_icode(int fd, int argc, char **kargv) {
             start += size;
             assert((end < la && start == end) || (end >= la && start == la));
         }
+        cprintf("load_icode 5.5 %08x %08x\n", size, load_offset);
         while (start < end) {
             if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
                 goto bad_cleanup_mmap;
