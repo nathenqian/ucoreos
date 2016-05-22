@@ -454,7 +454,7 @@ copy_fs(uint32_t clone_flags, struct proc_struct *proc) {
 
     int ret = -E_NO_MEM;
     fs = files_create();
-    dup_fs(fs, oldfs);
+    dup_files(fs, oldfs);
 
     if (ret != 0) {
         goto bad_cleanup_fs;
