@@ -681,89 +681,92 @@ load_icode(int fd, int argc, char **kargv) {
     //(3.2) get the entry of the program section headers of the bianry program (ELF format)
     struct proghdr buff_ph, *ph = &buff_ph; // = (struct proghdr *)(binary + elf->e_phoff);
     cprintf("load_icode 2 %08x\n", elf->e_phnum);
-    load_icode_read(fd, ph, sizeof(struct proghdr), elf->e_phoff);
+    
     //(3.3) This program is valid?
     if (elf->e_magic != ELF_MAGIC) {
         ret = -E_INVAL_ELF;
         goto bad_elf_cleanup_pgdir;
     }
 
-    uint32_t vm_flags, perm;
-    struct proghdr *ph_end = ph + elf->e_phnum;
-    cprintf("load_icode 3\n");
-    for (; ph < ph_end; ph ++) {
-    //(3.4) find every program section headers
-        if (ph->p_type != ELF_PT_LOAD) {
-            continue ;
-        }
-        if (ph->p_filesz > ph->p_memsz) {
-            ret = -E_INVAL_ELF;
-            goto bad_cleanup_mmap;
-        }
-        if (ph->p_filesz == 0) {
-            continue ;
-        }
-    //(3.5) call mm_map fun to setup the new vma ( ph->p_va, ph->p_memsz)
-        vm_flags = 0, perm = PTE_U;
-        if (ph->p_flags & ELF_PF_X) vm_flags |= VM_EXEC;
-        if (ph->p_flags & ELF_PF_W) vm_flags |= VM_WRITE;
-        if (ph->p_flags & ELF_PF_R) vm_flags |= VM_READ;
-        if (vm_flags & VM_WRITE) perm |= PTE_W;
-        if ((ret = mm_map(mm, ph->p_va, ph->p_memsz, vm_flags, NULL)) != 0) {
-            goto bad_cleanup_mmap;
-        }
-        // unsigned char *from = binary + ph->p_offset;
-        uint32_t load_offset = ph->p_offset;
-        size_t off, size;
-        uintptr_t start = ph->p_va, end, la = ROUNDDOWN(start, PGSIZE);
-
-        ret = -E_NO_MEM;
-
-     //(3.6) alloc memory, and  copy the contents of every program section (from, from+end) to process's memory (la, la+end)
-        end = ph->p_va + ph->p_filesz;
-     //(3.6.1) copy TEXT/DATA section of bianry program
-        while (start < end) {
-            if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
-                goto bad_cleanup_mmap;
-            }
-            off = start - la, size = PGSIZE - off, la += PGSIZE;
-            if (end < la) {
-                size -= la - end;
-            }
-
-            // memcpy(page2kva(page) + off, from, size);
-            cprintf("load_icode 4 %08x %08x\n", size, load_offset);
-            load_icode_read(fd, page2kva(page) + off, size, load_offset);
-            start += size; 
-            // from += size;
-            load_offset += size;
-        }
-        cprintf("load_icode 5 %08x %08x\n", size, load_offset);
-      //(3.6.2) build BSS section of binary program
-        end = ph->p_va + ph->p_memsz;
-        if (start < la) {
-            /* ph->p_memsz == ph->p_filesz */
-            if (start == end) {
+    uint32_t vm_flags, perm, phnum;
+    for (phnum = 0; phnum < elf->e_phnum; phnum ++) {
+        load_icode_read(fd, ph, sizeof(struct proghdr), elf->e_phoff + phnum * sizeof(struct proghdr));
+        struct proghdr *ph_end = ph + elf->e_phnum;
+        cprintf("load_icode 3\n");
+        for (; ph < ph_end; ph ++) {
+        //(3.4) find every program section headers
+            if (ph->p_type != ELF_PT_LOAD) {
                 continue ;
             }
-            off = start + PGSIZE - la, size = PGSIZE - off;
-            if (end < la) {
-                size -= la - end;
-            }
-            memset(page2kva(page) + off, 0, size);
-            start += size;
-            assert((end < la && start == end) || (end >= la && start == la));
-        }
-        while (start < end) {
-            if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
+            if (ph->p_filesz > ph->p_memsz) {
+                ret = -E_INVAL_ELF;
                 goto bad_cleanup_mmap;
             }
-            off = start - la, size = PGSIZE - off, la += PGSIZE;
-            if (end < la) {
-                size -= la - end;
+            if (ph->p_filesz == 0) {
+                continue ;
             }
-            memset(page2kva(page) + off, 0, size);
-            start += size;
+        //(3.5) call mm_map fun to setup the new vma ( ph->p_va, ph->p_memsz)
+            vm_flags = 0, perm = PTE_U;
+            if (ph->p_flags & ELF_PF_X) vm_flags |= VM_EXEC;
+            if (ph->p_flags & ELF_PF_W) vm_flags |= VM_WRITE;
+            if (ph->p_flags & ELF_PF_R) vm_flags |= VM_READ;
+            if (vm_flags & VM_WRITE) perm |= PTE_W;
+            if ((ret = mm_map(mm, ph->p_va, ph->p_memsz, vm_flags, NULL)) != 0) {
+                goto bad_cleanup_mmap;
+            }
+            // unsigned char *from = binary + ph->p_offset;
+            uint32_t load_offset = ph->p_offset;
+            size_t off, size;
+            uintptr_t start = ph->p_va, end, la = ROUNDDOWN(start, PGSIZE);
+
+            ret = -E_NO_MEM;
+
+         //(3.6) alloc memory, and  copy the contents of every program section (from, from+end) to process's memory (la, la+end)
+            end = ph->p_va + ph->p_filesz;
+         //(3.6.1) copy TEXT/DATA section of bianry program
+            while (start < end) {
+                if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
+                    goto bad_cleanup_mmap;
+                }
+                off = start - la, size = PGSIZE - off, la += PGSIZE;
+                if (end < la) {
+                    size -= la - end;
+                }
+
+                // memcpy(page2kva(page) + off, from, size);
+                cprintf("load_icode 4 %08x %08x\n", size, load_offset);
+                load_icode_read(fd, page2kva(page) + off, size, load_offset);
+                start += size; 
+                // from += size;
+                load_offset += size;
+            }
+            cprintf("load_icode 5 %08x %08x\n", size, load_offset);
+          //(3.6.2) build BSS section of binary program
+            end = ph->p_va + ph->p_memsz;
+            if (start < la) {
+                /* ph->p_memsz == ph->p_filesz */
+                if (start == end) {
+                    continue ;
+                }
+                off = start + PGSIZE - la, size = PGSIZE - off;
+                if (end < la) {
+                    size -= la - end;
+                }
+                memset(page2kva(page) + off, 0, size);
+                start += size;
+                assert((end < la && start == end) || (end >= la && start == la));
+            }
+            while (start < end) {
+                if ((page = pgdir_alloc_page(mm->pgdir, la, perm)) == NULL) {
+                    goto bad_cleanup_mmap;
+                }
+                off = start - la, size = PGSIZE - off, la += PGSIZE;
+                if (end < la) {
+                    size -= la - end;
+                }
+                memset(page2kva(page) + off, 0, size);
+                start += size;
+            }
         }
     }
     //(4) build user stack memory
