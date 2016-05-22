@@ -765,6 +765,7 @@ load_icode(int fd, int argc, char **kargv) {
             memset(page2kva(page) + off, 0, size);
             start += size;
         }
+        cprintf("load_icode 6\n");
     }
     //(4) build user stack memory
     vm_flags = VM_READ | VM_WRITE | VM_STACK;
