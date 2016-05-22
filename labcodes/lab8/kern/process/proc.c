@@ -675,7 +675,7 @@ load_icode(int fd, int argc, char **kargv) {
     //(3) copy TEXT/DATA section, build BSS parts in binary to memory space of process
     struct Page *page;
     //(3.1) get the file header of the bianry program (ELF format)
-    struct elfhdr *elf; // = (struct elfhdr *)binary;
+    struct elfhdr buff_elf, *elf = &buff_elf; // = (struct elfhdr *)binary;
     load_icode_read(fd, elf, sizeof(struct elfhdr), 0);
     //(3.2) get the entry of the program section headers of the bianry program (ELF format)
     struct proghdr *ph; // = (struct proghdr *)(binary + elf->e_phoff);
