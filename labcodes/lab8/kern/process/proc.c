@@ -673,7 +673,7 @@ load_icode(int fd, int argc, char **kargv) {
 
     struct Page *page;
 
-    struct elfhdr __elf, *elf = &__elf;
+    struct elfhdr buff_elf, *elf = &buff_elf;
     if ((ret = load_icode_read(fd, elf, sizeof(struct elfhdr), 0)) != 0) {
         goto bad_elf_cleanup_pgdir;
     }
@@ -683,7 +683,7 @@ load_icode(int fd, int argc, char **kargv) {
         goto bad_elf_cleanup_pgdir;
     }
 
-    struct proghdr __ph, *ph = &__ph;
+    struct proghdr buff_ph, *ph = &buff_ph;
     uint32_t vm_flags, perm, phnum;
     for (phnum = 0; phnum < elf->e_phnum; phnum ++) {
         off_t phoff = elf->e_phoff + sizeof(struct proghdr) * phnum;
@@ -785,7 +785,7 @@ load_icode(int fd, int argc, char **kargv) {
     argv_size = 0;
     for (i = 0; i < argc; i ++) {
         uargv[i] = strcpy((char *)(stacktop + argv_size ), kargv[i]);
-        argv_size +=  strnlen(kargv[i],EXEC_MAX_ARG_LEN + 1)+1;
+        argv_size +=  strnlen(kargv[i], EXEC_MAX_ARG_LEN + 1) + 1;
     }
     
     stacktop = (uintptr_t)uargv - sizeof(int);
