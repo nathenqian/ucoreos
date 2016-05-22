@@ -676,9 +676,11 @@ load_icode(int fd, int argc, char **kargv) {
     struct Page *page;
     //(3.1) get the file header of the bianry program (ELF format)
     struct elfhdr buff_elf, *elf = &buff_elf; // = (struct elfhdr *)binary;
+    cprintf("load_icode 1\n");
     load_icode_read(fd, elf, sizeof(struct elfhdr), 0);
     //(3.2) get the entry of the program section headers of the bianry program (ELF format)
     struct proghdr buff_ph, *ph = &buff_ph; // = (struct proghdr *)(binary + elf->e_phoff);
+    cprintf("load_icode 2\n");
     load_icode_read(fd, ph, sizeof(struct proghdr), elf->e_phoff);
     //(3.3) This program is valid?
     if (elf->e_magic != ELF_MAGIC) {
@@ -688,6 +690,7 @@ load_icode(int fd, int argc, char **kargv) {
 
     uint32_t vm_flags, perm;
     struct proghdr *ph_end = ph + elf->e_phnum;
+    cprintf("load_icode 3\n");
     for (; ph < ph_end; ph ++) {
     //(3.4) find every program section headers
         if (ph->p_type != ELF_PT_LOAD) {
@@ -729,12 +732,13 @@ load_icode(int fd, int argc, char **kargv) {
             }
 
             // memcpy(page2kva(page) + off, from, size);
+            cprintf("load_icode 4 %08x %08x\n", size, load_offset);
             load_icode_read(fd, page2kva(page) + off, size, load_offset);
             start += size; 
             // from += size;
             load_offset += size;
         }
-
+        cprintf("load_icode 5 %08x %08x\n", size, load_offset);
       //(3.6.2) build BSS section of binary program
         end = ph->p_va + ph->p_memsz;
         if (start < la) {
