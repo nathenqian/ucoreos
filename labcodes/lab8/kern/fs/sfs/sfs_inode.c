@@ -598,11 +598,11 @@ sfs_io_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, void *buf, off_t offset
     else
         right = exact_right;
 
-    while (true) {
+    while (1) {
         size = right - left + 1;
         sfs_bmap_load_nolock(sfs, sin, blkno, &ino);
         sfs_buf_op(sfs, buf, size, ino, left % SFS_BLKSIZE);
-        buff += size;
+        buf += size;
         alen += size;
         if (right == endpos)
             break;
