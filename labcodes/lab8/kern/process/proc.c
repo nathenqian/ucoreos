@@ -678,7 +678,7 @@ load_icode(int fd, int argc, char **kargv) {
     struct elfhdr buff_elf, *elf = &buff_elf; // = (struct elfhdr *)binary;
     load_icode_read(fd, elf, sizeof(struct elfhdr), 0);
     //(3.2) get the entry of the program section headers of the bianry program (ELF format)
-    struct proghdr *ph; // = (struct proghdr *)(binary + elf->e_phoff);
+    struct proghdr buff_ph, *ph = &buff_ph; // = (struct proghdr *)(binary + elf->e_phoff);
     load_icode_read(fd, ph, sizeof(struct proghdr), elf->e_phoff);
     //(3.3) This program is valid?
     if (elf->e_magic != ELF_MAGIC) {
