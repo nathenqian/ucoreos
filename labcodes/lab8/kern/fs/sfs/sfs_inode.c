@@ -589,6 +589,32 @@ sfs_io_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, void *buf, off_t offset
     uint32_t blkno = offset / SFS_BLKSIZE;          // The NO. of Rd/Wr begin block
     uint32_t nblks = endpos / SFS_BLKSIZE - blkno;  // The size of Rd/Wr blocks
 
+    uint32_t left = offset, right = endpos, exact_right = left;
+
+    exact_right = left - left % SFS_BLKSIZE + SFS_BLKSIZE - 1;
+
+    if (exact_right > endpos)
+        right = endpos;
+    else
+        right = exact_right;
+
+    while (true) {
+        size = right - left + 1;
+        sfs_bmap_load_nolock(sfs, sin, blkno, &ino);
+        sfs_buf_op(sfs, buf, size, ino, left % SFS_BLKSIZE);
+        buff += size;
+        alen += size;
+        if (right == endpos)
+            break;
+        left = left - left % SFS_BLKSIZE + SFS_BLKSIZE;
+        right = left + SFS_BLKSIZE - 1;
+        if (right > endpos)
+            right = endpos;
+        blkno += 1;
+    }
+
+
+    
   //LAB8:EXERCISE1 YOUR CODE HINT: call sfs_bmap_load_nolock, sfs_rbuf, sfs_rblock,etc. read different kind of blocks in file
 	/*
 	 * (1) If offset isn't aligned with the first block, Rd/Wr some content from offset to the end of the first block
@@ -599,6 +625,7 @@ sfs_io_nolock(struct sfs_fs *sfs, struct sfs_inode *sin, void *buf, off_t offset
      * (3) If end position isn't aligned with the last block, Rd/Wr some content from begin to the (endpos % SFS_BLKSIZE) of the last block
 	 *       NOTICE: useful function: sfs_bmap_load_nolock, sfs_buf_op	
 	*/
+
 out:
     *alenp = alen;
     if (offset + alen > sin->din->size) {
